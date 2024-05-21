@@ -1,5 +1,7 @@
 # Projet OWASP Broken Web Applications (OWASP BWA)
 
+## Lien pour télécharger OWASP depuis sourceforge.net: 
+- https://sourceforge.net/projects/owaspbwa/
 ## Introduction
 
 Le projet OWASP Broken Web Applications (OWASP BWA) est une collection d'applications web intentionnellement vulnérables, maintenues dans le but d'apprendre et de pratiquer la sécurité des applications web. Ces applications sont une ressource précieuse pour les passionnés de sécurité, les développeurs et les testeurs pour comprendre les vulnérabilités courantes et comment les atténuer.
