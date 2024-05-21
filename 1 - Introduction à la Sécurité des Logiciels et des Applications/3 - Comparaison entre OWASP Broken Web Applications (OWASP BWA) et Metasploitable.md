@@ -56,11 +56,11 @@ OWASP Broken Web Applications (OWASP BWA) et Metasploitable sont deux projets po
 
 **Lien** : [Juice Shop](https://owasp.org/www-project-juice-shop/)
 
-## Conclusion
+## Tableau comparatif
 
 OWASP BWA et Metasploitable sont deux outils essentiels pour ceux qui souhaitent approfondir leurs connaissances en sécurité informatique. Tandis qu'OWASP BWA se concentre sur les vulnérabilités des applications web, Metasploitable offre un terrain de jeu pour l'exploration des vulnérabilités des réseaux et des systèmes. Ces ressources, ainsi que d'autres similaires comme VulnHub, Hack The Box, TryHackMe, Damn Vulnerable Linux, et Juice Shop, fournissent une base solide pour développer des compétences pratiques en sécurité informatique.
 
-Voici un tableau comparatif des différentes machines virtuelles vulnérables et leur focus respectif :
+## tableau comparatif des différentes machines virtuelles vulnérables et leur focus respectif :
 
 | **Machine**                   | **Focus**                                             | **Description**                                                                                                                                                         | **Lien**                                               |
 |-------------------------------|-------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------|
