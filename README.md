@@ -1,5 +1,6 @@
 # securite-logiciels-applications
 
+
 # Introduction à la Sécurité des Logiciels et des Applications avec Metasploit
 
 ## Objectifs du Cours
@@ -13,22 +14,22 @@
 
 ## Plan du Cours
 
-1. [Introduction à la Sécurité des Logiciels et des Applications](#introduction-à-la-sécurité-des-logiciels-et-des-applications)
-2. [Les Concepts Fondamentaux de la Sécurité des Logiciels et des Applications](#les-concepts-fondamentaux-de-la-sécurité-des-logiciels-et-des-applications)
-3. [Introduction à Metasploit](#introduction-à-metasploit)
-4. [Conception Sécurisée de Logiciels et d'Applications](#conception-sécurisée-de-logiciels-et-dapplications)
-5. [Tests de Sécurité pour les Logiciels et les Applications avec Metasploit](#tests-de-sécurité-pour-les-logiciels-et-les-applications-avec-metasploit)
-6. [Gestion des Vulnérabilités avec Metasploit](#gestion-des-vulnérabilités-avec-metasploit)
-7. [Sécurité des Réseaux](#sécurité-des-réseaux)
-8. [Cryptographie](#cryptographie)
-9. [Sécurité des Bases de Données](#sécurité-des-bases-de-données)
-10. [Sécurité des Applications Mobiles](#sécurité-des-applications-mobiles)
-11. [Sécurité des Applications Web avec Metasploit](#sécurité-des-applications-web-avec-metasploit)
-12. [Authentification et Gestion d'Accès](#authentification-et-gestion-daccès)
-13. [Sécurité des Applications dans le Cloud Computing](#sécurité-des-applications-dans-le-cloud-computing)
-14. [Conformité et Réglementation en Matière de Sécurité](#conformité-et-réglementation-en-matière-de-sécurité)
-15. [Étude de Cas : Sécurité des Applications Web](#étude-de-cas-sécurité-des-applications-web)
-16. [Mise en Pratique des Concepts de Sécurité avec Metasploit](#mise-en-pratique-des-concepts-de-sécurité-avec-metasploit)
+1. [Introduction à la Sécurité des Logiciels et des Applications](#1-introduction-à-la-sécurité-des-logiciels-et-des-applications)
+2. [Les Concepts Fondamentaux de la Sécurité des Logiciels et des Applications](#2-les-concepts-fondamentaux-de-la-sécurité-des-logiciels-et-des-applications)
+3. [Introduction à Metasploit](#3-introduction-à-metasploit)
+4. [Conception Sécurisée de Logiciels et d'Applications](#4-conception-sécurisée-de-logiciels-et-dapplications)
+5. [Tests de Sécurité pour les Logiciels et les Applications avec Metasploit](#5-tests-de-sécurité-pour-les-logiciels-et-les-applications-avec-metasploit)
+6. [Gestion des Vulnérabilités avec Metasploit](#6-gestion-des-vulnérabilités-avec-metasploit)
+7. [Sécurité des Réseaux](#7-sécurité-des-réseaux)
+8. [Cryptographie](#8-cryptographie)
+9. [Sécurité des Bases de Données](#9-sécurité-des-bases-de-données)
+10. [Sécurité des Applications Mobiles](#10-sécurité-des-applications-mobiles)
+11. [Sécurité des Applications Web avec Metasploit](#11-sécurité-des-applications-web-avec-metasploit)
+12. [Authentification et Gestion d'Accès](#12-authentification-et-gestion-daccès)
+13. [Sécurité des Applications dans le Cloud Computing](#13-sécurité-des-applications-dans-le-cloud-computing)
+14. [Conformité et Réglementation en Matière de Sécurité](#14-conformité-et-réglementation-en-matière-de-sécurité)
+15. [Étude de Cas : Sécurité des Applications Web](#15-étude-de-cas-sécurité-des-applications-web)
+16. [Mise en Pratique des Concepts de Sécurité avec Metasploit](#16-mise-en-pratique-des-concepts-de-sécurité-avec-metasploit)
 
 ---
 
@@ -131,10 +132,10 @@
 - Mettre en œuvre des pratiques de sécurité pour protéger les infrastructures réseau.
 
 ### Contenu détaillé
-- **Principes de Base de la Sécurité des Réseaux** : Compréhension des concepts de pare-feu, systèmes de détection et de prévention des intrusions (IDS/IPS), et réseaux privés virtuels (VPN).
-- **Menaces Ré
+- **Principes de Base de la Sécurité des Réseaux** : Compréhension des concepts de pare-feu, systèmes de dé
 
-seau** : Analyse des menaces courantes contre les réseaux, y compris les attaques DDoS, l'écoute clandestine (sniffing), et le détournement de session.
+tection et de prévention des intrusions (IDS/IPS), et réseaux privés virtuels (VPN).
+- **Menaces Réseau** : Analyse des menaces courantes contre les réseaux, y compris les attaques DDoS, l'écoute clandestine (sniffing), et le détournement de session.
 - **Pratiques de Sécurité Réseau** : Stratégies pour sécuriser les réseaux, comme le segmentage des réseaux, l'utilisation de VPN, et la mise en place de politiques de sécurité robustes.
 
 [Retour au Plan du Cours](#plan-du-cours)
@@ -255,11 +256,11 @@ seau** : Analyse des menaces courantes contre les réseaux, y compris les attaqu
 - **Présentation de l'Étude de Cas** : Introduction à une entreprise fictive et son application web, y compris les exigences et les scénarios de menace.
 - **Évaluation de la Sécurité** : Utilisation de Metasploit pour scanner et identifier les vulnérabilités de l'application web.
 - **Proposition de Solutions** : Développement et mise en œuvre de solutions pour corriger les vulnérabilités identifiées.
-- **Rapport Final** : Création d'un rapport détaillé documentant les vulnérabilités trouvées, les solutions proposées et les recommandations pour améliorer la sécurité.
+- **Rapport Final** : Création d'un rapport
 
-[Retour
+ détaillé documentant les vulnérabilités trouvées, les solutions proposées et les recommandations pour améliorer la sécurité.
 
- au Plan du Cours](#plan-du-cours)
+[Retour au Plan du Cours](#plan-du-cours)
 
 ## 16. Mise en Pratique des Concepts de Sécurité avec Metasploit
 
