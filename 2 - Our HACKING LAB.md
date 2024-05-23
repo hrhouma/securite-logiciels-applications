@@ -2,7 +2,8 @@
 - https://www.youtube.com/watch?v=OlHNH_USekw&t=497s&ab_channel=InstructorAlton
 
 
-
+# OWASP BWA  (Broken Web Applications)
+- https://koayyongcett.medium.com/01-burp-suite-tutorial-starting-up-with-burp-and-owasp-bwa-vm-installation-2b95ea51da63
 
 # OWASP PLUS
 
