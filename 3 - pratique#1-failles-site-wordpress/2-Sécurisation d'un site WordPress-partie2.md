@@ -337,6 +337,7 @@ foreach ($site in $sites) {
 
 # Exemple 4
 
+```ssh
 # Définir les URLs des sites pour les utilisateurs
 $sites = @(
        "https://www.crosemont.qc.ca/",
@@ -457,4 +458,4 @@ Set-Content -Path "rapport_utilisateurs.html" -Value $htmlReport
 # Ouvrir le rapport dans le navigateur par défaut
 Start-Process "rapport_utilisateurs.html"
 
-
+```
