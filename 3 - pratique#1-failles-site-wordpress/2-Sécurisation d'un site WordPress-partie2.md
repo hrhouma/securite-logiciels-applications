@@ -59,7 +59,7 @@ Pour les sites webs des 50 institutions listées, nous allons vérifier les él�
 | https://www.brebeuf.qc.ca/                    | Oui/Non           | Utilisateur(s)                             |
 | https://www.collegedecarie.ca/                | Oui/Non           | Utilisateur(s)                             |
 | https://www.osullivan.edu/                    | Oui/Non           | Utilisateur(s)                             |
-| https://collegeuniversel.ca/programme/        | Oui/Non           | Utilisateur(s)                             |
+| https://collegeuniversel.ca/                  | Oui/Non           | Utilisateur(s)                             |
 
 # Étapes pour la Vérification
 
@@ -83,3 +83,145 @@ La vérification de ces éléments est cruciale pour garantir la sécurité des 
 - Mettre en œuvre des mesures de sécurité supplémentaires comme l'authentification à deux facteurs (2FA) et la limitation des tentatives de connexion.
 
 Ces pratiques permettent de réduire les risques de compromission et d'assurer la sécurité des données.
+
+# Annexe 1 - Étapes pour la Vérification de Sécurité sous Windows
+
+Sous Windows, vous pouvez utiliser des outils et des commandes pour vérifier la sécurité des sites web listés. Voici un guide étape par étape pour accomplir cette tâche :
+
+#### Outils Nécessaires
+1. **Navigateur Web** pour tester l'accès à `/wp-admin`.
+2. **curl** pour vérifier les utilisateurs via l'API REST de WordPress.
+3. **PowerShell** pour automatiser certaines tâches.
+
+#### Étapes à Suivre
+
+1. **Tester l'accès à `/wp-admin` :**
+
+   Vous pouvez utiliser votre navigateur web pour vérifier manuellement si la page de connexion est protégée.
+
+   - Ouvrez un navigateur web (comme Chrome, Firefox, Edge).
+   - Tapez `https://[site]/wp-admin` dans la barre d'adresse.
+   - Vérifiez si une page de connexion s'affiche ou si l'accès est libre.
+
+2. **Utiliser curl pour vérifier les utilisateurs WordPress :**
+
+   Sous Windows, vous pouvez utiliser **PowerShell** pour exécuter des commandes curl.
+
+   - Ouvrez **PowerShell**.
+   - Utilisez la commande suivante pour vérifier les utilisateurs :
+     ```powershell
+     curl -s https://[site]/wp-json/wp/v2/users
+     ```
+
+   Voici un exemple de script PowerShell pour vérifier plusieurs sites automatiquement :
+
+   ```powershell
+   $sites = @(
+       "https://www.crosemont.qc.ca/",
+       "https://www.bdeb.qc.ca/",
+       "https://www.collegecanada.com/",
+       "https://institutelite.ca/",
+       "https://www.lasallecollege.com/",
+       "https://www.johnabbott.qc.ca/",
+       "https://www.dawsoncollege.qc.ca/",
+       "https://www.vaniercollege.qc.ca/",
+       "https://www.claurendeau.qc.ca/",
+       "https://www.cmaisonneuve.qc.ca/",
+       "https://www.collegeahuntsic.qc.ca/",
+       "https://www.cegepsl.qc.ca/",
+       "https://www.cvm.qc.ca/",
+       "https://www.marianopolis.edu/",
+       "https://www.cimf.qc.ca/",
+       "https://www.etsmtl.ca/",
+       "https://www.cegepgarneau.ca/",
+       "https://www.cegeplimoilou.ca/",
+       "https://uqam.ca/",
+       "https://umontreal.ca/",
+       "https://enit.rnu.tn/",
+       "https://www.cegeptr.qc.ca/",
+       "https://www.cegepshawinigan.ca/",
+       "https://www.clafleche.qc.ca/",
+       "https://www.ellis.qc.ca/",
+       "https://www.conservatoire.gouv.qc.ca/",
+       "https://www.cegepst.qc.ca/",
+       "https://www.cegepsth.qc.ca/",
+       "https://www.cegepvalleyfield.ca/",
+       "https://www.cegepmontpetit.ca/",
+       "https://www.cstjean.qc.ca/",
+       "https://www.champlainonline.com/",
+       "https://www.academie-ent.com/",
+       "https://www.airrichelieu.com/",
+       "https://www.april-fortier.com/",
+       "https://www.cdicollege.ca/",
+       "https://www.collegeimmobilier.com/",
+       "https://cargair.com/",
+       "https://www.centreequestredechambly.com/",
+       "https://sainthubertflyingcollege.com/",
+       "https://collegemilestone.ca/",
+       "https://helicraft.ca/",
+       "https://www.teccart.qc.ca/",
+       "https://www.itaq.ca/",
+       "https://www.collegemv.qc.ca/",
+       "https://www.cgodin.qc.ca/",
+       "https://www.grasset.qc.ca/",
+       "https://www.brebeuf.qc.ca/",
+       "https://www.collegedecarie.ca/",
+       "https://www.osullivan.edu/",
+       "https://collegeuniversel.ca/",
+       "https://inkcrown.com/"
+          
+   )
+
+   $results = @()
+
+   foreach ($site in $sites) {
+       $wpAdminStatus = try {
+           $response = Invoke-WebRequest -Uri "$site/wp-admin" -UseBasicParsing
+           if ($response.StatusCode -eq 200) {
+               "Accessible"
+           } else {
+               "Protected"
+           }
+       } catch {
+           "Protected"
+       }
+
+       $users = try {
+           $userResponse = Invoke-RestMethod -Uri "$site/wp-json/wp/v2/users" -UseBasicParsing
+           $userResponse | ForEach-Object { $_.name } -join ", "
+       } catch {
+           "Non accessible"
+       }
+
+       $results += [pscustomobject]@{
+           Site       = $site
+           AdminStatus = $wpAdminStatus
+           Users      = $users
+       }
+   }
+
+   $results | Format-Table -AutoSize
+   ```
+
+   Ce script PowerShell parcourt chaque site, vérifie l'accès à `/wp-admin`, et récupère les utilisateurs via l'API REST de WordPress. Les résultats sont affichés dans un tableau.
+
+### Importance de la Sécurité
+
+La sécurité des sites WordPress est essentielle pour protéger les données sensibles et éviter les compromissions. Les étapes de vérification et les outils décrits ici sont des moyens pratiques pour s'assurer que les sites web des institutions éducatives sont bien sécurisés.
+
+**Mesures de Sécurité Recommandées :**
+- **Utilisation de .htaccess :** Pour restreindre l'accès à `/wp-admin`.
+  ```apache
+  <Files wp-login.php>
+      Order Deny,Allow
+      Deny from all
+      Allow from [YOUR IP ADDRESS]
+  </Files>
+  ```
+  Remplacez `[YOUR IP ADDRESS]` par votre adresse IP pour sécuriser l'accès.
+
+- **Authentification à Deux Facteurs (2FA) :** Implémenter 2FA pour ajouter une couche de sécurité supplémentaire.
+
+- **Mises à jour Régulières :** Toujours maintenir WordPress, les thèmes et les plugins à jour pour corriger les vulnérabilités.
+
+En suivant ces pratiques, les administrateurs peuvent renforcer la sécurité de leurs sites WordPress et protéger les données des utilisateurs.
