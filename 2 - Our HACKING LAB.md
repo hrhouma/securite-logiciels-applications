@@ -1,6 +1,10 @@
 # 1 - Mettre en place notre HACKING LAB
 - https://www.youtube.com/watch?v=OlHNH_USekw&t=497s&ab_channel=InstructorAlton
 
+# 2 - Pour la machine windows XP, vous pouvez télécharger ceci 
+- https://www.youtube.com/watch?v=ghr5ef-pxXM
+- https://archive.org/details/WinXPProSP3x86
+- un exemple de code : M6TF9-8XQ2M-YQK9F-7TBB2-XGG88
 
 # 2 - Installer OWASP BWA  (Broken Web Applications)
 - https://www.youtube.com/watch?v=Wm57-GR1Zps&ab_channel=r2schools
