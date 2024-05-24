@@ -1,6 +1,6 @@
 # Évaluation formative de la Sécurité des Sites Web des Collèges et Universités
 
-Pour chaque site web des 50 institutions listées, nous allons vérifier les éléments suivants :
+Pour les sites webs des 50 institutions listées, nous allons vérifier les éléments suivants pour quelques sites (choisissez 3):
 
 1. **Protection de /wp-admin :** Vérifier si la page de connexion à l'administration WordPress est protégée.
 2. **Utilisateurs WordPress :** Utiliser la commande curl pour lister les utilisateurs disponibles via l'API REST.
@@ -59,8 +59,9 @@ Pour chaque site web des 50 institutions listées, nous allons vérifier les él
 | https://www.brebeuf.qc.ca/                    | Oui/Non           | Utilisateur(s)                             |
 | https://www.collegedecarie.ca/                | Oui/Non           | Utilisateur(s)                             |
 | https://www.osullivan.edu/                    | Oui/Non           | Utilisateur(s)                             |
+| https://collegeuniversel.ca/programme/        | Oui/Non           | Utilisateur(s)                             |
 
-### Étapes pour la Vérification
+# Étapes pour la Vérification
 
 1. **Protection de /wp-admin :**
    - Tenter d'accéder à `https://[site]/wp-admin`.
@@ -73,7 +74,7 @@ Pour chaque site web des 50 institutions listées, nous allons vérifier les él
      ```
    - Noter les utilisateurs retournés.
 
-### Importance de la Sécurité
+# Importance de la Sécurité
 
 La vérification de ces éléments est cruciale pour garantir la sécurité des sites WordPress. Les administrateurs de sites doivent :
 
