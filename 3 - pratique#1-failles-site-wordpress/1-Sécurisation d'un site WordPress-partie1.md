@@ -11,7 +11,7 @@ Pour déterminer si un site utilise WordPress, des outils comme [WPThemeDetector
 WordPress possède une structure de fichiers typique :
 
 - **Administration et Connexion :**
-  - [wp-admin](https://inkcrown.com/wp-admin)
+  -  wp-admin (https://inkcrown.com/wp-admin)
   - [wp-login](https://inkcrown.com/wp-login)
   - [users](https://inkcrown.com/users)
   - [wp-json/wp/v2/users](https://inkcrown.com/wp-json/wp/v2/users)
