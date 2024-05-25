@@ -23,8 +23,8 @@ sudo -s (mot de passe : kali)
 ```
 ## Références : 
 
-https://www.geeksforgeeks.org/how-to-enable-and-start-ssh-on-kali-linux/
-https://www.geeksforgeeks.org/how-to-change-root-password-in-kali-linux/?ref=ml_lbp
+- https://www.geeksforgeeks.org/how-to-enable-and-start-ssh-on-kali-linux/
+- https://www.geeksforgeeks.org/how-to-change-root-password-in-kali-linux/?ref=ml_lbp
 
 
 # Étape 2
