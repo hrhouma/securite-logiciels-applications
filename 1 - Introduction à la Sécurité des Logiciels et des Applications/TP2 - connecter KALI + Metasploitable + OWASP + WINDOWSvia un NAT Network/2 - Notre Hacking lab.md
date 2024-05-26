@@ -1,7 +1,7 @@
 # 1 - Mettre en place notre HACKING LAB
 - https://www.youtube.com/watch?v=OlHNH_USekw&t=497s&ab_channel=InstructorAlton
 
-# 2 - Pour la machine windows XP, vous pouvez télécharger ceci (Pas conseillé, remplacer par machine Win10)
+# 2 - Pour la machine windows XP (trop lourd), vous pouvez télécharger ceci (déconseillé, remplacer par machine Win10)
 - https://www.youtube.com/watch?v=ghr5ef-pxXM
 - https://archive.org/details/WinXPProSP3x86
 - un exemple de code : M6TF9-8XQ2M-YQK9F-7TBB2-XGG88
