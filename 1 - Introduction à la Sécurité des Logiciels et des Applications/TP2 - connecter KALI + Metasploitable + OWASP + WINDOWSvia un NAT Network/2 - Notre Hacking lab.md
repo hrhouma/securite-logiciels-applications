@@ -1,16 +1,22 @@
 # 1 - Mettre en place notre HACKING LAB
 - https://www.youtube.com/watch?v=OlHNH_USekw&t=497s&ab_channel=InstructorAlton
 
-# 2 - Pour la machine windows XP, vous pouvez télécharger ceci 
+# 2 - Pour la machine windows XP, vous pouvez télécharger ceci (Pas conseillé, remplacer par machine Win10)
 - https://www.youtube.com/watch?v=ghr5ef-pxXM
 - https://archive.org/details/WinXPProSP3x86
 - un exemple de code : M6TF9-8XQ2M-YQK9F-7TBB2-XGG88
 
-# 2 - Installer OWASP BWA  (Broken Web Applications)
+# 3 - Pour la machine windows 10, vous pouvez utiliser ce code pour dézipper avec winrar (lbdh)
+- https://www.youtube.com/watch?v=ghr5ef-pxXM](https://cyberini.com/ressources-cours-hacking-ethique/MSW10.zip
+## Alternative 2 - windows officielle du site microsoft
+- https://www.youtube.com/watch?v=sBzL_zoYt6o 
+
+
+# 4 - Installer OWASP BWA  (Broken Web Applications)
 - https://www.youtube.com/watch?v=Wm57-GR1Zps&ab_channel=r2schools
 - https://koayyongcett.medium.com/01-burp-suite-tutorial-starting-up-with-burp-and-owasp-bwa-vm-installation-2b95ea51da63
 
-# 3 - OWASP PLUS
+# 5 - OWASP PLUS
 
 - https://medium.com/@ademkucuk/how-can-we-install-owasp-zap-tool-what-is-owasp-zap-5cdd2883b4db
 - https://medium.com/@cyber_kid12/understanding-the-basics-of-owasp-top-10-technology-a-guide-for-beginners-f3084dcffc23
