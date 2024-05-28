@@ -1,5 +1,11 @@
 # README pour l'installation de Metasploitable 2.0 sur VirtualBox
 
+# Références: 
+
+- https://medium.com/@dangerhulk26022022/installing-metasploitable-2-in-virtual-box-for-windows-host-bf0a5b4f8375
+- https://ambhalerao12.medium.com/how-to-install-metasploitable-on-virtual-box-5e9220a2041a
+- https://www.geeksforgeeks.org/how-to-install-metasploitable-2-in-virtualbox/
+  
 ## Prérequis
 - **VirtualBox** doit être installé sur votre machine. Téléchargez-le depuis le [site officiel de VirtualBox](https://www.virtualbox.org/).
 - **Image Metasploitable 2.0** téléchargée (fichier `.vmdk`) depuis sourceforge : https://sourceforge.net/projects/metasploitable/.
