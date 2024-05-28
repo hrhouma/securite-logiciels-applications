@@ -1,7 +1,8 @@
 # Référence 1
-- Méthode 1 : 
-https://medium.com/@jbtechmaven/creating-an-isolated-network-between-kali-linux-and-windows-10-vms-35efa7134f0b
-
+## Méthode 1  : (pas de connectivité internet 😵‍💫) : 
+- https://medium.com/@jbtechmaven/creating-an-isolated-network-between-kali-linux-and-windows-10-vms-35efa7134f0b
+## Méthode 2  : ( +  connectivité internet 😍) : 
+- https://www.youtube.com/watch?v=2Fkf6Kysh7I&ab_channel=Abstractprogrammer
 
 # Étude de cas : 
 - Considérons deux machines une windows et l'autre Kali. Nous désirons que les deux machines se pinguent entre elle !
