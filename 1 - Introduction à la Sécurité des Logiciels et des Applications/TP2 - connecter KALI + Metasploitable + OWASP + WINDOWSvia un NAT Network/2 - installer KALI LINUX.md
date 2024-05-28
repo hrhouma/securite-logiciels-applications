@@ -18,8 +18,6 @@
    - Cliquez sur `Suivant` et suivez les instructions pour importer l'appliance.
 
 4. **Ou deuxième méthode  :**
-![image](https://github.com/hrhouma/securite-logiciels-applications/assets/10111526/e177dc8f-46ff-463e-8dbe-739dcf50afcb)
-
 
 4.1. **Créer une nouvelle machine virtuelle :**
    - Ouvrez VirtualBox et cliquez sur `Nouvelle` pour créer une nouvelle machine virtuelle.
