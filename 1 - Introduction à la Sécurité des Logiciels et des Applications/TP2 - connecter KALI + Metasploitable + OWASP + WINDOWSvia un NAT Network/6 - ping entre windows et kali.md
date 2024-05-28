@@ -5,7 +5,7 @@ https://medium.com/@jbtechmaven/creating-an-isolated-network-between-kali-linux-
 
 # Étude de cas : 
 - Considérons deux machines une windows et l'autre Kali. Nous désirons que les deux machines se pinguent entre elle !
-- 
+  
 # Les différents types de réseaux virtuels, leurs possibilités de ping, leurs avantages, inconvénients, descriptions et leur possibilité de connexion à Internet :
 
 | Type de Réseau | Possibilité de se pinguer (Oui/Non) | Avantages                          | Inconvénients                         | Description                                                                 | Possibilité de se connecter à Internet (Oui/Non) |
