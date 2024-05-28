@@ -1,4 +1,4 @@
-# README pour l'installation de Kali 2024 personnalisé par zSecurity
+# Installation de Kali 2024 personnalisé par zSecurity
 
 ## Instructions d'installation
 
