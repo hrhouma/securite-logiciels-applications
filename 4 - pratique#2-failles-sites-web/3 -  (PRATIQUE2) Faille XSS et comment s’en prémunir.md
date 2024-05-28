@@ -1,4 +1,4 @@
-# Dém
+# Démo
 - Ceci est exemple complet et détaillé qui montre comment créer un site web vulnérable à des fins éducatives, en utilisant de vrais cookies. 
 - Assurez-vous de configurer et d'exécuter ce projet dans un environnement sécurisé, comme une machine virtuelle isolée sous Kali Linux.
 
