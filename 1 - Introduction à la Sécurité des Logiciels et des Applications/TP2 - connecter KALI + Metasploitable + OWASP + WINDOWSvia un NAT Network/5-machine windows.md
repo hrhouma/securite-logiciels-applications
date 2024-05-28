@@ -1,14 +1,22 @@
-# 1
+# Étape 0 - Extraire les machines windows : 
+- https://developer.microsoft.com/en-us/windows/downloads/virtual-machines/
+
+![image](https://github.com/hrhouma/securite-logiciels-applications/assets/10111526/71238d0e-2afb-4df7-95e0-1fb1d23aab71)
+
+- ou https://cyberini.com/ressources-cours-hacking-ethique/MSW10.zip
+
+
+# Étape 1
 ![image](https://github.com/hrhouma/securite-logiciels-applications/assets/10111526/7d6f2e72-e17c-4928-97fe-766603dcf4aa)
 ![image](https://github.com/hrhouma/securite-logiciels-applications/assets/10111526/531f94cf-6b25-47e3-9003-079e8d041bae)
 ![image](https://github.com/hrhouma/securite-logiciels-applications/assets/10111526/95fdad32-979c-4a1c-bb1c-4cbffc296332)
 ![image](https://github.com/hrhouma/securite-logiciels-applications/assets/10111526/9a00de93-774e-4410-8e9a-ba0851a9545e)
 ![image](https://github.com/hrhouma/securite-logiciels-applications/assets/10111526/bf124f55-90a1-4352-a720-997f4275b522)
 
-# 2
+# Étape 2
 ![image](https://github.com/hrhouma/securite-logiciels-applications/assets/10111526/5842284e-7c68-4fde-a7b5-8e20d8fb30a6)
 
-# 3
+# Étape 3
 ![image](https://github.com/hrhouma/securite-logiciels-applications/assets/10111526/9ce8829a-318f-4234-9558-005fcd7d3b5a)
 ![image](https://github.com/hrhouma/securite-logiciels-applications/assets/10111526/18445d9c-328e-4d67-8dea-a2f731b973c4)
 ![image](https://github.com/hrhouma/securite-logiciels-applications/assets/10111526/33a6e1b6-bd86-4d71-8885-d47623487318)
@@ -20,7 +28,7 @@
 
 
 
-# 4 - windows defender
+# Étape 4 - windows defender
 ![image](https://github.com/hrhouma/securite-logiciels-applications/assets/10111526/7b452b7a-a8fd-4cf5-9cc8-e85c7735f6fe)
 ![image](https://github.com/hrhouma/securite-logiciels-applications/assets/10111526/6622ba75-3f18-4ccf-9d60-d9a69ac23e66)
 ![image](https://github.com/hrhouma/securite-logiciels-applications/assets/10111526/7c06b074-f3d4-4c2f-bf81-65543bf18148)
@@ -35,7 +43,7 @@
 
 
 
-#5 - Windows defenser firewall
+# Étape 5 - Windows defenser firewall
 
 ![image](https://github.com/hrhouma/securite-logiciels-applications/assets/10111526/8a5f0fa6-e27c-484b-bc67-9186394e90a5)
 ![image](https://github.com/hrhouma/securite-logiciels-applications/assets/10111526/3fb33937-aec3-452f-aaf1-a1402ae28168)
@@ -46,7 +54,7 @@
 
 
 
-# 6 - Regions et autres langues
+# Étape 6 - Regions et autres langues
 ![image](https://github.com/hrhouma/securite-logiciels-applications/assets/10111526/2bdd969f-b5bd-4f93-91ba-98bb87cfe866)
 ![image](https://github.com/hrhouma/securite-logiciels-applications/assets/10111526/4fdc7bcc-3766-43a2-87c0-3b4ce1fdf246)
 - ajoutez Canada multilangue
@@ -55,7 +63,7 @@
 
 
 
-# 7 - Ajout de preference language 
+# Étape 7 - Ajout de preference language 
 ![image](https://github.com/hrhouma/securite-logiciels-applications/assets/10111526/745d1bcd-bb0b-481d-a496-266b0ce3a03c)
 ![image](https://github.com/hrhouma/securite-logiciels-applications/assets/10111526/4b973c03-07ff-4727-8721-4a5eaf5253f6)
 ![image](https://github.com/hrhouma/securite-logiciels-applications/assets/10111526/aeaa0c2b-552e-4f14-b291-5633b53a3ad8)
@@ -65,9 +73,9 @@
 
 
 
-# 8 - Testez la connectivité entre votre machine Kali et windows en effectuant des pings
+# Étape 8 - Testez la connectivité entre votre machine Kali et windows en effectuant des pings
 
 - ping depuis kali vers windows 
 - ping depuis windows vers kali
 
-# 9 - Enregistrez l'état de vos machines 
+# Étape 9 - Enregistrez l'état de vos machines 
