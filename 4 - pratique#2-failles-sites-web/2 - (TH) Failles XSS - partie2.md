@@ -1,4 +1,4 @@
-## README: Comprendre les Failles XSS (Cross-Site Scripting) avec des Exemples de la Vie Réelle
+# Comprendre les Failles XSS (Cross-Site Scripting) avec des Exemples de la Vie Réelle
 
 ### Qu'est-ce qu'une Faille XSS?
 
@@ -37,6 +37,3 @@ Une faille XSS (Cross-Site Scripting) est une vulnérabilité de sécurité sur 
 
 Les failles XSS sont dangereuses, mais elles peuvent être évitées en prenant des mesures de sécurité appropriées. En comprenant ces vulnérabilités et en appliquant les bonnes pratiques, vous pouvez protéger votre site web et vos utilisateurs contre ces attaques.
 
----
-
-Ce README explique les failles XSS de manière simplifiée avec des exemples de la vie réelle pour mieux comprendre les risques et les moyens de se protéger.
