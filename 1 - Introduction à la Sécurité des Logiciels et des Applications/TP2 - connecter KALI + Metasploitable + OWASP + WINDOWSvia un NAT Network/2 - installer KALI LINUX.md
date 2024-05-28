@@ -8,23 +8,49 @@
 
 2. **Télécharger l'image Kali 2024 64 bits :**
    - Utilisez les liens fournis pour télécharger l'image :
-     - [Lien 1](https://example.com)
-     - [Lien 2](https://example.com)
-     - Torrent
+   - https://zsecurity.org/download-custom-kali/
 
-3. **Vérifier le téléchargement :**
-   - Vérifiez la somme de contrôle SHA256 pour vous assurer de l'intégrité du fichier téléchargé :
-     ```
-     dff8bfbbcb0cab653e0dce382d1b3caa83db1965aff686b3ef3d0aa6d1740a98
-     ```
 
-4. **Importer la machine virtuelle :**
+3. **Importer la machine virtuelle :**
    - Ouvrez VirtualBox.
    - Allez dans `Fichier` > `Importer une appliance`.
    - Sélectionnez le fichier `.ova` téléchargé.
    - Cliquez sur `Suivant` et suivez les instructions pour importer l'appliance.
 
-5. **Configurer la machine virtuelle :**
+4. **Ou deuxième méthode  :**
+![image](https://github.com/hrhouma/securite-logiciels-applications/assets/10111526/e177dc8f-46ff-463e-8dbe-739dcf50afcb)
+
+
+4.1. **Créer une nouvelle machine virtuelle :**
+   - Ouvrez VirtualBox et cliquez sur `Nouvelle` pour créer une nouvelle machine virtuelle.
+
+4.2. **Configurer la machine virtuelle :**
+   - Remplissez les champs comme suit :
+     - **Nom :** Kali2024
+     - **Dossier :** L'emplacement où vous souhaitez enregistrer la VM.
+     - **Type :** Linux
+     - **Version :** Linux (64-bit) ou Debian (64-bit)
+   - Cliquez sur `Suivant`.
+
+4.3. **Attribuer de la mémoire (RAM) :**
+   - Définissez la mémoire de base (RAM) à au moins 2048 Mo (2 Go), puis cliquez sur `Suivant`.
+
+4.4. **Créer un disque dur virtuel :**
+   - Sélectionnez `Créer un disque dur virtuel maintenant`, puis cliquez sur `Créer`.
+   - Choisissez `VDI (VirtualBox Disk Image)` et cliquez sur `Suivant`.
+   - Sélectionnez `Alloué dynamiquement` et cliquez sur `Suivant`.
+   - Définissez la taille du disque dur virtuel à au moins 20 Go et cliquez sur `Créer`.
+
+4.5. **Configurer le disque dur virtuel avec l'ISO de Kali :**
+   - Sélectionnez la machine virtuelle Kali2024 nouvellement créée et cliquez sur `Configuration`.
+   - Allez dans `Stockage`, cliquez sur le vide sous `Contrôleur IDE`.
+   - Cliquez sur l'icône de disque à droite et sélectionnez `Choisir un fichier de disque` puis sélectionnez l'image ISO de Kali 2024 que vous avez téléchargée.
+
+
+5. **Ou troisième méthode  : choisir le fichier ISO depuis le début :**
+![image](https://github.com/hrhouma/securite-logiciels-applications/assets/10111526/e177dc8f-46ff-463e-8dbe-739dcf50afcb)
+     
+6. **Configurer la machine virtuelle :**
    - Une fois l'importation terminée, sélectionnez la machine virtuelle Kali nouvellement ajoutée.
    - Cliquez sur `Configuration` pour personnaliser les paramètres de la machine virtuelle.
      - **Système :**
@@ -35,11 +61,11 @@
      - **Affichage :**
        - Augmentez la mémoire vidéo à au moins 128 Mo pour de meilleures performances.
 
-6. **Démarrer la machine virtuelle :**
+7. **Démarrer la machine virtuelle :**
    - Sélectionnez la machine virtuelle Kali.
    - Cliquez sur `Démarrer` pour lancer la VM.
 
-7. **Connexion :**
+8. **Connexion :**
    - Nom d'utilisateur : `root`
    - Mot de passe : `toor`
 
