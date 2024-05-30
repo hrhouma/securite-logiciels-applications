@@ -48,6 +48,7 @@ BeEF, ou Browser Exploitation Framework, est un outil puissant utilisé pour tes
    
    - `beef.credentials.user: "votre_utilisateur"`
    - `beef.credentials.passwd: "votre_mot_de_passe"`
+   - Je propose comme mot de passe le mot de passe suivant : beef_
 
 3. Sauvegardez et fermez le fichier.
 
