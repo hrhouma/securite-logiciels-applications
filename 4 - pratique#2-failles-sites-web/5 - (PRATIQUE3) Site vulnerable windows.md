@@ -47,5 +47,31 @@ https://drive.google.com/drive/folders/16whK3A7i7uN4A6ZvNuk-w3Zk6WgO_rKa?usp=sha
 
 
 
+# Annexe :
+- Pour monter un dossier partagé VirtualBox sur un système Windows à l'aide de PowerShell, vous pouvez utiliser la commande suivante. Cela suppose que les outils VirtualBox Guest Additions sont installés et que le dossier partagé est configuré dans VirtualBox.
+
+1. **Assurez-vous que le dossier partagé est configuré dans VirtualBox:**
+   - Allez dans les paramètres de votre machine virtuelle.
+   - Sélectionnez "Shared Folders" (Dossiers partagés).
+   - Ajoutez un nouveau dossier partagé (par exemple, `dossier1`) et assurez-vous de noter le nom que vous lui donnez.
+
+2. **Montez le dossier partagé dans Windows:**
+
+```powershell
+# Nom du dossier partagé configuré dans VirtualBox
+$sharedFolderName = "dossier1"
+
+# Lettre du lecteur à utiliser pour monter le dossier partagé
+$driveLetter = "Z:"
+
+# Exécutez la commande pour monter le dossier partagé
+net use $driveLetter \\vboxsvr\$sharedFolderName
+```
+
+Remplacez `dossier1` par le nom de votre dossier partagé configuré dans VirtualBox et `Z:` par la lettre de lecteur que vous souhaitez utiliser.
+
+Cette commande montera le dossier partagé de VirtualBox en tant que lecteur réseau sur votre système Windows. Vous pouvez ensuite accéder à ce dossier via l'Explorateur de fichiers ou via la ligne de commande en utilisant la lettre de lecteur spécifiée (par exemple, `Z:`).
+
+
 
 
