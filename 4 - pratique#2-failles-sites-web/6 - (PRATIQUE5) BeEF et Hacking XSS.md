@@ -1,16 +1,16 @@
 # BeEF et Hacking XSS
 
-## Introduction
+# 1- Introduction
 
 BeEF, ou Browser Exploitation Framework, est un outil puissant utilisé pour tester la sécurité des navigateurs web en exploitant les vulnérabilités XSS (Cross-Site Scripting). Ce guide vous aidera à comprendre comment utiliser BeEF pour exploiter les vulnérabilités XSS et tester la sécurité de vos applications web.
 
-## Prérequis
+# 2 - Prérequis
 
 - Une machine avec une distribution Linux (ex. : Ubuntu)
 - Ruby installé
 - Git installé
 
-## Installation de BeEF
+# 3 - Installation de BeEF
 
 1. Clonez le dépôt BeEF depuis GitHub :
 
@@ -36,7 +36,7 @@ BeEF, ou Browser Exploitation Framework, est un outil puissant utilisé pour tes
    ./beef
    ```
 
-## Configuration de BeEF
+# 4 - Configuration de BeEF
 
 1. Ouvrez le fichier de configuration BeEF (`config.yaml`) dans un éditeur de texte :
 
@@ -51,7 +51,7 @@ BeEF, ou Browser Exploitation Framework, est un outil puissant utilisé pour tes
 
 3. Sauvegardez et fermez le fichier.
 
-## Utilisation de BeEF
+# 5 - Utilisation de BeEF
 
 ### Accès à l'Interface Web de BeEF
 
@@ -93,7 +93,7 @@ Pour utiliser un module :
 2. Allez dans l'onglet "Commands".
 3. Choisissez un module et cliquez sur "Execute".
 
-## Conclusion
+# 6 - Conclusion
 
 BeEF est un outil puissant pour tester la sécurité des navigateurs et des applications web contre les attaques XSS. En comprenant comment injecter des hooks JavaScript et utiliser les modules d'exploitation de BeEF, vous pouvez identifier et corriger les vulnérabilités avant qu'elles ne soient exploitées par des attaquants malveillants.
 
