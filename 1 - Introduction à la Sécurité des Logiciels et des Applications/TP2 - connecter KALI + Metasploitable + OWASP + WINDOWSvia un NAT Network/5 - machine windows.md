@@ -1,8 +1,14 @@
 # Étape 0 - Extraire les machines windows : 
-- https://developer.microsoft.com/en-us/windows/downloads/virtual-machines/
 
+## *Solution  1 : Sit officiel de Microsoft*
+- https://developer.microsoft.com/en-us/windows/downloads/virtual-machines/
 ![image](https://github.com/hrhouma/securite-logiciels-applications/assets/10111526/71238d0e-2afb-4df7-95e0-1fb1d23aab71)
 
+## Solution  2 : *Solution  2 : Mon GOOGLE DRIVE*
+- https://drive.google.com/drive/folders/1eIqxccFSkHQ3O7djCjRf6XXVqbbMFIGn
+![image](https://github.com/hrhouma/securite-logiciels-applications/assets/10111526/780ef0d1-0c67-41a9-818b-ba4aea60ea11)
+
+## Solution  3 : Lien sur internet (cybernini.com)
 - ou https://cyberini.com/ressources-cours-hacking-ethique/MSW10.zip
 
 
