@@ -13,7 +13,8 @@
 
 ## Solution  3 : Lien sur internet (cybernini.com)
 - ou https://cyberini.com/ressources-cours-hacking-ethique/MSW10.zip
-
+- https://docs.google.com/document/d/158AMK2fwXBOeYnE9TsN2z_xYRAd1QHnoy0hoUcJQqfY/edit?usp=sharing
+- https://drive.google.com/drive/folders/1tU8qiEyhD7wOnlsoT4Kiaur6Ap9EnJwM?usp=sharing
 
 # Étape 1
 ![image](https://github.com/hrhouma/securite-logiciels-applications/assets/10111526/7d6f2e72-e17c-4928-97fe-766603dcf4aa)
