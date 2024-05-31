@@ -1,4 +1,7 @@
-# Étape 0 - Extraire les machines windows : 
+# Étape 0 - Extraire les machines windows et KALI LINUX personnalisé: 
+
+## *Solution  : Kali linux personnalisé*
+- https://zsecurity.org/download-custom-kali/
 
 ## *Solution  1 : Sit officiel de Microsoft*
 - https://developer.microsoft.com/en-us/windows/downloads/virtual-machines/
