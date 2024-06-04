@@ -1,5 +1,7 @@
 # Étape 0 - Extraire les machines windows : 
 - https://cyberini.com/ressources-cours-hacking-ethique/MSW10.zip
+- Utilisez winrar pour décompresser le fichier : https://winrar.fr.softonic.com/
+- # mdp :lbdh
 
 # Étape 1
 ![image](https://github.com/hrhouma/securite-logiciels-applications/assets/10111526/7d6f2e72-e17c-4928-97fe-766603dcf4aa)
