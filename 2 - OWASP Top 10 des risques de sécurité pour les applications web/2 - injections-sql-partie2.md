@@ -27,12 +27,12 @@ SELECT * FROM users WHERE username = '$username' AND password = '$password';
 
 **Input Malveillant:**
 ```
-admin' --
+admin' #
 ```
 
 **Requête Modifiée:**
 ```sql
-SELECT * FROM users WHERE username = 'admin' --' AND password = 'anything';
+SELECT * FROM users WHERE username = 'admin' #' AND password = 'anything';
 ```
 
 **Explication:**
