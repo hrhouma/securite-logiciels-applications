@@ -46,15 +46,15 @@ La partie `OR 1=1` rend la condition toujours vraie, permettant ainsi l'accès s
 **Exemple :**
 Si la requête de base est :
 ```sql
-SELECT * FROM articles WHERE id = 1;
+SELECT * FROM admin WHERE id = 1;
 ```
 
 L'attaquant essaie différentes valeurs pour `x` :
 ```sql
-SELECT * FROM articles WHERE id = 1 OR 1=1 ORDER BY 1; -- Pas d'erreur
-SELECT * FROM articles WHERE id = 1 OR 1=1 ORDER BY 2; -- Pas d'erreur
-SELECT * FROM articles WHERE id = 1 OR 1=1 ORDER BY 3; -- Pas d'erreur
-SELECT * FROM articles WHERE id = 1 OR 1=1 ORDER BY 4; -- Erreur
+SELECT * FROM admin WHERE id = 1 OR 1=1 ORDER BY 1; -- Pas d'erreur
+SELECT * FROM admin WHERE id = 1 OR 1=1 ORDER BY 2; -- Pas d'erreur
+SELECT * FROM admin WHERE id = 1 OR 1=1 ORDER BY 3; -- Pas d'erreur
+SELECT * FROM admin WHERE id = 1 OR 1=1 ORDER BY 4; -- Erreur
 ```
 
 Lorsqu'une erreur survient à `ORDER BY 4`, cela indique que la table a 3 colonnes.
