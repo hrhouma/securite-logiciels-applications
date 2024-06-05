@@ -12,7 +12,7 @@ L'injection SQL est une technique d'attaque qui exploite les vulnérabilités de
 
 **Input Malveillant:**
 ```
-' OR '1'='1
+' OR '1'='1' #
 ```
 
 **Requête SQL Vulnérable:**
