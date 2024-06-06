@@ -1,4 +1,4 @@
-### Plan de Cours : Commandes Nmap sous Kali Linux
+### Plan de Contenu : Commandes Nmap sous Kali Linux
 
 #### Module 1 : Introduction à Kali Linux et Nmap
 - Vue d'ensemble de Kali Linux
@@ -174,5 +174,3 @@ nmap -oN resultat.txt <cible>
    ```bash
    nmap -oX resultats_scan.xml -iL hosts_decouverts.txt
    ```
-
-Ce plan et ces exemples de commandes devraient aider à structurer votre cours et fournir aux étudiants des compétences pratiques pour utiliser Nmap sur Kali Linux.
