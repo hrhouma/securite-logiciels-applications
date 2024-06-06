@@ -319,4 +319,4 @@ Fournir une série d'exercices pratiques pour apprendre à utiliser Nmap et lsof
    sudo kill -9 PID
    ```
 
-Ces exercices permettront aux étudiants de se familiariser avec les différentes fonctionnalités de Nmap et lsof et de comprendre comment elles peuvent être utilisées pour analyser et gérer les systèmes sur une machine Kali Linux. Ils n'auront qu'à copier-coller les commandes pour les exécuter sur leur machine Kali Linux.
+Ces exercices vous permettront de vous familiariser avec les différentes fonctionnalités de Nmap et lsof et de comprendre comment elles peuvent être utilisées pour analyser et gérer les systèmes sur une machine Kali Linux. 
