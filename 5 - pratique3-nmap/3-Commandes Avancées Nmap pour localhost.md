@@ -1,6 +1,6 @@
 ### Commandes Avancées Nmap pour `localhost`
 
-Voici un ensemble plus complet de commandes Nmap pour explorer les diverses fonctionnalités et options disponibles lorsque vous scannez un serveur local.
+Ensemble exhaustive de commandes Nmap pour explorer les diverses fonctionnalités et options disponibles lorsque vous scannez un serveur local.
 
 #### Commandes de Scan de Base
 
@@ -214,4 +214,3 @@ Voici un ensemble plus complet de commandes Nmap pour explorer les diverses fonc
     nmap -oJ resultat.json localhost
     ```
 
-Ces commandes permettent de couvrir une large gamme de fonctionnalités Nmap, offrant ainsi une expérience d'apprentissage complète pour vos étudiants. Les commandes peuvent être simplement copiées et collées pour être exécutées sur une machine Kali Linux.
