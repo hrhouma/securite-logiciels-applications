@@ -97,4 +97,4 @@ Pour conserver une trace des résultats du scan, enregistrez-les dans un fichier
      nmap -oX resultat.xml <votre_site_web>
      ```
 
-Ces étapes vous permettront d'analyser en profondeur votre site web vulnérable en utilisant Nmap sur Kali Linux. Les étudiants pourront copier et coller ces commandes pour effectuer les scans nécessaires.
+Ces étapes vous permettront d'analyser en profondeur votre site web vulnérable en utilisant Nmap sur Kali Linux. 
