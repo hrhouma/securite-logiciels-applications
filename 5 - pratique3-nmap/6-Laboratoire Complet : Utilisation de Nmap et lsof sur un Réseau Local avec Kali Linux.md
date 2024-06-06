@@ -1,7 +1,7 @@
 ### Laboratoire Complet : Utilisation de Nmap et lsof sur un Réseau Local avec Kali Linux
 
 #### Objectif
-Fournir une série d'exercices pratiques pour apprendre à utiliser Nmap et lsof afin de scanner les ports, détecter les services et les systèmes d'exploitation, utiliser des scripts de vulnérabilité et gérer les processus sur une machine Kali Linux.
+- Apprendre à utiliser Nmap et lsof afin de scanner les ports, détecter les services et les systèmes d'exploitation, utiliser des scripts de vulnérabilité et gérer les processus sur une machine Kali Linux.
 
 ### Préparation
 
