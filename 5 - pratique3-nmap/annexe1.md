@@ -126,5 +126,3 @@ nmap -oN output.txt <target>
    ```bash
    nmap -oX scan_results.xml -iL discovered_hosts.txt
    ```
-
-This outline and these examples should help you structure your course and provide students with comprehensive knowledge and practical skills using Nmap on Kali Linux.
