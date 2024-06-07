@@ -1,0 +1,3 @@
+- https://github.com/hrhouma/proxy_world/tree/main
+- https://www.geeksforgeeks.org/cool-custom-welcome-messages-linux-terminal/
+- https://medium.com/@ganeshkumargk1956/display-custom-text-every-time-the-terminal-opens-al0nmast3r-36b3b3295106
