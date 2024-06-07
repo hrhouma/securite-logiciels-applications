@@ -247,7 +247,7 @@ sudo systemctl restart apache2
 
 - Cette partie vous a montré comment installer et gérer le serveur web Apache, vérifier son état avec `systemctl`, et gérer ses processus avec les commandes `kill` et `pkill`. Vous avez également appris à redémarrer le service Apache après avoir terminé ses processus. Ces compétences sont essentielles pour la gestion et la maintenance des services sur un système Linux.
 
-- # Partie 3 - exercices : Gestion de Services avec Apache et Systèmes de Processus
+# Partie 3 - exercices : Gestion de Services avec Apache et Systèmes de Processus
 
 
 ### Exercice 1 : Installation et Vérification d'Apache
