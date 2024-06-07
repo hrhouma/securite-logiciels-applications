@@ -1,6 +1,6 @@
 # Pratiques NMAP (YOUTUBE)
 - https://www.youtube.com/watch?v=4t4kBkMsDbQ&ab_channel=NetworkChuck
-- - https://www.youtube.com/watch?v=NYgDzO8iQJ0&ab_channel=An0nAli
+- https://www.youtube.com/watch?v=NYgDzO8iQJ0&ab_channel=An0nAli
 - https://www.youtube.com/watch?v=W7076RPIgfQ&ab_channel=GetCyber
 - https://www.youtube.com/watch?v=-d2vrayQRfE&ab_channel=codefm
 - https://www.youtube.com/watch?v=j5Yw3ZsM-2w&ab_channel=PentestsandTech
