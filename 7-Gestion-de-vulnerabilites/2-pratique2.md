@@ -14,4 +14,5 @@ https://medium.com/@abubakr.sadiq/integrating-sonarqube-with-jenkins-pipeline-5b
 https://medium.com/@ozanbozkurtt96/ci-cd-ipeline-with-jenkins-sonarqube-docker-registry-1-7fa07f172560 
 
 # 4 - BEST
-https://faun.pub/setting-up-dockerized-jenkins-and-sonarqube-in-linux-environment-155ce52b884a 
+- https://faun.pub/setting-up-dockerized-jenkins-and-sonarqube-in-linux-environment-155ce52b884a
+- https://levelup.gitconnected.com/complete-maven-jenkins-sonarqube-jfrog-tomcat-set-up-4c32f6bab04f
