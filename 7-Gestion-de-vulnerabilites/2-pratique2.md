@@ -1,6 +1,6 @@
 
 # 1 - JENKINS
-## Jenkins CI/CD Pipeline Explained by A Junior DevOps Engineer | by Armond Holman | AWS in Plain English 
+## Jenkins CI/CD Pipeline Explained by A Junior DevOps Engineer (BASIQUE UTILISE DOCKER)
 - https://aws.plainenglish.io/jenkins-ci-cd-pipeline-explained-by-a-junior-devops-engineer-1d67ecc08a7e 
 
 # 2 - SONAR
