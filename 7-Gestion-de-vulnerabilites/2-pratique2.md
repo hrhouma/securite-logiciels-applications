@@ -140,4 +140,16 @@ Références :
 # Projet complet
 ## Build a CI/CD Pipeline using Jenkins, SonarQube, Docker and AWS (hashnode.dev) 
 
-- https://chirag0002.hashnode.dev/build-a-cicd-pipeline-using-jenkins-sonarqube-docker-and-aws 
+- https://chirag0002.hashnode.dev/build-a-cicd-pipeline-using-jenkins-sonarqube-docker-and-aws
+## Troubleshooting: 
+- sudo adduser sonar
+- sudo usermod -aG sudo sonar
+- sudo chown -R sonar:sonar /home/ubuntu/sonarqube-10.0.0.68432
+- sudo chown -R sonar:sonar /home/ubuntu
+- sudo usermod -aG ubuntu sonar 
+- (optionnel) sudo chmod 755 /home/ubuntu
+- sudo su - sonar
+- cd /home/ubuntu/sonarqube-10.0.0.68432/bin/linux-x86-64
+- ./sonar.sh start
+
+
