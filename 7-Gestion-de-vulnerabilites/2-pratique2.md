@@ -1,5 +1,9 @@
 
 # 1 - JENKINS
+
+## Jenkins sur VM
+- Java base application build with Maven on Jenkins | by Areful Islam | DevOps.dev 
+⇒ https://blog.devops.dev/java-base-application-build-with-maven-on-jenkins-540cad37370f 
 ## Jenkins CI/CD Pipeline (JENKINS DOCKER)
 - https://aws.plainenglish.io/jenkins-ci-cd-pipeline-explained-by-a-junior-devops-engineer-1d67ecc08a7e 
 
