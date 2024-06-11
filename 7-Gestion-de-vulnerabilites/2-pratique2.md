@@ -1,6 +1,6 @@
 
 # 1 - JENKINS
-## Jenkins CI/CD Pipeline Explained by A Junior DevOps Engineer (BASIQUE UTILISE DOCKER)
+## Jenkins CI/CD Pipeline (JENKINS DOCKER)
 - https://aws.plainenglish.io/jenkins-ci-cd-pipeline-explained-by-a-junior-devops-engineer-1d67ecc08a7e 
 
 # 2 - SONAR
@@ -29,3 +29,6 @@ https://medium.com/@ozanbozkurtt96/ci-cd-ipeline-with-jenkins-sonarqube-docker-r
 - https://medium.com/@samarthgvasist/setting-up-a-github-webhook-ccd895e7b85c
 - https://medium.com/@madhavarajas1997/a-comprehensive-guide-to-jenkins-webhooks-06497ace0824
 - https://dev.to/robbiecahill/how-to-add-a-github-webhook-to-jenkins-5f34
+
+# 6 - BEST PROJET COMPLET + SONAR 
+- https://chirag0002.hashnode.dev/build-a-cicd-pipeline-using-jenkins-sonarqube-docker-and-aws
