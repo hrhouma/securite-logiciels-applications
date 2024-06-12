@@ -238,3 +238,99 @@ systemctl restart nginx
 ```
 
 Félicitations ! Vous avez installé avec succès Wiki.js sur votre serveur Ubuntu 22.04. Pour plus d'informations, consultez le site officiel de Wiki.js.
+
+# Annexe - tous supprimer 
+
+- Pour supprimer complètement Wiki.js et toutes les configurations associées de votre serveur Ubuntu 22.04, vous devez suivre les étapes inverses des instructions d'installation.
+- Voici un script qui couvre toutes les étapes nécessaires pour effectuer cette désinstallation :
+
+### Étape 1 : Arrêter et désactiver les services
+
+Tout d'abord, arrêtez et désactivez les services de Wiki.js et Nginx :
+
+```bash
+systemctl stop wikijs
+systemctl disable wikijs
+systemctl stop nginx
+systemctl disable nginx
+```
+
+### Étape 2 : Supprimer les fichiers de configuration et les services
+
+Supprimez les fichiers de service systemd et les fichiers de configuration Nginx :
+
+```bash
+rm /etc/systemd/system/wikijs.service
+rm /etc/nginx/sites-enabled/wikijs.conf
+```
+
+### Étape 3 : Supprimer les fichiers et les utilisateurs de Wiki.js
+
+Supprimez l'utilisateur système et les fichiers de Wiki.js :
+
+```bash
+userdel -r wikijs
+```
+
+### Étape 4 : Supprimer les bases de données MariaDB
+
+Connectez-vous à MariaDB et supprimez la base de données et l'utilisateur de Wiki.js :
+
+```bash
+mysql -u root -p
+```
+
+Dans le shell MySQL, exécutez les commandes suivantes :
+
+```sql
+DROP DATABASE wikijs;
+DROP USER wikijs@localhost;
+FLUSH PRIVILEGES;
+\q
+```
+
+### Étape 5 : Désinstaller les logiciels installés
+
+Désinstallez Node.js, npm, MariaDB et Nginx :
+
+```bash
+apt remove --purge nodejs npm mariadb-server nginx -y
+apt autoremove -y
+apt clean
+```
+
+### Étape 6 : Vérifier et nettoyer le système
+
+Assurez-vous qu'il ne reste plus de fichiers de configuration ou de données en vérifiant les répertoires suivants et en les nettoyant si nécessaire :
+
+```bash
+rm -rf /opt/wikijs
+```
+
+Vous pouvez également vérifier et supprimer les répertoires de configuration restants dans `/etc` et `/var` si nécessaire.
+
+### Résumé des commandes
+
+```bash
+systemctl stop wikijs
+systemctl disable wikijs
+systemctl stop nginx
+systemctl disable nginx
+rm /etc/systemd/system/wikijs.service
+rm /etc/nginx/sites-enabled/wikijs.conf
+userdel -r wikijs
+mysql -u root -p
+# Dans le shell MySQL
+# DROP DATABASE wikijs;
+# DROP USER wikijs@localhost;
+# FLUSH PRIVILEGES;
+# \q
+apt remove --purge nodejs npm mariadb-server nginx -y
+apt autoremove -y
+apt clean
+rm -rf /opt/wikijs
+```
+
+En suivant ces étapes, vous supprimerez complètement Wiki.js et toutes les configurations associées de votre serveur Ubuntu 22.04.
+
+
