@@ -212,15 +212,23 @@ server {
 }
 ```
 
-Remplacez `wikijs.votredomaine.com` par le domaine ou sous-domaine que vous souhaitez utiliser.
+- Remplacez `wikijs.votredomaine.com` par le domaine ou sous-domaine que vous souhaitez utiliser.
+- Sinon, vous pouvez garder ce même domaine. Dans ce cas, il faut exécuter la commande suivante pour l'ajouter comme hôte:
+- nano /etc/hosts
+- Ajoutez le (utilisez tabulation pour l'espace) . Ensuite, faites CTL + X pour sauvegarder.
+![image](https://github.com/hrhouma/securite-logiciels-applications/assets/10111526/c93080a0-90c8-41eb-9c63-f98d40b50f60)
 
 Sauvegardez le fichier et redémarrez Nginx :
 
 ```bash
 systemctl restart nginx
+nginx -s reload
+systemctl status nginx
 ```
+# Référence pour redémarrer nginx: 
+- https://docs.nginx.com/nginx/admin-guide/basic-functionality/runtime-control/
 
-Vous pouvez maintenant accéder à Wiki.js à l'adresse `http://wikijs.votredomaine.com` et compléter l'installation via un navigateur web.
+- Vous pouvez maintenant accéder à Wiki.js à l'adresse `http://wikijs.votredomaine.com` ou l'adresse `http://localhost:3000`et compléter l'installation via un navigateur web.
 
 ### Résumé des commandes
 
