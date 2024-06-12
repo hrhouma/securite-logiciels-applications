@@ -2,7 +2,7 @@
 
 ## Prérequis
 
-- Serveur Ubuntu 22.04
+- Serveur Ubuntu 22.04 (Machine Ubuntu 22.04 Desktop)
 - Accès root SSH ou utilisateur avec privilèges sudo
 
 ### Étape 1 : Connexion au serveur
