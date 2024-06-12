@@ -349,4 +349,8 @@ rm -rf /opt/wikijs
 
 En suivant ces étapes, vous supprimerez complètement Wiki.js et toutes les configurations associées de votre serveur Ubuntu 22.04.
 
-
+# Annexe : 
+- En cas de conflit de port , vous pouvez soit exécutez nmap pour avoir un rapport sur les ports ouverts ou
+- lsof -i :3000 (récupérez le PID qui sort) (Ici, nous vérifions sir le port 3000 est utilisé par un processus).
+- kill -9 PID (-9 c'est brusque , et avec -15 , il prends son temps pour bien nettoyer le service)
+- kill -15 PID (PID doit être remplacé par le résultat dans lsof -i :3000)
