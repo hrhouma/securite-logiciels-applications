@@ -263,6 +263,13 @@ systemctl restart nginx
 
 Félicitations ! Vous avez installé avec succès Wiki.js sur votre serveur Ubuntu 22.04. Pour plus d'informations, consultez le site officiel de Wiki.js.
 
+# Exercice 1: 
+- Scannez avec nmap pour voir s'il y a des ports ouverts ou utilisés par des services  !
+- Générez le rapport dans un fichier myoutput.xml
+- Utilisez la pratique 1 pour voir les ports ouverts sur un dashbord (projet nmap-did-what)
+# Attention : 
+- Le port 3000 peut être occupé. Dans ce cas, changez le dans le fichier de configuration.
+
 # Annexe - tous supprimer 
 
 - Pour supprimer complètement Wiki.js et toutes les configurations associées de votre serveur Ubuntu 22.04, vous devez suivre les étapes inverses des instructions d'installation.
@@ -354,8 +361,12 @@ apt autoremove -y
 apt clean
 rm -rf /opt/wikijs
 ```
+# Exercice 2: 
+- Scannez avec nmap pour voir s'il y a des ports ouverts ou utilisés par des services  !
+- Générez le rapport dans un fichier myoutput.xml
+- Utilisez la pratique 1 pour voir les ports ouverts sur un dashbord (projet nmap-did-what)
 
-En suivant ces étapes, vous supprimerez complètement Wiki.js et toutes les configurations associées de votre serveur Ubuntu 22.04.
+- En suivant ces étapes, vous supprimerez complètement Wiki.js et toutes les configurations associées de votre serveur Ubuntu 22.04.
 
 # Annexe : 
 - En cas de conflit de port , vous pouvez soit exécutez nmap pour avoir un rapport sur les ports ouverts ou
