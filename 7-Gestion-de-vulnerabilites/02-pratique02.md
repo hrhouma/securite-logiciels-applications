@@ -66,6 +66,7 @@ Dans le shell MySQL, exécutez les commandes suivantes :
 
 ```sql
 CREATE DATABASE wikijs;
+show databases;
 GRANT ALL on wikijs.* to wikijs@localhost identified by 'm0d1fyth15';
 FLUSH PRIVILEGES;
 \q
@@ -73,6 +74,11 @@ FLUSH PRIVILEGES;
 
 Remplacez `m0d1fyth15` par un mot de passe plus sécurisé.
 
+```sql
+mysql -u wikijs -p
+entrez votre password, par exemple m0d1fyth15
+\q
+```
 ### Étape 4 : Installer Wiki.js
 
 Créez un nouvel utilisateur système pour Wiki.js :
