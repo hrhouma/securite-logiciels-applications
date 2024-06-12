@@ -134,3 +134,94 @@ Accédez à Wiki.js via votre navigateur en utilisant l'URL : `http://<adresse_I
 ---
 
 Ce guide fournit toutes les étapes nécessaires pour configurer Wiki.js sur une machine Ubuntu 22.04, en utilisant MariaDB comme système de gestion de base de données.
+
+# Annexe - Tous supprimer 
+
+Pour désinstaller complètement Wiki.js et toutes les configurations associées de votre serveur Ubuntu 22.04 LTS, suivez les étapes ci-dessous. Ces instructions inversent les étapes d'installation précédentes.
+
+### Étape 1 : Arrêter et désactiver le service Wiki.js
+
+Arrêtez et désactivez le service Wiki.js :
+
+```bash
+sudo systemctl stop wikijs
+sudo systemctl disable wikijs
+```
+
+### Étape 2 : Supprimer le fichier de service systemd
+
+Supprimez le fichier de service systemd pour Wiki.js :
+
+```bash
+sudo rm /etc/systemd/system/wikijs.service
+sudo systemctl daemon-reload
+```
+
+### Étape 3 : Supprimer les fichiers et l'utilisateur de Wiki.js
+
+Supprimez l'utilisateur système et les fichiers de Wiki.js :
+
+```bash
+sudo userdel -r wikijs
+sudo rm -rf /var/www/wikijs
+```
+
+### Étape 4 : Supprimer les bases de données MariaDB
+
+- Connectez-vous à MariaDB et supprimez la base de données et l'utilisateur de Wiki.js :
+
+```bash
+sudo mysql -u root -p
+```
+
+- Dans le shell MariaDB, exécutez les commandes suivantes :
+
+```sql
+DROP DATABASE wikidb;
+DROP USER 'wikidb_user'@'localhost';
+FLUSH PRIVILEGES;
+EXIT;
+```
+
+### Étape 5 : Désinstaller les logiciels installés
+
+Désinstallez Node.js, npm, MariaDB et Git :
+
+```bash
+sudo apt remove --purge nodejs npm mariadb-server mariadb-client git -y
+sudo apt autoremove -y
+sudo apt clean
+```
+
+### Étape 6 : Vérifier et nettoyer le système
+
+Assurez-vous qu'il ne reste plus de fichiers de configuration ou de données en vérifiant les répertoires suivants et en les nettoyant si nécessaire :
+
+```bash
+sudo rm -rf /var/www/wikijs
+```
+
+### Résumé des commandes
+
+```bash
+sudo systemctl stop wikijs
+sudo systemctl disable wikijs
+sudo rm /etc/systemd/system/wikijs.service
+sudo systemctl daemon-reload
+sudo userdel -r wikijs
+sudo rm -rf /var/www/wikijs
+sudo mysql -u root -p
+# Dans le shell MariaDB
+# DROP DATABASE wikidb;
+# DROP USER 'wikidb_user'@'localhost';
+# FLUSH PRIVILEGES;
+# EXIT;
+sudo apt remove --purge nodejs npm mariadb-server mariadb-client git -y
+sudo apt autoremove -y
+sudo apt clean
+sudo rm -rf /var/www/wikijs
+```
+
+- En suivant ces étapes, vous supprimerez complètement Wiki.js et toutes les configurations associées de votre serveur Ubuntu 22.04 LTS.
+
+
