@@ -157,14 +157,24 @@ WantedBy=multi-user.target
 
 Sauvegardez le fichier, quittez l'éditeur et rechargez le daemon systemd :
 
+
+
 ```bash
 systemctl daemon-reload
+```
+
+```bash
+systemctl status wikijs
 ```
 
 Activez et démarrez le service Wiki.js :
 
 ```bash
 systemctl enable --now wikijs
+```
+
+```bash
+systemctl status wikijs
 ```
 
 ### Étape 7 : Installer et configurer Nginx
