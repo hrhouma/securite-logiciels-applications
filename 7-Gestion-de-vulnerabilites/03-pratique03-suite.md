@@ -477,6 +477,7 @@ Assurez-vous de sécuriser votre API et votre application frontend pour une util
 sudo apt update
 sudo apt install python3-pip -y
 pip3 install virtualenv
+source nom_env/bin/activate
 python3 -m venv nom_env
 source nom_env/bin/activate
 ```
