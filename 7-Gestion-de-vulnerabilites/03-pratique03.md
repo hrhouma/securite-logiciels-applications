@@ -2,6 +2,9 @@
 
 # Référentiel : 
 - https://www.digitalocean.com/community/tutorials/how-to-use-nessus-for-vulnerability-scanning-on-ubuntu-2204
+- https://abhijit-pal.medium.com/resolving-nessus-installation-issue-on-ubuntu-dpkg-frontend-lock-error-a161123c0378
+- https://www.howtoforge.com/how-to-install-nessus-security-scanner-on-ubuntu-22-04/
+  
 ### Nessus
 
 #### Étape 1 : Installation de Nessus sur Ubuntu 22.04
