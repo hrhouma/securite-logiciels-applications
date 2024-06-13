@@ -10,9 +10,17 @@
 #### Étape 1 : Installation de Nessus sur Ubuntu 22.04
 
 1. **Téléchargez le paquet Nessus** :
-    ```bash
-    wget https://www.tenable.com/downloads/api/v1/public/pages/nessus/downloads/13795/download?i_agree_to_tenable_license_agreement=true -O Nessus-10.0.1-ubuntu910_amd64.deb
-    ```
+- Il faut allez à la page officielle de Nessus et choisir la bonne version.
+- Choisir installer avec curl.
+- Par exemple, dans mon cas, c'était :
+- https://www.tenable.com/downloads/nessus?_gl=1*9shjqh*_ga*ODUxNzU4MDAwLjE3MTgyMjgyMDc.*_ga_HSJ1XWV6ND*MTcxODMxMTEzNC4yLjEuMTcxODMxMTE0Mi41Mi4wLjEzOTc4NDY0Njk.&loginAttempted=true
+
+![image](https://github.com/hrhouma/securite-logiciels-applications/assets/10111526/3dfcafb8-5ad4-457d-b466-ce4ce5893161)
+-Download by curl 
+
+![image](https://github.com/hrhouma/securite-logiciels-applications/assets/10111526/74b608e6-7228-49d2-849c-1ead3948121a)
+
+- sudo dpkg -i  Nessus-10.7.4-debian10_amd64.deb
 
 2. **Installez Nessus** :
     ```bash
