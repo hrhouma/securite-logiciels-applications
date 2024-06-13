@@ -480,6 +480,9 @@ pip3 install virtualenv
 python3 -m venv nom_env
 source nom_env/bin/activate
 ```
+```bash
+ apt install python3.10-venv
+```
 
 # Anenxe 2 : Installer vscode
 
