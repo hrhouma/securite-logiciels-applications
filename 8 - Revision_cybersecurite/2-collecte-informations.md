@@ -37,6 +37,7 @@
    - Étape 2 : Installez tous les modules en utilisant l'option "installer tout".
    - Étape 3 : Ajoutez des domaines avec la commande `db insert domains`. Affichez les domaines avec `show domains`.
    - Étape 4 : Recherchez des informations par courrier électronique :
+     - `marketplace search`  
      - `marketplace install recon/domains-contacts/whois_pocs`
      - `modules load recon/domains-contacts/whois_pocs`
      - `options set SOURCE Microsoft.com`
