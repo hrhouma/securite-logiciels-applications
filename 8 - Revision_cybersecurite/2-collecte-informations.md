@@ -1,5 +1,5 @@
 # Étapes: 
-## Pour la version détaillée, veuillez consultez l'annexe !!!!
+## Pour la version détaillée, veuillez consultez l'annexe ci-bas directement !!!!
 
 1. **Démonstration 1 : Collecte d'informations sur le site web**
    - Étape 1 : Ouvrez le navigateur et allez sur [whois.domaintools.com](https://whois.domaintools.com)
