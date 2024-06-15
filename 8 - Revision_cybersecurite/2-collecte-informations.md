@@ -188,7 +188,7 @@ travail
 # ANNEXE  - PLUS DE DÉTAILS 
 
 
-# Collecte d'Informations en Cybersécurité et Footprinting
+# Collecte d'Informations en Cybersécurité et Footprinting (ÉTAPE 1 DE LA PROCÉDURE D'ATTAQUE)
 
 ## Introduction
 
