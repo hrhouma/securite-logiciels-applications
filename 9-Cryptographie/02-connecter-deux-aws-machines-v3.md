@@ -14,7 +14,8 @@ Lorsque Bob reçoit la boîte, il peut utiliser sa clé pour ouvrir le cadenas e
 
 Illustration du processus de chiffrement et de déchiffrement :
 
-![Algorithmes Asymétriques](image.png)
+![image](https://github.com/hrhouma/securite-logiciels-applications/assets/10111526/b8665a69-323a-4953-8b15-5a7b5d29e6a4)
+
 
 ---
 
@@ -66,3 +67,6 @@ Dans cette illustration, deux clés distinctes (une pour le chiffrement et une p
 Autoriser la clé publique dans le serveur B est similaire à Alice ou Bob laissant la boîte avec le cadenas fermé parmi les choses autorisées pour accéder à sa maison. C'est comme dire : "Je laisse la clé dans ma maison dans cette boîte qui ne peut être ouverte qu'avec une clé secrète que l'autre dispose."
 
 Ainsi, lorsque vous exécutez `ssh -i ~/.ssh/id_rsa private.ip.du.serveur.cible`, c'est comme utiliser cette clé secrète pour ouvrir la boîte et accéder aux ressources de la maison (serveur).
+
+![image](https://github.com/hrhouma/securite-logiciels-applications/assets/10111526/bfa098a8-66ae-43b1-b5e6-8569e15b1f12)
+
