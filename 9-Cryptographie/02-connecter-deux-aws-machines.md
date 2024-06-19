@@ -1,52 +1,46 @@
-# Objectifs du TP
-- Comprendre les fondamentaux de la cryptographie asymétrique.
-- Appliquer la connexion sécurisée entre deux machines virtuelles en utilisant des clés publiques et privées.
+## Tutoriel : Connexion entre deux serveurs AWS avec des clés SSH
 
-# Matériel nécessaire
-- Oracle VirtualBox installé sur un PC ou un serveur.
-- Images ISO de système d'exploitation, comme Ubuntu Server.
+### Méthode 1 - Utiliser les mêmes clés sur les serveurs
 
-# Étapes du TP
+1. **Convertir les clés au format OpenSSH** :
+   Convertissez vos clés au format OpenSSH et téléchargez les clés privées sur les serveurs.
 
-# Partie 1 : Configuration des machines virtuelles
-1. **Installation des machines virtuelles** :
-   - Créez deux machines virtuelles dans VirtualBox. Assurez-vous de configurer suffisamment de ressources (CPU, mémoire, disque).
-   - Installez un système d'exploitation Linux, comme Ubuntu, sur chaque VM en utilisant les images ISO.
+2. **Spécifier le fichier de clé privée lors de la connexion** :
+   Lors de la connexion SSH au serveur de destination, spécifiez le fichier de clé privée :
+   ```bash
+   ssh -i mykey.pem private.ip.du.serveur.cible
+   ```
 
-2. **Configuration du réseau** :
-   - Configurez les cartes réseau en mode "Réseau interne" pour que les VM puissent communiquer entre elles mais pas avec l'extérieur.
+### Méthode 2 - Créer de nouvelles clés
 
-# Partie 2 : Configuration des clés SSH
-3. **Génération des clés SSH sur la machine client** :
-   - Connectez-vous à la première VM via la console VirtualBox.
-   - Générez une paire de clés SSH en utilisant `ssh-keygen` :
-     ```bash
-     ssh-keygen -t rsa -b 2048
-     ```
-   - Suivez les instructions pour nommer et enregistrer les clés, généralement dans `~/.ssh/id_rsa` et `~/.ssh/id_rsa.pub`.
+1. **Générer des clés sur chaque serveur** :
+   Sur chaque serveur, exécutez la commande suivante pour générer une nouvelle paire de clés SSH :
+   ```bash
+   ssh-keygen
+   ```
+   Appuyez sur Entrée trois fois pour accepter les options par défaut. Vous aurez deux fichiers :
+   - `.ssh/id_rsa`
+   - `.ssh/id_rsa.pub`
 
-4. **Transfert de la clé publique au serveur** :
-   - Copiez la clé publique de la machine client vers la machine serveur en utilisant `ssh-copy-id` :
-     ```bash
-     ssh-copy-id -i ~/.ssh/id_rsa.pub user@<adresse-IP-serveur>
-     ```
+2. **Copier la clé publique du serveur A** :
+   Sur le serveur A, affichez et copiez la clé publique dans le presse-papier :
+   ```bash
+   cat ~/.ssh/id_rsa.pub
+   ```
+   [Sélectionnez et copiez le contenu]
 
-# Partie 3 : Test de la connexion
-5. **Connexion SSH depuis le client** :
-   - Testez la connexion SSH depuis la machine client vers la machine serveur :
-     ```bash
-     ssh user@<adresse-IP-serveur>
-     ```
-   - Si la configuration est correcte, la connexion doit se faire sans demande de mot de passe.
+3. **Ajouter la clé publique au serveur B** :
+   Connectez-vous au serveur B et ajoutez le contenu copié au fichier `authorized_keys` :
+   ```bash
+   cat >> ~/.ssh/authorized_keys
+   ```
+   [Collez le contenu de votre presse-papier]
+   Appuyez sur `Ctrl+D` pour quitter.
 
-# Partie 4 : Discussion et réflexion
-6. **Questions de réflexion** :
-   - Expliquer l'importance de la clé publique et de la clé privée dans ce processus.
-   - Discuter des avantages de l'utilisation de clés SSH par rapport aux mots de passe traditionnels.
-   - Quels seraient les risques si la clé privée était compromise ?
+4. **Connexion SSH à partir du serveur A** :
+   Maintenant, vous pouvez vous connecter depuis le serveur A au serveur B en utilisant la clé privée :
+   ```bash
+   ssh -i ~/.ssh/id_rsa private.ip.du.serveur.cible
+   ```
 
-# Ressources supplémentaires
-- Documentation VirtualBox pour la configuration de machines virtuelles.
-- Tutoriels sur la configuration de SSH et la cryptographie asymétrique.
-
-Ce TP permet aux étudiants de mettre en pratique les concepts de sécurité dans un environnement contrôlé, facilitant ainsi une meilleure compréhension de la gestion sécurisée des accès aux systèmes.
+En suivant ces étapes, vous pourrez configurer et utiliser des connexions SSH sécurisées entre deux serveurs AWS.
