@@ -1,8 +1,9 @@
 ## Tutoriel : Connexion entre deux serveurs AWS avec des clés SSH
-# Référence : https://superuser.com/questions/1135766/how-to-ssh-from-one-ec2-instance-to-another
-### Méthode 1 - Utiliser les mêmes clés sur les serveurs
+# Référence : 
+- https://superuser.com/questions/1135766/how-to-ssh-from-one-ec2-instance-to-another
 - https://stackoverflow.com/questions/9270734/ssh-permissions-are-too-open
 
+### Méthode 1 - Utiliser les mêmes clés sur les serveurs
 1. **Convertir les clés au format OpenSSH** :
    Convertissez vos clés au format OpenSSH et téléchargez les clés privées sur les serveurs.
 
