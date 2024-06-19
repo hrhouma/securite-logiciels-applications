@@ -1,5 +1,7 @@
 ## Vulgarisation du Processus d'Autorisation des Clés SSH
-
+# Référence : 
+- https://superuser.com/questions/1135766/how-to-ssh-from-one-ec2-instance-to-another
+- https://stackoverflow.com/questions/9270734/ssh-permissions-are-too-open
 ### Histoire
 
 - Imaginons que vous souhaitez accéder à la maison de Karine, mais elle n'est pas là pour vous ouvrir la porte. 
