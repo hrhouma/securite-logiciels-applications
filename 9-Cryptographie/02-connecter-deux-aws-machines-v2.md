@@ -1,5 +1,8 @@
 ## Tutoriel détaillé : Comment connecter deux instances EC2 sur AWS via SSH
-# Référence : https://superuser.com/questions/1135766/how-to-ssh-from-one-ec2-instance-to-another
+
+# Référence : 
+- https://superuser.com/questions/1135766/how-to-ssh-from-one-ec2-instance-to-another
+- https://stackoverflow.com/questions/9270734/ssh-permissions-are-too-open
 ### Pré-requis
 - Deux instances EC2 créées sur AWS.
 - Accès aux clés privées (.pem) de chaque instance.
