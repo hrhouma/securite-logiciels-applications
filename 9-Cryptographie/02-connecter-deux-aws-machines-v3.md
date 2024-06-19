@@ -1,5 +1,7 @@
 # README
-
+# Référence : 
+- https://superuser.com/questions/1135766/how-to-ssh-from-one-ec2-instance-to-another
+- https://stackoverflow.com/questions/9270734/ssh-permissions-are-too-open
 ## Analogie : Processus de chiffrement asymétrique
 
 Bob et Alice n'échangent pas de clés avant de s'envoyer des messages secrets. Ils utilisent plutôt chacun un cadenas distinct avec des clés correspondantes séparées.
