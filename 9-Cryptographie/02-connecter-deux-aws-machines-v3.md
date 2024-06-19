@@ -70,3 +70,11 @@ Ainsi, lorsque vous exécutez `ssh -i ~/.ssh/id_rsa private.ip.du.serveur.cible`
 
 ![image](https://github.com/hrhouma/securite-logiciels-applications/assets/10111526/bfa098a8-66ae-43b1-b5e6-8569e15b1f12)
 
+![image](https://github.com/hrhouma/securite-logiciels-applications/assets/10111526/da09d2a0-f7a6-4b5b-8ca6-b6dd547642c5)
+
+![image](https://github.com/hrhouma/securite-logiciels-applications/assets/10111526/5be03021-e858-4c00-9cbc-8f6e14fa2346)
+
+- La clé publique ne te sert à rien tant que tu n'as pas la clé privé. C'est comme avoir un cadenas fermé. Personne ne peut l'ouvrir que celui qui a la clé privé !
+
+
+
