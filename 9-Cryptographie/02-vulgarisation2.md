@@ -1,5 +1,7 @@
 ## Vulgarisation du Processus d'Autorisation des Clés SSH avec l'Application Turo
-
+# Référence : 
+- https://superuser.com/questions/1135766/how-to-ssh-from-one-ec2-instance-to-another
+- https://stackoverflow.com/questions/9270734/ssh-permissions-are-too-open
 ### Histoire
 
 Imaginons que vous souhaitez louer une voiture via l'application Turo. Turo est une plateforme où les propriétaires de voitures peuvent louer leurs véhicules à d'autres utilisateurs. Pour que tout se passe en toute sécurité, il y a un processus d'autorisation similaire à celui des clés SSH.
