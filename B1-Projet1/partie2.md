@@ -142,3 +142,11 @@ Vous avez maintenant configuré et exécuté une attaque Man-in-the-Middle (MiTM
 ---
 
 ### Pour toute question supplémentaire ou demande d'assistance, n'hésitez pas à me contacter. Bon apprentissage !
+
+# Références : 
+- https://medium.com/@piusppk/malware-analysis-home-lab-bbefe7d1c53b
+- https://medium.com/@efamharris/my-first-attempt-at-building-a-simple-home-lab-for-threat-detection-and-monitoring-a0e6513e5432
+- https://dev.to/dharmil18/man-in-the-middle-attack-mitm-part-1-arp-spoofing-3747
+- https://dev.to/dharmil18/man-in-the-middle-attack-mitm-part-2-packet-sniffer-1nch
+- https://www.malekal.com/iptables-comment-configurer-firewall-netfilter-linux/
+- https://hackingeek.com/manipuler-des-machines-avec-le-framework-mitmf/
