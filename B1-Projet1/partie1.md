@@ -317,3 +317,11 @@ Pour ce guide, nous aurons besoin des machines suivantes :
 ## Conclusion
 
 Vous avez maintenant configuré un environnement virtuel sécurisé pour l'analyse des logiciels malveillants avec plusieurs VM isolées, des outils d'analyse, et des configurations réseau adaptées. Continuez à ajuster et améliorer votre environnement selon vos besoins spécifiques.
+
+# Références : 
+- https://medium.com/@piusppk/malware-analysis-home-lab-bbefe7d1c53b
+- https://medium.com/@efamharris/my-first-attempt-at-building-a-simple-home-lab-for-threat-detection-and-monitoring-a0e6513e5432
+- https://dev.to/dharmil18/man-in-the-middle-attack-mitm-part-1-arp-spoofing-3747
+- https://dev.to/dharmil18/man-in-the-middle-attack-mitm-part-2-packet-sniffer-1nch
+- https://www.malekal.com/iptables-comment-configurer-firewall-netfilter-linux/
+- https://hackingeek.com/manipuler-des-machines-avec-le-framework-mitmf/
