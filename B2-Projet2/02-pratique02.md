@@ -173,7 +173,7 @@ Je vous propose un tutoriel détaillé pour configurer et exécuter une attaque 
      ```sh
      sudo arpspoof -i enp0s8 -t 10.0.2.30 10.0.2.20
      ```
-
+# ==========> REGARDER L'annexe 2
 ### Étape 2 : Configurer `iptables` pour Rediriger le Trafic HTTP
 
 1. **Ouvrez un nouveau terminal sur `attacker`**.
@@ -252,3 +252,85 @@ Imaginez deux amis, Alice (Victim1) et Bob (Victim2), qui échangent des lettres
    - Utilisez les commandes `arp` pour ajouter des entrées ARP statiques sur les machines victimes.
 
 En suivant ces étapes, vous pouvez configurer, exécuter et comprendre une attaque Man-in-the-Middle, tout en apprenant comment détecter et mitiger de telles attaques pour assurer la sécurité de votre réseau.
+
+
+# Annexe 2: 
+
+1. **Empoisonner la Table ARP de Victim1**
+
+   - Exécutez la commande suivante sur la machine attaquant (`attacker`) :
+     ```sh
+     sudo arpspoof -i enp0s8 -t 10.0.2.20 10.0.2.30
+     ```
+
+2. **Empoisonner la Table ARP de Victim2**
+
+   - Ouvrez un nouveau terminal sur `attacker`.
+   - Exécutez la commande suivante :
+     ```sh
+     sudo arpspoof -i enp0s8 -t 10.0.2.30 10.0.2.20
+     ```
+
+### Étape 1 : Empoisonner les Tables ARP
+
+L'objectif de cette étape est d'intercepter et de rediriger le trafic réseau entre deux machines victimes (Victim1 et Victim2) via la machine attaquante (Attacker). Cela permet à l'attaquant d'observer, enregistrer et potentiellement modifier les communications entre les victimes.
+
+#### Contexte et Théorie
+
+**Address Resolution Protocol (ARP)** : ARP est un protocole utilisé pour mapper une adresse IP à une adresse MAC. Par exemple, si Victim1 veut envoyer des données à Victim2, elle utilise ARP pour trouver l'adresse MAC de Victim2.
+
+**Empoisonnement ARP** : Cette technique consiste à envoyer des messages ARP falsifiés sur le réseau. Ces messages associent l'adresse IP d'une victime à l'adresse MAC de l'attaquant, trompant ainsi les victimes pour qu'elles envoient leur trafic réseau à l'attaquant.
+
+#### Vulgarisation de l'Empoisonnement ARP
+
+Imaginez que deux amis, Alice (Victim1) et Bob (Victim2), s'envoient des lettres. Ils utilisent des étiquettes d'adresse pour s'assurer que les lettres vont à la bonne personne. Mallory (Attacker) décide d'intercepter les lettres. Elle envoie de fausses étiquettes à Alice et Bob, faisant croire à chacun d'eux que son adresse est celle de l'autre. Maintenant, toutes les lettres qu'Alice envoie à Bob passent d'abord par Mallory, et vice versa. Mallory peut lire ou même modifier les lettres avant de les transmettre à la destination correcte.
+
+#### Commandes et Explications Détaillées
+
+**Empoisonner la Table ARP de Victim1**
+
+1. **Commande** :
+   ```sh
+   sudo arpspoof -i enp0s8 -t 10.0.2.20 10.0.2.30
+   ```
+
+   **Explication** :
+   - `sudo` : Exécute la commande avec des privilèges administratifs.
+   - `arpspoof` : Outil utilisé pour envoyer des réponses ARP falsifiées.
+   - `-i enp0s8` : Spécifie l'interface réseau interne sur laquelle l'attaque est lancée.
+   - `-t 10.0.2.20` : Cible de l'attaque (Victim1).
+   - `10.0.2.30` : Adresse IP que l'attaquant veut usurper (Victim2).
+
+   **Objectif** :
+   - Cette commande envoie des réponses ARP à Victim1 (10.0.2.20), faisant croire que l'adresse MAC de l'attaquant est l'adresse MAC de Victim2 (10.0.2.30). Ainsi, Victim1 enverra tout son trafic destiné à Victim2 à l'attaquant.
+
+**Empoisonner la Table ARP de Victim2**
+
+1. **Ouvrez un nouveau terminal sur `attacker`**.
+
+2. **Commande** :
+   ```sh
+   sudo arpspoof -i enp0s8 -t 10.0.2.30 10.0.2.20
+   ```
+
+   **Explication** :
+   - `sudo` : Exécute la commande avec des privilèges administratifs.
+   - `arpspoof` : Outil utilisé pour envoyer des réponses ARP falsifiées.
+   - `-i enp0s8` : Spécifie l'interface réseau interne sur laquelle l'attaque est lancée.
+   - `-t 10.0.2.30` : Cible de l'attaque (Victim2).
+   - `10.0.2.20` : Adresse IP que l'attaquant veut usurper (Victim1).
+
+   **Objectif** :
+   - Cette commande envoie des réponses ARP à Victim2 (10.0.2.30), faisant croire que l'adresse MAC de l'attaquant est l'adresse MAC de Victim1 (10.0.2.20). Ainsi, Victim2 enverra tout son trafic destiné à Victim1 à l'attaquant.
+
+#### Pourquoi Deux Commandes ?
+
+Pour que l'attaque soit réussie, l'attaquant doit tromper les deux victimes en même temps :
+- **Victim1** doit penser que l'adresse MAC de l'attaquant est celle de **Victim2**.
+- **Victim2** doit penser que l'adresse MAC de l'attaquant est celle de **Victim1**.
+
+Cela permet à l'attaquant de recevoir et de rediriger tout le trafic entre les deux victimes, créant ainsi une position Man-in-the-Middle.
+
+#### Résumé
+
+L'empoisonnement ARP est une méthode permettant à un attaquant d'intercepter et de rediriger le trafic réseau entre deux machines en envoyant des messages ARP falsifiés. Les commandes `arpspoof` sont utilisées pour tromper les machines victimes et rediriger leur trafic vers l'attaquant, permettant ainsi à l'attaquant de surveiller et potentiellement modifier les communications entre les victimes.
