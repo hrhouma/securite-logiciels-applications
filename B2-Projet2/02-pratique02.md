@@ -195,6 +195,7 @@ Je vous propose un tutoriel détaillé pour configurer et exécuter une attaque 
    - Sur `Victim1`, ouvrez un navigateur et accédez à un site web HTTP (non HTTPS).
    - Sur `attacker`, vous devriez voir le trafic intercepté dans `mitmproxy`.
 
+==========> REGARDER L'annexe 3
 2. **Arrêter l'Attaque** :
    - Arrêtez `arpspoof` et `mitmproxy` en utilisant `Ctrl + C`.
    - Réinitialisez les règles `iptables` :
