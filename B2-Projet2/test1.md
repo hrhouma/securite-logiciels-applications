@@ -1,4 +1,4 @@
-Il semble que le problème soit lié à la façon dont les requêtes HTTP sont redirigées vers `mitmproxy` et comment `mitmproxy` interprète ces requêtes. Les erreurs `Invalid HTTP request form` indiquent que les requêtes redirigées ne sont pas dans le format attendu par `mitmproxy`.
+Le problème est lié à la façon dont les requêtes HTTP sont redirigées vers `mitmproxy` et comment `mitmproxy` interprète ces requêtes. Les erreurs `Invalid HTTP request form` indiquent que les requêtes redirigées ne sont pas dans le format attendu par `mitmproxy`.
 
 Pour résoudre ce problème, nous devons nous assurer que `mitmproxy` est configuré correctement pour intercepter le trafic HTTP. Voici les étapes mises à jour pour assurer une configuration correcte :
 
