@@ -1,7 +1,10 @@
 # Partie 1
-1 - Faire le lab de Man in the moddle
+1 - Faire le lab de Man in the middle : 
+https://github.com/hrhouma/securite-logiciels-applications/blob/main/B2-Projet2/02-pratique02.md
+
 # Partie 2
 2 - Comprendre mitmproxy : https://www.youtube.com/watch?v=tnU_Rwi33oE&ab_channel=QAInsights
+
 # Partie 3 
 - https://www.youtube.com/watch?v=UtMMjXOlRQc&ab_channel=NetworkChuck
 - https://www.youtube.com/watch?v=9B3xas3McQU&ab_channel=bmdyy
