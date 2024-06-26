@@ -154,7 +154,7 @@ Je vous propose un tutoriel détaillé pour configurer et exécuter une attaque 
 
 1. **Mettre à jour le système** :
    ```sh
-   sudo apt update && sudo apt upgrade -y
+   sudo apt update -y
    ```
 
 
@@ -223,7 +223,7 @@ Je vous propose un tutoriel détaillé pour configurer et exécuter une attaque 
 - Observez le username et le password en texte claire (*MACHINE ATTAQUANT - http://localhost:8081*)
 
 # IMPORTANT 3:
-
+- Téléchargez 
 # Pour résumer : 
 ## Installer terminator dans la machine de l'attaquant et diviser en 4
 - terminal 1 :  sudo arpspoof -i enp0s8 -t 10.0.2.20 10.0.2.30
