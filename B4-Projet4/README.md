@@ -1,8 +1,6 @@
-Voici un tutoriel en français étape par étape basé sur les instructions fournies dans le document PDF et les fichiers Python téléchargés.
+# Module 5: Cryptographie
 
-### Module 5: Cryptographie
-
-#### Démo 1 – Chiffrement de César
+## Démo 1 – Chiffrement de César
 
 1. **Téléchargement du fichier `caesar_cipher.py`**
    - Assurez-vous d'avoir téléchargé le fichier `caesar_cipher.py` depuis votre LMS.
@@ -16,7 +14,7 @@ Voici un tutoriel en français étape par étape basé sur les instructions four
      ```
    - Suivez les instructions affichées pour chiffrer ou déchiffrer un texte.
 
-#### Démo 2 – DES (Data Encryption Standard)
+## Démo 2 – DES (Data Encryption Standard)
 
 1. **Téléchargement du fichier `des.py`**
    - Assurez-vous d'avoir téléchargé le fichier `des.py` depuis votre LMS.
@@ -30,7 +28,7 @@ Voici un tutoriel en français étape par étape basé sur les instructions four
      ```
    - Suivez les instructions affichées pour chiffrer ou déchiffrer un texte.
 
-#### Démo 3 – AES (Advanced Encryption Standard)
+## Démo 3 – AES (Advanced Encryption Standard)
 
 1. **Téléchargement du fichier `aes_d.py`**
    - Assurez-vous d'avoir téléchargé le fichier `aes_d.py` depuis votre LMS.
@@ -44,7 +42,7 @@ Voici un tutoriel en français étape par étape basé sur les instructions four
      ```
    - Suivez les instructions affichées pour chiffrer ou déchiffrer un texte.
 
-#### Démo 4 – Génération de Hash
+## Démo 4 – Génération de Hash
 
 1. **Problème 1: Générer le hash MD5 d'un fichier texte**
    - Syntaxe :
@@ -66,7 +64,7 @@ Voici un tutoriel en français étape par étape basé sur les instructions four
      sha512sum a.txt > sha.hash
      ```
 
-#### Démo 5 – Identification de Hash
+## Démo 5 – Identification de Hash
 
 1. **Identification de l'algorithme de hachage à partir d'un hash donné**
    - Ouvrez votre terminal.
@@ -77,7 +75,7 @@ Voici un tutoriel en français étape par étape basé sur les instructions four
    - Entrez le hash et appuyez sur Entrée.
    - L'outil affichera la liste des types de hash les plus probables.
 
-#### Démo 6 – Signature numérique d'un fichier
+## Démo 6 – Signature numérique d'un fichier
 
 1. **Génération des clés pour la signature numérique**
    - Ouvrez votre terminal.
@@ -99,7 +97,7 @@ Voici un tutoriel en français étape par étape basé sur les instructions four
      ```
    - Entrez votre mot de passe lorsque cela est demandé. Un fichier avec l'extension `.gpg` sera généré.
 
-#### Démo 7 – Attaque par texte en clair connu
+## Démo 7 – Attaque par texte en clair connu
 
 1. **Téléchargement du fichier `known_plaintext_attack.py`**
    - Assurez-vous d'avoir téléchargé le fichier `known_plaintext_attack.py` depuis votre LMS.
@@ -113,4 +111,3 @@ Voici un tutoriel en français étape par étape basé sur les instructions four
      ```
    - Suivez les instructions affichées pour réaliser l'attaque par texte en clair connu.
 
-Ce tutoriel couvre les principales démos et instructions décrites dans le document PDF fourni. Vous pouvez maintenant explorer chaque démo en suivant ces étapes détaillées.
