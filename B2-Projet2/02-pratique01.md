@@ -189,7 +189,7 @@ Je vous propose un tutoriel détaillé pour configurer et exécuter une attaque 
 
 1. **Sur la machine attaquant, lancez `mitmproxy`** :
    ```sh
-   sudo mitmproxy -p 8080
+   sudo mitmweb -p 8080
    ```
 
 ![image](https://github.com/hrhouma/securite-logiciels-applications/assets/10111526/86b6ef41-af7b-47f7-b787-b4bcfb2a2a28)
