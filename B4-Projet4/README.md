@@ -111,3 +111,28 @@
      ```
    - Suivez les instructions affichées pour réaliser l'attaque par texte en clair connu.
 
+
+# Explications Approfondies des Démonstrations Cryptographiques
+
+# Démo 1 – Chiffrement de César
+Le chiffrement de César est une méthode de cryptographie symétrique simple où chaque lettre du texte est décalée d'un certain nombre de positions dans l'alphabet. Par exemple, avec un décalage de 3, 'A' devient 'D', 'B' devient 'E', et ainsi de suite. La force de ce chiffrement réside dans la simplicité de sa mise en œuvre, mais il est vulnérable aux attaques par force brute ou analyse de fréquence.
+
+# Démo 2 – DES (Data Encryption Standard)
+DES est un algorithme de chiffrement par bloc qui utilise une clé de 56 bits pour chiffrer les données en blocs de 64 bits. Bien qu'ancien et considéré comme vulnérable à cause de la petite taille de sa clé (permettant des attaques par force brute), il a été largement utilisé et reste instructif pour comprendre les concepts de base du chiffrement symétrique et des modes d'opération des blocs.
+
+# Démo 3 – AES (Advanced Encryption Standard)
+AES est le successeur de DES, utilisant des clés de 128, 192 ou 256 bits pour chiffrer les données en blocs de 128 bits. Cet algorithme est actuellement l'un des standards de chiffrement les plus sûrs et les plus utilisés, employé tant dans les applications gouvernementales que commerciales. Il est résistant à toutes les attaques connues, à l'exception de celles par force brute contre les clés les plus courtes.
+
+# Démo 4 – Génération de Hash
+Le hachage est utilisé pour créer une empreinte digitale unique d'un ensemble de données. MD5 et SHA512 sont des fonctions de hachage cryptographiques. MD5 produit un hachage de 128 bits, mais il est considéré comme vulnérable à certaines attaques et donc moins sécurisé. SHA512 est une fonction de hachage plus robuste produisant un hachage de 512 bits, offrant une sécurité accrue pour les applications modernes.
+
+# Démo 5 – Identification de Hash
+Identifier le type d'algorithme de hachage utilisé pour un hash donné est crucial dans les tests de sécurité pour comprendre les vulnérabilités potentielles. Des outils comme `hash-identifier` aident à reconnaître le type de hash basé sur des caractéristiques et des longueurs spécifiques.
+
+# Démo 6 – Signature numérique d'un fichier
+La signature numérique permet de vérifier l'authenticité et l'intégrité d'un document. Elle utilise des clés publiques et privées pour permettre à l'émetteur de signer numériquement un document et au destinataire de vérifier la signature. Ce processus est essentiel pour des communications sécurisées et la validation de l'identité des parties dans les transactions numériques.
+
+# Démo 7 – Attaque par texte en clair connu
+Cette démonstration illustre une méthode d'attaque où l'attaquant possède à la fois un échantillon de texte en clair et son équivalent chiffré. L'objectif est d'exploiter cette information pour dériver la clé cryptographique utilisée ou pour obtenir plus d'informations sur l'algorithme de chiffrement. Cela démontre la nécessité de sécuriser non seulement les clés mais aussi les schémas de chiffrement contre de telles vulnérabilités.
+
+- Chaque démonstration couvre un aspect différent de la cryptographie, offrant aux étudiants une vue d'ensemble des méthodes, de leur application, et de leur sécurité. Ces exemples pratiques renforcent la compréhension des principes fondamentaux de la cryptographie tout en exposant les élèves à des techniques de cryptanalyse et de sécurisation des données.
