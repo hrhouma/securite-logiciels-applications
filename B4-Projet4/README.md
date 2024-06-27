@@ -58,8 +58,11 @@ source hacker_ethique/bin/activate
    - Naviguez jusqu'au répertoire où se trouve `aes_d.py`.
    - Exécutez la commande suivante :
      ```bash
+     pip uninstall pycrypto
+     pip uninstall pycryptodome
      pip install pycryptodome
-     python aes_d.py
+     pip list | grep pycryptodome
+     python3 aes_d.py
      ```
    - Suivez les instructions affichées pour chiffrer ou déchiffrer un texte.
 
