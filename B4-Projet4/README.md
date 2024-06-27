@@ -1,9 +1,29 @@
 # Module 5: Cryptographie
 
+
+```bash
+# Mettez à jour votre gestionnaire de paquets
+sudo apt update
+
+# Installez Python et pip
+sudo apt install python3 python3-pip
+
+# Installez virtualenv pour créer des environnements virtuels isolés
+sudo pip3 install virtualenv
+
+# Créez un environnement virtuel nommé 'hacker_ethique' dans votre répertoire de projet
+virtualenv hacker_ethique
+
+# Activez l'environnement virtuel
+# Sur Linux et macOS :
+source hacker_ethique/bin/activate
+```
+
+
 ## Démo 1 – Chiffrement de César
 
 1. **Téléchargement du fichier `caesar_cipher.py`**
-   - Assurez-vous d'avoir téléchargé le fichier `caesar_cipher.py` depuis votre LMS.
+   - Assurez-vous d'avoir téléchargé le fichier `caesar_cipher.py` depuis votre GitHub dossier fichiers.
 
 2. **Exécution du fichier `caesar_cipher.py`**
    - Ouvrez votre terminal.
@@ -17,7 +37,7 @@
 ## Démo 2 – DES (Data Encryption Standard)
 
 1. **Téléchargement du fichier `des.py`**
-   - Assurez-vous d'avoir téléchargé le fichier `des.py` depuis votre LMS.
+   - Assurez-vous d'avoir téléchargé le fichier `des.py` depuis votre GitHub dossier fichiers.
 
 2. **Exécution du fichier `des.py`**
    - Ouvrez votre terminal.
@@ -31,7 +51,7 @@
 ## Démo 3 – AES (Advanced Encryption Standard)
 
 1. **Téléchargement du fichier `aes_d.py`**
-   - Assurez-vous d'avoir téléchargé le fichier `aes_d.py` depuis votre LMS.
+   - Assurez-vous d'avoir téléchargé le fichier `aes_d.py` depuis votre GitHub dossier fichiers.
 
 2. **Exécution du fichier `aes_d.py`**
    - Ouvrez votre terminal.
@@ -100,7 +120,7 @@
 ## Démo 7 – Attaque par texte en clair connu
 
 1. **Téléchargement du fichier `known_plaintext_attack.py`**
-   - Assurez-vous d'avoir téléchargé le fichier `known_plaintext_attack.py` depuis votre LMS.
+   - Assurez-vous d'avoir téléchargé le fichier `known_plaintext_attack.py` depuis votre GitHub dossier fichiers.
 
 2. **Exécution du fichier `known_plaintext_attack.py`**
    - Ouvrez votre terminal.
