@@ -1,6 +1,4 @@
-Vous avez raison. Voici les étapes mises à jour avec l'inclusion de la création d'un environnement virtuel (venv) sur Windows et la configuration du réseau en mode bridge pour permettre la communication entre l'hôte et la machine virtuelle.
-
-### Table des Matières
+# Table des Matières
 
 1. Introduction
 2. Préparation de l'environnement
@@ -18,11 +16,11 @@ Vous avez raison. Voici les étapes mises à jour avec l'inclusion de la créati
     6. Exécution et tests
 4. Étapes Suivantes
 
-### 1. Introduction
+# 1. Introduction
 
 Ce tutoriel vise à sensibiliser et à des fins pédagogiques en démontrant comment écrire des malwares en Python. Nous commencerons par préparer notre environnement et établirons une connexion socket entre une machine hôte et une machine virtuelle Windows.
 
-### 2. Préparation de l'environnement
+# 2. Préparation de l'environnement
 
 #### 2.1 Installation de VirtualBox
 Téléchargez et installez VirtualBox à partir du [site officiel](https://www.virtualbox.org/). Suivez les instructions d'installation par défaut.
