@@ -96,7 +96,8 @@ venv\Scripts\activate
 ```bash
 pip install socket
 ```
-
+# Important en cas d'erreur: 
+- Pas besoin d'installer socket avec pip dans les nouvelles versions. C'est déja intégré dans python.
 [Revenir en haut](#table-des-matières)
 
 #### 3.4 Écriture du script Python pour le serveur
