@@ -394,3 +394,11 @@ Utilisez une machine virtuelle pour tester les fichiers exécutables. Déposez `
 Ce tutoriel vous a guidé à travers les étapes de création d'un ransomware simple en Python. Nous avons couvert la préparation de l'environnement, la configuration de la connexion socket, et la création des scripts de chiffrement et de déchiffrement. N'oubliez pas que ce tutoriel est uniquement à des fins éducatives. Utilisez ces connaissances de manière éthique et responsable.
 
 [Revenir en haut](#table-des-matières)
+
+#
+[3:24 PM] François Barthe
+Panneau de configuration\Tous les Panneaux de configuration\Connexions réseau
+[3:27 PM] François Barthe
+Ou on entre ça dans la barre de recherche :
+ 
+Connexions réseau
