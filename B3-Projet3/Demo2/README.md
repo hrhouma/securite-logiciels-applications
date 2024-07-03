@@ -64,11 +64,32 @@ Téléchargez l'ISO de Windows 10 depuis le site officiel de Microsoft.
 
 ### 3. Création d'un Socket pour Établir la Connexion
 
-#### 3.1 Configuration du réseau en mode bridge
-1. Ouvrez les paramètres de votre VM dans VirtualBox.
-2. Allez dans la section "Réseau".
-3. Changez le mode de l'adaptateur réseau en "Bridge Adapter".
-4. Sélectionnez votre adaptateur réseau physique dans la liste déroulante.
+Configurez deux adaptateurs réseau de votre machine virtuelle windows 10, un en mode "Bridge Adapter" et l'autre en mode "NAT Network", suivez ces étapes :
+
+### Adapter 1 (Bridge Adapter)
+1. Ouvrez les paramètres de votre machine virtuelle dans VirtualBox.
+2. Allez à l'onglet "Réseau".
+3. Assurez-vous que "Adapter 1" est activé.
+4. Sélectionnez "Attaché à: Bridge Adapter" dans le menu déroulant.
+5. Choisissez votre adaptateur réseau physique (par exemple "Intel(R) Wi-Fi 6 AX201 160MHz") dans la liste déroulante sous "Nom".
+6. Cliquez sur "OK" pour enregistrer les paramètres.
+
+### Adapter 2 (NAT Network)
+1. Sélectionnez "Adapter 2" dans l'onglet "Réseau".
+2. Assurez-vous que "Adapter 2" est activé.
+3. Sélectionnez "Attaché à: NAT Network" dans le menu déroulant.
+4. Assurez-vous que le nom du réseau NAT est correctement sélectionné, comme "NatNetwork".
+5. Cliquez sur "OK" pour enregistrer les paramètres.
+
+Avec ces configurations, "Adapter 1" permettra à votre machine virtuelle de se connecter directement à votre réseau local en utilisant votre carte réseau physique, tandis que "Adapter 2" utilisera le réseau NAT pour une connexion Internet facilitée. Assurez-vous de vérifier que les réglages sont corrects pour éviter tout problème de connexion.
+
+# Carte 1
+![image](https://github.com/hrhouma/securite-logiciels-applications/assets/10111526/c44845df-6e51-4eda-b3b6-b0c51a83fef7)
+# Carte 2
+![image](https://github.com/hrhouma/securite-logiciels-applications/assets/10111526/9266e6ca-c9ee-4c91-aa2e-ed3626c9dda1)
+
+
+
 
 [Revenir en haut](#table-des-matières)
 
