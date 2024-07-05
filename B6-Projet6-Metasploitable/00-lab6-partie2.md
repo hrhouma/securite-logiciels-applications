@@ -1,8 +1,4 @@
-Voici une version complète du README qui intègre toutes les étapes nécessaires pour mener une attaque par force brute SSH utilisant Metasploit contre une machine cible, spécifiquement Metasploitable3, en partant de l'installation du système d'exploitation jusqu'à la réalisation de l'attaque.
-
----
-
-## README - Configuration et Utilisation de Metasploit pour Attaque par Force Brute SSH
+## LAB6 - PARTIE2 - Configuration et Utilisation de Metasploit pour Attaque par Force Brute SSH
 
 ### Description
 Ce document fournit des instructions détaillées pour utiliser Metasploit afin de lancer une attaque par force brute SSH contre une machine cible, en l'occurrence Metasploitable3. Ce guide couvre la préparation des fichiers nécessaires, la configuration de Metasploit, et le lancement de l'attaque.
