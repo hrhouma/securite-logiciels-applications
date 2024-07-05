@@ -108,6 +108,8 @@ Ce document fournit des instructions détaillées pour utiliser Metasploit afin 
      set PASS_FILE /snap/metasploit-framework/passwords.txt
      set VERBOSE true
      ```
+## Remarque : 172.28.128.3 est l'adresse de la machine metasploitable3 (host only adapter regardez le lab précédent ) dans mon cas
+
 
 # 7 -  Étape 4: Lancement de l'Attaque
 - Exécutez le module pour commencer l'attaque.
