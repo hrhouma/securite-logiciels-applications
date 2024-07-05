@@ -29,8 +29,15 @@ Ce document fournit des instructions détaillées pour utiliser Metasploit afin 
 
 6. Tapez `exit` pour retourner à la session de l'utilisateur `eleve`.
 
-
+# Remarque IMPORTANTE #1:  root
+- Il ne faut pas utiliser un root user étant donné que c'est bloquant ! C'est pour cette raison j'utilise eleve.
+# Remarque IMPORTANTE #2:  permissions
+- Déplacez les fichiers dans un répertoire où Metasploit a les permissions de lecture.
+  ```bash
+  sudo mv /home/eleve/usernames.txt /snap/metasploit-framework/
+    ```
 # 4 - (MÉTHODE#1) Installation de Metasploit (si non installé)
+
 1. Ouvrez un terminal.
 2. Exécutez les commandes suivantes pour installer Metasploit:
    ```bash
