@@ -12,6 +12,7 @@
 
 ### msfconsole
 - **Qu'est-ce que c'est ?** `msfconsole` est l'interface en ligne de commande du **Metasploit Framework**, un outil puissant utilisé pour le développement et l'exécution d'exploits contre des cibles distantes.
+- `msfconsole` est l'interface en ligne de commande de Metasploit, un outil très puissant utilisé pour le développement et l'exécution d'exploits contre des machines distantes. C'est l'une des interfaces principales pour interagir avec le framework Metasploit, qui permet de tester la sécurité des systèmes informatiques en simulant des attaques.
 - **Rôle :** `msfconsole` sert de plateforme pour lancer des scans, des exploits, et d'autres outils de sécurité. C'est un environnement interactif qui permet aux utilisateurs de rechercher, de configurer et d'exécuter des modules d'exploitation et des payloads sur des cibles spécifiées.
 - **Utilisation :** Utilisé par les chercheurs en sécurité, les testeurs de pénétration et les professionnels de la cybersécurité pour identifier et exploiter les vulnérabilités dans les systèmes et les réseaux.
 
