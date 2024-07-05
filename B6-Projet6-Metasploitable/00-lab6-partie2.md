@@ -61,7 +61,15 @@ Ce document fournit des instructions détaillées pour utiliser Metasploit afin 
    ```bash
    msfconsole
    ```
+# 4 - (MÉTHODE#3) Installation de Metasploit (si non installé)
 
+1. Ouvrez un terminal.
+2. Exécutez les commandes suivantes pour installer Metasploit:
+
+```bash
+     sudo apt update
+     snap install metasploit-framework
+ ```
 
 
 # 5 - Étape 1: Préparation des Fichiers de Noms d'Utilisateurs et de Mots de Passe
