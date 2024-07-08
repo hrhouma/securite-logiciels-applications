@@ -1,4 +1,4 @@
-Pour résoudre le problème de l'échec du chiffrement des fichiers, nous devons améliorer le script pour capturer et afficher les exceptions spécifiques qui se produisent lors du processus de chiffrement. Cela nous permettra de mieux comprendre pourquoi le chiffrement échoue. Voici une version mise à jour de votre script avec des journaux de débogage améliorés :
+
 
 ### Script de Chiffrement (ec.py)
 
