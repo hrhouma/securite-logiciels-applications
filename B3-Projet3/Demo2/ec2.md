@@ -1,15 +1,3 @@
-Il semble que le fichier `desktop.ini` soit pris en compte lors du chiffrement et que les fichiers texte ne soient pas correctement chiffrés. Voici quelques ajustements pour résoudre ces problèmes :
-
-1. **Ignorer les fichiers système comme `desktop.ini`**
-2. **Corriger le processus de chiffrement pour les fichiers texte**
-
-### Ignorer les Fichiers Système
-
-Nous allons ajuster le script pour ignorer les fichiers système comme `desktop.ini`.
-
-### Améliorer le Processus de Chiffrement
-
-Nous allons corriger le processus de chiffrement pour nous assurer que les fichiers texte sont correctement chiffrés.
 
 ### Version Révisée du Script de Chiffrement (ec.py)
 
