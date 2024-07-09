@@ -463,15 +463,15 @@ python ec.py
 python dc.py
 ```
 #### 12. Rentrez la clé (N'oubliez pas d'envoyer le fichier *encrypted_hosts.txt*  dans le dossier partager pour copier et coller la clé.
-#### 13.Observez les fichiers sur le desktop de la machine VM attaquér (les fichiers sont décryptés et les données sont récupérés).
-
+#### 13. Observez les fichiers sur le desktop de la machine VM attaquér (les fichiers sont décryptés et les données sont récupérés).
+#### 14 . redéplacez les fichiers ec.py et dc.py à la machine host pour les tranformer en exécutables (PARTIE 3)
 # IMPORTANT - vérifiez que vous avez les bonnes adresses dans client.py (MACHINE GUEST, dossier malware dans documents) et server.py (MACHINE HOST, Documents/malware-pedagogique)
 
 
 
 # FIN DE LA PARTIE 2
 -----
-# FIN DE LA PARTIE 3 (Les exécutables):
+# DÉBUT DE LA PARTIE 3 (Les exécutables):
 #### 4.4 Conversion des scripts Python en fichiers exécutables (.exe)
 
 Utilisez l'outil `auto-py-to-exe` pour convertir vos scripts Python en fichiers exécutables.
