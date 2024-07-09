@@ -31,8 +31,9 @@ Ce tutoriel vise à sensibiliser et à des fins pédagogiques en démontrant com
 
 [Revenir en haut](#table-des-matières)
 
+---
 # 2 Préparation environnement
-
+---
 #### 2.1 Installation de VirtualBox
 Téléchargez et installez VirtualBox à partir du [site officiel](https://www.virtualbox.org/). Suivez les instructions d'installation par défaut.
 
@@ -62,8 +63,9 @@ Téléchargez et installez VirtualBox à partir du [site officiel](https://www.v
 
 [Revenir en haut](#table-des-matières)
 
+---
 ### 3. Création d'un Socket pour Établir la Connexion
-
+---
 Configurez deux adaptateurs réseau de votre machine virtuelle windows 10, un en mode "Bridge Adapter" et l'autre en mode "NAT Network", suivez ces étapes :
 
 ### Adapter 1 (Bridge Adapter)
@@ -209,6 +211,9 @@ python client.py
 
 #### 7. Supprimer les fichiers client.py et server.py (c'était pour tester les sockets)
 #### 8. On passe à l'attaque
+
+# Fin de la partie 1
+# Début de la partie 2
 --------
 ### 4. Création d'un ransomware en Python
 
