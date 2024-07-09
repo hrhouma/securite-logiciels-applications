@@ -1,4 +1,4 @@
-Le fichier `encrypted_hosts.txt` que vous avez reçu contient une ligne avec le format suivant :
+Le fichier `encrypted_hosts.txt` que nous reçevons contient une ligne avec le format suivant :
 
 ```
 MSEDGEWIN10 : SlqtEOBKCbYN{G}tWT.xjctgaCIyBXSQ.Te}]eQW?{j,nsLD<fE?]g<lGDvORc>U
