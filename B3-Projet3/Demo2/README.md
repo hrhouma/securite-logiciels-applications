@@ -39,8 +39,8 @@ Téléchargez et installez VirtualBox à partir du [site officiel](https://www.v
 [Revenir en haut](#table-des-matières)
 
 #### 2.2 Installation de Windows 10 ISO
-Téléchargez l'ISO de Windows 10 depuis le site officiel de Microsoft.
-
+## Option 1 - Téléchargez l'ISO de Windows 10 depuis le site officiel de Microsoft.
+## Option 2 ==> https://github.com/hrhouma/securite-logiciels-applications/blob/main/1%20-%20Introduction%20%C3%A0%20la%20S%C3%A9curit%C3%A9%20des%20Logiciels%20et%20des%20Applications/TP0-WINDOWS10/02.md
 [Revenir en haut](#table-des-matières)
 
 #### 2.3 Création d'une VM
