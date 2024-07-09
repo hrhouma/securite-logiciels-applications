@@ -225,7 +225,9 @@ python client.py
 - Nous allons commencer par créer les 3 fichiers dans le dossier malware pedagogique dans windows 11 de la machien attaquante et ensuite déplacer ec.py et dc.py à la machine attquée.
 - Il est à noter que le but de la partie 2 est de tester avec python. C'est au niveau de la partie 3 que nous allons créer les exécutables d'attaque.
 - Au niveau de la partie 4, je vous fais un résumé sur la mécanique de cette attaque.
-  
+
+# ✈️ IMPORTANT - N'oubliez pas de changez les adresses IP dans ec.py (👿) et server.py (pas besoin dans dc.py (🧞))
+# Dans mon cas,c'est 10.0.0.63 à la place de 192.168.1.85, vous pouvez garder les ports telles qu'ils sont
 --------
 ### 4. Création d'un ransomware en Python
 
