@@ -176,7 +176,7 @@ python client.py
 
 ---------
 
-# RÉSUMÉ :
+# RÉSUMÉ DE LA PARTIE 1:
 
 #### 1. Création du dossier malware-pédagogique
 #### 2. Ajout des deux scripts client.py et server.py 
@@ -212,8 +212,20 @@ python client.py
 #### 7. Supprimer les fichiers client.py et server.py (c'était pour tester les sockets)
 #### 8. On passe à l'attaque
 
-# Fin de la partie 1
-# Début de la partie 2
+# Fin de la partie 1 (SUPPRIMEZ LES FICHIERS CLIENT.PY ET SERVER.PY)
+- C'était juste pour tester la connectivité avec les sockets
+---
+# Début de la partie 2 (Nous allons utiser 3 nouveaux fichiers)
+- ec.py (machine victime)
+- dc.py (machine victime)
+- server.py (machine attaquante)
+
+![image](https://github.com/hrhouma/securite-logiciels-applications/assets/10111526/e0563f09-1b33-4bc6-a51d-23a8946cf6da)
+
+- Nous allons commencer par créer les 3 fichiers dans le dossier malware pedagogique dans windows 11 de la machien attaquante et ensuite déplacer ec.py et dc.py à la machine attquée.
+- Il est à noter que le but de la partie 2 est de tester avec python. C'est au niveau de la partie 3 que nous allons créer les exécutables d'attaque.
+- Au niveau de la partie 4, je vous fais un résumé sur la mécanique de cette attaque.
+  
 --------
 ### 4. Création d'un ransomware en Python
 
