@@ -186,10 +186,10 @@ python client.py
 - Installez python3.9 ou 3.10 ou 3.11 ou 3.12
 - Allez au dossier malware-pedagogique
 ```bash
-pip install venv
-python -m venv fofana
+pip3 install virtualenv
+python3 -m venv fofana
 fofana\Scripts\activate
-python server.py
+python3 server.py
 ```
 ##### Au niveau de la machine host (windows 11) dans le dossier malware pédagogique
 - Installez python3.9 ou 3.10 ou 3.11 ou 3.12
@@ -198,12 +198,17 @@ python server.py
 python client.py
 ```
 # IMPORTANT - vérifiez que vous avez les bonnes adresses dans client.py (MACHINE GUEST, dossier malware dans documents) et server.py (MACHINE HOST, Documents/malware-pedagogique)
-## 7.
-## 8.
-## 9.
-## 10.
 
+![image](https://github.com/hrhouma/securite-logiciels-applications/assets/10111526/413fc91e-d755-40ea-bab9-48f2a7c67aeb)
 
+![image](https://github.com/hrhouma/securite-logiciels-applications/assets/10111526/52cea9df-165f-4132-a081-3405461395b6)
+
+- Si vous recevez le message suivant, c'est que vous êtes connectés et le socket marche bien :
+- Côté server : Connection established from: ('10.0.0.63', 63809)
+- Côté client (machine attaquée) -  Received b'Hello World'
+
+#### 7. Supprimer les fichiers client.py et server.py (c'était pour tester les sockets)
+#### 8. On passe à l'attaque
 --------
 ### 4. Création d'un ransomware en Python
 
