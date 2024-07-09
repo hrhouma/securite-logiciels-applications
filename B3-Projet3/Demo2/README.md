@@ -193,7 +193,7 @@ python3 -m venv fofana
 fofana\Scripts\activate
 python3 server.py
 ```
-##### Au niveau de la machine host (windows 11) dans le dossier malware pédagogique
+##### Au niveau de la machine guest (VM windows 10) dans le dossier malware 
 - Installez python3.9 ou 3.10 ou 3.11 ou 3.12
 - Copier le fichier client.py à partir du dossier partagé sur wwindows dans un dossier malware dans Documents sur la VM windows 10
 ```bash
@@ -433,6 +433,45 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
 
 [Revenir en haut](#table-des-matières)
 
+
+---------
+
+# RÉSUMÉ DE LA PARTIE 2:
+
+
+
+#### 1. Création des 3 fichiers ec.py , dc.py et server.py
+#### 2. Copier coller les conetnus à partir du contenu ci-haut (il faut juste changer l'adresse IP avec la bonne dans ec.py et server.py)
+#### 3. Créer un dossier partagé entre votre machine host (Ma vrai machine Windows 11) et la machine guest attaquée (VM windows 10)
+#### 4. Il faut comprendre que la machine host (Ma vrai machine Windows 11) va attaquer la machine guest (la VM windows 10)
+#### 7. Création de deux fichiers exemples dans le bureau de la machine attaquée avec du texte en claire (par exemple , mes-documents-importants.txt et mes-documents-importants.docx et mettre du contenu (par exemple avec =lorem(1000) pour ajouter du texte aléatoire dans le fichier word).
+
+##### Au niveau de la machine host (windows 11) dans le dossier malware pédagogique, on lancer 
+- Allez au dossier malware-pedagogique
+```bash
+python3 server.py
+```
+##### Au niveau de la machine cible (la VM windows 10) dans le dossier malware 
+```bash
+python ec.py
+```
+#### 8.  Allez au bureau et essayer d'ouvrir les fichiers  mes-documents-importants.txt et mes-documents-importants.docx (contenu encrypté 😧).
+#### 9.  Au niveau de la machine host (windows 11) dans le dossier malware pédagogique ou nous avons le server.py, observez qu'il y a un fichier *encrypted_hosts.txt* avec le nom de la machine attaquée et une clé pour déchiffrer.
+#### 10. Dans la vraie vie, cette clé est envoyée lorsque le socket était ouvert , c'est une clé que le hacker utilisera pour harceler la victime pour demander un rançon ! 
+#### 11. Au niveau de la machine windows 10 VM (attquée), nous allons exécuter la commande suivante
+```bash
+python dc.py
+```
+#### 12. Rentrez la clé (N'oubliez pas d'envoyer le fichier *encrypted_hosts.txt*  dans le dossier partager pour copier et coller la clé.
+#### 13.Observez les fichiers sur le desktop de la machine VM attaquér (les fichiers sont décryptés et les données sont récupérés).
+
+# IMPORTANT - vérifiez que vous avez les bonnes adresses dans client.py (MACHINE GUEST, dossier malware dans documents) et server.py (MACHINE HOST, Documents/malware-pedagogique)
+
+
+
+# FIN DE LA PARTIE 2
+-----
+# FIN DE LA PARTIE 3 (Les exécutables):
 #### 4.4 Conversion des scripts Python en fichiers exécutables (.exe)
 
 Utilisez l'outil `auto-py-to-exe` pour convertir vos scripts Python en fichiers exécutables.
