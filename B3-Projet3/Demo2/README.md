@@ -174,7 +174,9 @@ python client.py
 
 [Revenir en haut](#table-des-matières)
 
----------
+---
+---
+---
 
 # RÉSUMÉ DE LA PARTIE 1:
 
@@ -214,6 +216,8 @@ python client.py
 
 # Fin de la partie 1 (SUPPRIMEZ LES FICHIERS CLIENT.PY ET SERVER.PY)
 - C'était juste pour tester la connectivité avec les sockets
+---
+---
 ---
 # Début de la partie 2 (Nous allons utiser 3 nouveaux fichiers)
 - ec.py (machine victime)
@@ -434,7 +438,9 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
 [Revenir en haut](#table-des-matières)
 
 
----------
+---
+---
+---
 
 # RÉSUMÉ DE LA PARTIE 2:
 
@@ -470,20 +476,35 @@ python dc.py
 
 
 # FIN DE LA PARTIE 2
------
+---
+---
+---
 # DÉBUT DE LA PARTIE 3 (Les exécutables):
 #### 4.4 Conversion des scripts Python en fichiers exécutables (.exe)
 
 Utilisez l'outil `auto-py-to-exe` pour convertir vos scripts Python en fichiers exécutables.
 
 ```bash
-pip install auto-py-to-exe
+pip3 install virtualenv (déja exécutée)
+python3 -m venv fofana (déja exécutée)
+fofana\Scripts\activate 
+pip install auto-py-to-exe (ou pip3 install auto-py-to-exe)
 ```
 
 Lancez l'interface `auto-py-to-exe`.
 
 ```bash
 auto-py-to-exe
+```
+
+## (OPTIONNEL) Remarque (si auto-py-to-exe ne fonctionne pas pour vous)
+
+```bash
+deactivate
+python3 -m venv nouveau
+nouveau\Scripts\activate 
+pip3 install auto-py-to-exe
+auto-py-to-exe 
 ```
 
 Sélectionnez le fichier `ec.py` pour le convertir en `ec.exe`. Répétez l'opération pour `dc.py`.
@@ -499,6 +520,41 @@ Sélectionnez le fichier `ec.py` pour le convertir en `ec.exe`. Répétez l'opé
 #### 4.5 Test dans une machine virtuelle
 
 Utilisez une machine virtuelle pour tester les fichiers exécutables. Déposez `ec.exe` sur la machine virtuelle pour chiffrer les fichiers et envoyez la clé au serveur. Utilisez `dc.exe` pour déchiffrer les fichiers avec la clé appropriée.
+
+
+
+
+---
+---
+---
+
+# RÉSUMÉ DE LA PARTIE 3:
+
+
+
+#### 1. Transformer les fichiers ec.py , dc.py en exécutables en utilisant auto-py-to-exe
+#### 2. Transférez les exécutables vers le dossier partagés entre la machine host et la machine guest (la VM attaquée)
+#### 3. Vérifiez que le contenu est en texte claire dans Bureau de la VM ==> mes-documents-importants.txt et mes-documents-importants.docx
+#### 4. Exécutez le ec.exe dans le dossier partagé dans la VM windows (AVANT D'ÉXÉCUTER, IL FAUT exécuter le python3 server.py dans la machine host attaquante , dossier malware-pedagogique)
+```bash
+python3 server.py
+```
+#### 5. Observez les fichiers dans le bureau de la VM windows 10 attaquée (contenu crypté)
+#### 6. Observez votre dossier malware-pedeagogique ou il y a le server.js, il y aura un nouveau fichier encrypted_hosts.txt qui contient le nom de la machine attaquée + la clé pour décrypter.
+#### 7. Exécutez dc.exe dans la machine attaquée (VM Windows10). 
+#### 8. Rentrez la clé 
+#### 9. Observez les fichiers dans le bureau de la VM windows 10 attaquée (contenu décrypté)
+
+# FIN DE LA PARTIE 3:
+---
+---
+---
+
+# RÉSUMÉ DE LA PARTIE 3:
+
+# PARTIE 4:
+![image](https://github.com/hrhouma/securite-logiciels-applications/assets/10111526/de7034e3-ab40-4424-9960-e5e4777d2718)
+- Décrire la mécanique d'attaque.
 
 [Revenir en haut](#table-des-matières)
 
