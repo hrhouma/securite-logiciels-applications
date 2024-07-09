@@ -1,5 +1,3 @@
-
-
 ### Script de Chiffrement (ec.py)
 
 ```python
@@ -117,4 +115,3 @@ input()
    - Assurez-vous que l'adresse IP de la machine attaquante (hôte) est correcte dans le script `ec.py`.
    - Vérifiez que la machine attaquée peut se connecter à la machine attaquante via l'adresse IP spécifiée.
 
-En suivant ces étapes et en consultant les logs générés, vous devriez être en mesure de diagnostiquer et de résoudre les problèmes de chiffrement des fichiers.
