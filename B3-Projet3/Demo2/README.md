@@ -4,7 +4,7 @@
 # Table des Matières
 
 1. [Introduction](#1-introduction)
-2. [Préparation de l'environnement](#-2.Préparation-environnement)
+2. [Préparation de l'environnement](#-2--Préparation-environnement)
     1. [Installation de VirtualBox](#21-installation-de-virtualbox)
     2. [Installation de Windows 10 ISO](#22-installation-de-windows-10-iso)
     3. [Création d'une VM](#23-création-dune-vm)
