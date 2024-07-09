@@ -89,8 +89,6 @@ Avec ces configurations, "Adapter 1" permettra à votre machine virtuelle de se 
 ![image](https://github.com/hrhouma/securite-logiciels-applications/assets/10111526/9266e6ca-c9ee-4c91-aa2e-ed3626c9dda1)
 
 
-
-
 [Revenir en haut](#table-des-matières)
 
 #### 3.2 Installation de Python et des bibliothèques nécessaires
