@@ -176,13 +176,13 @@ python client.py
 
 # RÉSUMÉ :
 
-## 1. Création du dossier malware-pédagogique
-## 2. Ajout des deux scripts client.py et server.py 
-## 3. Créer un dossier partagé entre votre machine host (Ma vrai machine Windows 11) et la machine guest attaquée (VM windows 10)
-## 4. Il faut comprendre que la machine host (Ma vrai machine Windows 11) va attaquer la machine guest (la VM windows 10)
-## 5. Et donc, pour tester la connectiveté entre les deux, il faut pinger la machine guest depuis la machine host ping 10.0.0.63 , dans mon cas. Aussi, il faut placer client.py dans la machine attaquée (la VM windows 10) et garder le serveur (server.py) dans le dossier  malware-pédagogique sur ma machine host.
-## 6. Testez la connectivité avec les sockets en utilisant les commandes suivantes
-## Au niveau de la machine host (windows 11) dans le dossier malware pédagogique
+#### 1. Création du dossier malware-pédagogique
+#### 2. Ajout des deux scripts client.py et server.py 
+#### 3. Créer un dossier partagé entre votre machine host (Ma vrai machine Windows 11) et la machine guest attaquée (VM windows 10)
+#### 4. Il faut comprendre que la machine host (Ma vrai machine Windows 11) va attaquer la machine guest (la VM windows 10)
+#### 5. Et donc, pour tester la connectiveté entre les deux, il faut pinger la machine guest depuis la machine host ping 10.0.0.63 , dans mon cas. Aussi, il faut placer client.py dans la machine attaquée (la VM windows 10) et garder le serveur (server.py) dans le dossier  malware-pédagogique sur ma machine host.
+#### 6. Testez la connectivité avec les sockets en utilisant les commandes suivantes
+##### Au niveau de la machine host (windows 11) dans le dossier malware pédagogique
 - Installez python3.9 ou 3.10 ou 3.11 ou 3.12
 - Allez au dossier malware-pedagogique
 ```bash
@@ -191,7 +191,7 @@ python -m venv fofana
 fofana\Scripts\activate
 python server.py
 ```
-## Au niveau de la machine host (windows 11) dans le dossier malware pédagogique
+##### Au niveau de la machine host (windows 11) dans le dossier malware pédagogique
 - Installez python3.9 ou 3.10 ou 3.11 ou 3.12
 - Copier le fichier client.py à partir du dossier partagé sur wwindows dans un dossier malware dans Documents sur la VM windows 10
 ```bash
