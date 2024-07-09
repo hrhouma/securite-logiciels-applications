@@ -99,10 +99,8 @@ Téléchargez et installez Python à partir du [site officiel](https://www.pytho
 #### 3.3 Création d'un environnement virtuel (venv)
 1. Ouvrez l'invite de commande sur votre machine hôte.
 2. Créez un nouveau dossier pour votre projet :
-```bash
-mkdir socket_project
-cd socket_project
-```
+- Appelez le par exemple malware-pedagogique
+- Allez dans le dossier malware-pedagogique
 3. Créez un environnement virtuel :
 ```bash
 python -m venv venv
