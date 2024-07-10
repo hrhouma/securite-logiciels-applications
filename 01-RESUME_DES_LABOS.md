@@ -9,7 +9,9 @@
 ##### Labo 7 - Labo Wordpress
 ##### Labo 8 - Labo Beef + attaques XSS
 ##### Labo 9 - Mise en place d'un site web vulnérable 
-
+##### Labo 10 - Manipulations nmap - un guide complet (Gestion de vulnérabilités)
+##### Labo 11 - Manipulations protéger un réseau aircrack-ng
 
 # Références : 
 - https://www.aircrack-ng.org/doku.php?id=fr:simple_wep_crack
+- https://adam-toscher.medium.com/configure-your-new-wireless-ac-1fb65c6ada57
