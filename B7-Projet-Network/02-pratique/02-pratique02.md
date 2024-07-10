@@ -57,3 +57,9 @@ Pour accéder à un iPhone connecté à un réseau Wi-Fi, vous devrez d'abord ob
 - L'accès non autorisé à un appareil est illégal. Assurez-vous d'avoir la permission de l'utilisateur de l'appareil avant d'entreprendre toute action.
 - Les iPhones ne sont pas configurés par défaut pour accepter les connexions SSH. Un jailbreak et l'installation d'OpenSSH sont nécessaires pour cette méthode.
 - Utilisez ces techniques de manière responsable et éthique.
+
+
+# Références : 
+- https://www.aircrack-ng.org/doku.php?id=fr:simple_wep_crack
+- https://adam-toscher.medium.com/configure-your-new-wireless-ac-1fb65c6ada57
+- https://www.youtube.com/watch?v=qCPfXK13UD4&ab_channel=UpgradeSecurity
