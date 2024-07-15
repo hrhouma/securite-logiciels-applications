@@ -181,9 +181,7 @@ oauth2Client.getToken(code, (err, token) => {
       "Statement": [
         {
           "Effect": "Allow",
-          "Action
-
-": "s3:*",
+          "Action": "s3:*",
           "Resource": "arn:aws:s3:::example-bucket/*"
         }
       ]
